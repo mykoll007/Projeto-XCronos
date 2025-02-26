@@ -144,7 +144,7 @@ class UserController{
                 },
             }); 
             const mailOptions = {
-                from: 'elojobxcronos@gmail.com', 
+                from: process.env.DB_HOST_EMAIL, 
                 to: email,  
                 subject: 'Recuperação de Senha',  
                 html: `<p>Seu código de recuperação de senha é: <strong>${codigoVerificacao}</strong></p>`,  
@@ -160,7 +160,33 @@ class UserController{
         }
     }
 
-    async redefinirSenha(request, response){
+    async confirmarCodigoRecuperacao(request, response) {
+        const { email, codigo } = request.body;
+    
+        try {
+            // Verifica se o código de verificação é válido para o e-mail fornecido
+            const usuario = await database('usuarios')
+                .where({ email, codigo_verificacao: codigo })
+                .first();
+    
+            if (!usuario) {
+                return response.status(400).json({ message: "Código de verificação inválido." });
+            }
+    
+            
+            await database('usuarios')
+                .where({ email })
+                .update({ codigo_verificacao: null });
+    
+            return response.status(200).json({ message: "Código confirmado com sucesso! Agora você pode redefinir sua senha." });
+            
+        } catch (error) {
+            console.error('Erro ao confirmar código de recuperação:', error);
+            return response.status(500).json({ message: "Erro ao confirmar o código de recuperação." });
+        }
+    }
+    
+    async atualizarSenha(request, response){
         const {id} = request.params
         const {senha} = request.body
  
@@ -176,12 +202,13 @@ class UserController{
     // Trazer info do Usuario
     listarUmUsuario(request, response) {
         const { id } = request.params
- 
+
         database.where({ id_cadastro: id }).select('*').table('usuarios').then(usuario => {
             response.status(200).json({ usuario })
         }).catch(error => {
             response.status(500).json({message: "Erro ao obter os dados do usuário"})
         })
+        
     }
 
     atualizarUsuario(request, response) {
