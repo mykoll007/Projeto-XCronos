@@ -1,21 +1,18 @@
 const database = require('../database/connection')
- 
-const jwt = require('jsonwebtoken')
 const nodemailer = require('nodemailer');
+const moment = require('moment-timezone');
  
-class InscricaoController{
+class InscricaoController {
     inscrever(request, response) {
         const { id_usuario } = request.params;
         const { id_torneio, discord, nick_jogo } = request.body;
     
-        // Verifica se todos os dados necessários foram fornecidos
         if (!id_torneio || !discord || !nick_jogo) {
             return response.status(400).json({ message: 'Todos os campos são obrigatórios.' });
         }
-
+    
         let emailUsuario;
     
-        // Verifica se o usuário existe e obtém o e-mail
         database('usuarios')
             .where({ id_cadastro: id_usuario })
             .first()
@@ -23,18 +20,18 @@ class InscricaoController{
                 if (!usuario) {
                     return Promise.reject({ status: 404, message: 'Usuário não encontrado.' });
                 }
-        
-             emailUsuario = usuario.email;
     
-                // Verifica se o torneio existe e obtém o nome do torneio
+                emailUsuario = usuario.email;
+    
                 return database('torneios')
                     .where({ id_torneio: id_torneio })
                     .first()
                     .then(torneio => {
+
                         if (!torneio) {
                             return Promise.reject({ status: 404, message: 'Torneio não encontrado.' });
                         }
-    
+
                         // Verifica se o usuário já está inscrito no torneio
                         return database('inscricoes')
                             .where({ id_usuario, id_torneio })
@@ -50,40 +47,48 @@ class InscricaoController{
                                     id_torneio,
                                     discord,
                                     nick_jogo
-                                }).then(() => {
-                                    return torneio.nome_torneio; // Retorna o nome do torneio para o próximo then
-                                });
+                                }).then(() => torneio);
                             });
                     });
             })
-            .then((nome_torneio) => {
-                // Configuração do Nodemailer
-                const transporter = nodemailer.createTransport({
-                    host: process.env.DB_HOST_EMAIL,  
-                    port: process.env.DB_PORT_EMAIL,  
-                    secure: false,  
-                    auth: {
-                        user: process.env.DB_EMAILXCRONOS, 
-                        pass: process.env.DB_SENHAXCRONOS,  
-                    },
-                    tls: {
-                    },
+            .then(torneio => {
+
+                const dataInicio = new Date(torneio.data_inicio).toLocaleDateString('pt-BR', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric',
                 });
-    
-                // Configuração do e-mail
+
+                const horaInicio = torneio.hora_inicio.split(':'); // Separando hora e minuto
+                const horaFormatada = new Date(0, 0, 0, horaInicio[0], horaInicio[1]).toLocaleTimeString('pt-BR', {
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    timeZone: 'America/Sao_Paulo',
+                });
+
+                const transporter = nodemailer.createTransport({
+                    host: process.env.DB_HOST_EMAIL,
+                    port: process.env.DB_PORT_EMAIL,
+                    secure: false,
+                    auth: {
+                        user: process.env.DB_EMAILXCRONOS,
+                        pass: process.env.DB_SENHAXCRONOS,
+                    },
+                    tls: {}
+                });
+
                 const mailOptions = {
-                    from: process.env.DB_HOST_EMAIL, 
-                    to: emailUsuario,  // Envia para o e-mail do usuário
-                    subject: 'Confirmação de Inscrição no Torneio',  
+                    from: process.env.DB_HOST_EMAIL,
+                    to: emailUsuario,
+                    subject: 'Confirmação de Inscrição no Torneio',
                     html: `
                         <h1>Confirmação de Inscrição</h1>
                         <p>Olá!</p>
-                        <p>Você se inscreveu com sucesso no torneio: <strong>${nome_torneio}</strong>.</p>
-                        <p>Boa sorte e bom jogo!</p>
+                        <p>Você se inscreveu com sucesso no torneio: <strong>${torneio.nome_torneio}</strong>.</p>
+                        <p>O torneio acontecerá no dia <strong>${dataInicio}</strong> às <strong>${horaFormatada}</strong>.</p>
                     `,
                 };
-    
-                // Envia o e-mail de confirmação
+
                 return transporter.sendMail(mailOptions);
             })
             .then(() => {
@@ -93,10 +98,8 @@ class InscricaoController{
                 if (error.status) {
                     return response.status(error.status).json({ message: error.message });
                 }
-                return response.status(500).json({ message: 'Erro interno do servidor.' });
+                return response.status(500).json({ message: 'Erro interno do servidor.', error: error.message });
             });
     }
-    
 }
- 
 module.exports = new InscricaoController();

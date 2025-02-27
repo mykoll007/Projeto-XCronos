@@ -23,7 +23,7 @@ router.put('/usuario/atualizar/:id',verificarToken, UserController.atualizarUsua
 
 
 //Rotas Inscrição Torneio
-router.post('/inscrever/:id_usuario',verificarToken, InscricaoController.inscrever);
+router.post('/inscrever/:id_usuario', verificarToken, InscricaoController.inscrever);
 
 
 module.exports = router

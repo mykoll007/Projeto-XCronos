@@ -39,8 +39,8 @@ CREATE TABLE `inscricoes` (
     FOREIGN KEY (`id_torneio`) REFERENCES `torneios`(`id_torneio`)
 );
 
-INSERT INTO torneios (nome_torneio, descricao, data_inicio, valor_premio) 
-VALUES ('DESAFIO EM HOWLING ABYSS: 1X1', NULL, '2025-03-22 20:00:00', 100.00);
+INSERT INTO torneios (nome_torneio, valor_premio, data_inicio, hora_inicio) 
+VALUES ('DESAFIO EM HOWLING ABYSS: 1X1', 100.00, '2025-03-22', '20:00:00');
 
-INSERT INTO torneios (nome_torneio, descricao, data_inicio, valor_premio) 
-VALUES ('DESAFIO EM SUMMONER’S RIFT: 1X1', NULL, '2025-03-23 20:00:00', 100.00);
+INSERT INTO torneios (nome_torneio, valor_premio, data_inicio, hora_inicio) 
+VALUES ('DESAFIO EM SUMMONER’S RIFT: 1X1', 100.00, '2025-03-23', '20:00:00');
