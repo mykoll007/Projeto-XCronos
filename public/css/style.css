@@ -1,0 +1,112 @@
+p, button{
+    font-family: inter;
+}
+body{
+background-color: black;
+display: flex;
+justify-content: center;
+margin: 0;
+
+}
+.container{
+    text-align: center;
+    margin-top: 17px;
+    border: 1px solid;
+    width: 477px;
+}
+#logoxcronos-index{
+    margin-top: 140px;
+}
+#align-btn1{
+    display: inline-grid;
+    margin-top: 32px;
+}
+
+button:nth-of-type(1) {
+    background-color: #FF8C00;
+    border: 1px;
+  }
+  button:nth-of-type(2) {
+    background-color: #1E1E1E;
+    border: 1px solid white; 
+  }
+  #align-btn1 button{
+    margin-bottom: 17px;
+    width: 327px;
+    height: 56px;
+    font-weight: bold;
+    color: white;
+    font-size: 14px;
+    border-radius: 4px;
+}
+h1{
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-size: 23px;
+    color: #FF8C00;
+    margin-top: 43px;
+}
+span{
+    display: flex;
+    justify-content: center;
+}
+span p{
+    font-size: 13px;
+    width: 299px;
+    line-height: 24px;
+    color: #B3B0B8;
+}
+
+
+/* ---------------- CADASTRO.HTML */
+#container-cadastro{
+    
+}
+#imagem-yasuo{
+    background-image: url(../assets/yasuoImagem.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+#align-logo{
+    display: grid;
+    justify-content: center;
+}
+#arrow{
+    margin-top: 41px;
+    width: 41px;
+    margin-right: 317px;
+}
+#logoxcronos{
+    margin-top: 103px;
+    margin-bottom: 28px;
+}
+
+.form-group{
+    display: grid;
+    justify-items: start;
+    justify-content: center;
+}
+label{
+    font-family: 'Inter';
+    font-weight: 400;
+    font-size: 13px;
+    color: white;
+    margin-top: 12px;
+}
+input{
+    width: 335px;
+    height: 46px;
+    border: 1px;
+    border-radius: 4px;
+    background-color: #1E1F24;
+    margin-top: 5px;
+}
+#btn-cadastro{
+    margin-top: 16px;
+    margin-bottom: 16px;
+    width: 339px;
+    height: 48px;
+    border-radius: 4px;
+    color: white;
+}
