@@ -7,7 +7,11 @@ const nodemailer = require('nodemailer');
 class UserController{
 
     async cadastrarUsuario(request, response) {
-        const { usuario, email, senha } = request.body;
+        const { usuario, email, senha, confirmarSenha } = request.body;
+
+        if (senha !== confirmarSenha) {
+            return response.status(400).json({ message: "As senhas não coincidem." });
+        }
 
         const senhaSegura = await bcrypt.hash(senha, 10);
         const codigoVerificacao = Math.floor(100000 + Math.random() * 900000);

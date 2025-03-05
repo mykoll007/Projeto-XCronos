@@ -1,6 +1,9 @@
 p, button{
     font-family: inter;
 }
+button{
+    cursor: pointer;
+}
 body{
 background-color: black;
 display: flex;
@@ -97,6 +100,9 @@ label{
 input{
     width: 335px;
     height: 46px;
+    font-size: 20px;
+    padding-left: 8px;
+    color: white;
     border: 1px;
     border-radius: 4px;
     background-color: #1E1F24;

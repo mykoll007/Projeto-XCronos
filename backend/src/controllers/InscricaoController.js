@@ -1,6 +1,6 @@
 const database = require('../database/connection')
 const nodemailer = require('nodemailer');
-const moment = require('moment-timezone');
+
  
 class InscricaoController {
     inscrever(request, response) {
