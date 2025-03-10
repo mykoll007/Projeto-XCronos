@@ -1,0 +1,13 @@
+@media screen and (min-width: 500px) {
+    #container-cadastro{
+        border: 1px solid white;
+    }
+}
+
+
+@media screen and (max-width: 500px) {
+    #body-cadastro{
+        margin-top: -15px;
+    }
+
+}

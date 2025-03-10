@@ -6,6 +6,7 @@ const router = express.Router();
 //Rotas para processos de cadastro, confirmar e logar
 router.post('/usuario/cadastrar', UserController.cadastrarUsuario)
 router.put('/usuario/confirmarconta', UserController.confirmarCodigo)
+router.post('/usuario/reenviarcodigo', UserController.reenviarCodigoVerificacao)
 router.post('/usuario/autenticar', UserController.autenticarUsuario)
 
 //Rotas para recuperar e redefinir senha

@@ -7,7 +7,11 @@ const nodemailer = require('nodemailer');
 class UserController{
 
     async cadastrarUsuario(request, response) {
-        const { usuario, email, senha } = request.body;
+        const { usuario, email, senha, confirmarSenha } = request.body;
+
+        if (senha !== confirmarSenha) {
+            return response.status(400).json({ message: "As senhas não coincidem." });
+        }
 
         const senhaSegura = await bcrypt.hash(senha, 10);
         const codigoVerificacao = Math.floor(100000 + Math.random() * 900000);
@@ -56,36 +60,35 @@ class UserController{
             .catch((error) => {
                 response.status(500).json({ message: "Erro ao verificar usuário existente." });
             });
-    
-    }
+        }
 
-    async confirmarCodigo(request, response) {
-        const { email, codigo } = request.body;
-    
-        database('usuarios')
-            .where({ email, codigo_verificacao: codigo })
-            .first()
-            .then(usuario => {
-                if (!usuario) {
-                    return response.status(400).json({ message: "Código de verificação inválido." });
-                }
-    
-                database('usuarios')
-                    .where({ email })
-                    .update({ verificado: 1, codigo_verificacao: null }) // Limpa o código
-                    .then(() => {
-                        response.status(200).json({ message: "Conta verificada com sucesso!" });
-                    })
-                    .catch(error => {
-                        console.error('Erro ao atualizar verificação:', error);
-                        response.status(500).json({ message: "Erro ao confirmar o código de verificação." });
-                    });
-            })
-            .catch(error => {
-                console.error('Erro ao buscar código de verificação:', error);
-                response.status(500).json({ message: "Erro na execução da busca do código." });
-            });
-    }
+        async confirmarCodigo(request, response) {
+            const { email, codigo } = request.body;
+        
+            database('usuarios')
+                .where({ email, codigo_verificacao: codigo })
+                .first()
+                .then(usuario => {
+                    if (!usuario) {
+                        return response.status(400).json({ message: "Código de verificação inválido." });
+                    }
+        
+                    database('usuarios')
+                        .where({ email })
+                        .update({ verificado: 1, codigo_verificacao: null }) // Limpa o código
+                        .then(() => {
+                            response.status(200).json({ message: "Conta verificada com sucesso!" });
+                        })
+                        .catch(error => {
+                            console.error('Erro ao atualizar verificação:', error);
+                            response.status(500).json({ message: "Erro ao confirmar o código de verificação." });
+                        });
+                })
+                .catch(error => {
+                    console.error('Erro ao buscar código de verificação:', error);
+                    response.status(500).json({ message: "Erro na execução da busca do código." });
+                });
+        }
     
 
    async autenticarUsuario(request, response){
@@ -93,12 +96,12 @@ class UserController{
 
         database.select('*').where({email: email}).table("usuarios").then(async usuario => {
             if(!usuario[0])
-              return  response.status(401).json({message: "Autenticação Falhou !"})
+              return  response.status(401).json({message: "Login ou senha incorreta !"})
 
             const validarSenha = await bcrypt.compare(senha, usuario[0].senha)
 
             if(!validarSenha)
-              return  response.status(401).json({message: "Autenticação falhou !"})
+              return  response.status(401).json({message: "Login ou senha incorreta !"})
 
             if (usuario[0].verificado === 0) {
               return   response.status(403).json({ message: "Conta não verificada. Insira o código enviado por e-mail.",
@@ -114,6 +117,55 @@ class UserController{
         }).catch(error => {
             response.status(500).json({message: "Erro ao tentar autenticar o usuário"})
         })
+    }
+    async reenviarCodigoVerificacao(request, response) {
+        const { email } = request.body;
+    
+        try {
+            const usuario = await database.select('*').from('usuarios').where('email', email).first();
+    
+            if (!usuario) {
+                return response.status(404).json({ message: "Usuário não encontrado." });
+            }
+    
+            if (usuario.verificado === 1) {
+                return response.status(400).json({ message: "Esta conta já foi verificada." });
+            }
+    
+            // Gerar um novo código de verificação
+            const novoCodigoVerificacao = Math.floor(100000 + Math.random() * 900000);
+    
+            // Atualizar código no banco de dados
+            await database('usuarios').where('email', email).update({ codigo_verificacao: novoCodigoVerificacao });
+    
+            // Configurar envio de e-mail
+            const transporter = nodemailer.createTransport({
+                host: process.env.DB_HOST_EMAIL,
+                port: process.env.DB_PORT_EMAIL,
+                secure: false,
+                auth: {
+                    user: process.env.DB_EMAILXCRONOS,
+                    pass: process.env.DB_SENHAXCRONOS,
+                }
+            });
+    
+            const mailOptions = {
+                from: 'elojobxcronos@gmail.com',
+                to: email,
+                subject: 'Reenvio do Código de Verificação - XCrONOS',
+                html: `<p>Olá, ${usuario.usuario}!</p>
+                       <p>Seu novo código de verificação é: <strong>${novoCodigoVerificacao}</strong></p>
+                       <p>Insira este código para confirmar seu cadastro na plataforma.</p>`
+            };
+    
+            await transporter.sendMail(mailOptions);
+    
+            return response.status(200).json({ message: "Novo código de verificação enviado com sucesso!" });
+    
+        } catch (error) {
+            console.error("Erro ao reenviar código de verificação:", error);
+            return response.status(500).json({ message: "Erro ao processar a solicitação." });
+        }
     }
     
     async recuperarSenha(request, response) {
