@@ -1,6 +1,5 @@
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function () { 
     const form = document.querySelector("form");
-    const btnEnviar = document.getElementById("btn-enviar");
 
     form.addEventListener("submit", async function (event) {
         event.preventDefault(); // Evita o recarregamento da página
@@ -24,11 +23,12 @@ document.addEventListener("DOMContentLoaded", function () {
             const resultado = await resposta.json();
 
             if (resposta.ok) {
-                alert(resultado.message); // Exibe a mensagem de sucesso
+                alert(resultado.message); 
                 
-                window.location.href = "recuperacao.html"; // Exemplo de redirecionamento
+                localStorage.setItem("email", email); // Armazenar o e-mail no localStorage
+                window.location.href = "recuperacao.html"; 
             } else {
-                alert(resultado.message); // Exibe a mensagem de erro
+                alert(resultado.message); 
             }
         } catch (error) {
             console.error("Erro na requisição:", error);

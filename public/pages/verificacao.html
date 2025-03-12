@@ -26,12 +26,14 @@
 
         <form id="codigoForm">
             <div class="codigo-container">
-                <input type="number" maxlength="1" class="codigo-input" required>
-                <input type="number" maxlength="1" class="codigo-input" required>
-                <input type="number" maxlength="1" class="codigo-input" required>
-                <input type="number" maxlength="1" class="codigo-input" required>
-                <input type="number" maxlength="1" class="codigo-input" required>
-                <input type="number" maxlength="1" class="codigo-input" required>
+                <input type="number" class="codigo-input" min="0" max="9" required oninput="this.value = this.value.slice(0, 1)">
+                <input type="number" class="codigo-input" min="0" max="9" required oninput="this.value = this.value.slice(0, 1)">
+                <input type="number" class="codigo-input" min="0" max="9" required oninput="this.value = this.value.slice(0, 1)">
+                <input type="number" class="codigo-input" min="0" max="9" required oninput="this.value = this.value.slice(0, 1)">
+                <input type="number" class="codigo-input" min="0" max="9" required oninput="this.value = this.value.slice(0, 1)">
+                <input type="number" class="codigo-input" min="0" max="9" required oninput="this.value = this.value.slice(0, 1)">
+
+
             </div>
             <button class="btn-cadastro" type="submit">Confirmar</button>
         </form>

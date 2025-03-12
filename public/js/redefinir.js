@@ -2,41 +2,44 @@ document.addEventListener("DOMContentLoaded", function () {
     const form = document.getElementById("redefinirForm");
 
     form.addEventListener("submit", async function (event) {
-        event.preventDefault(); // Evita recarregar a página
+        event.preventDefault();
 
-        // Coleta o ID do usuário e a nova senha dos campos de input
-        const id = localStorage.getItem("id_usuario"); // O ID do usuário deve ser armazenado no localStorage ou obtido de outra forma
-        const senha = document.getElementById("novaSenha").value;
-        const confirmarSenha = document.getElementById("confirmarSenha").value;
+        const email = localStorage.getItem("email"); // Recupera o email do localStorage
+        
 
-        // Valida se as senhas são iguais
+        if (!email) {
+            alert("Erro: Email não encontrado. Tente novamente.");
+            return;
+        }
+
+        const senha = document.getElementById("senha").value;
+        const confirmarSenha = document.getElementById("confirmar-senha").value;
+
         if (senha !== confirmarSenha) {
             alert("As senhas não coincidem. Tente novamente.");
             return;
         }
 
-        // Valida se a senha tem o comprimento mínimo (você pode ajustar a validação conforme necessário)
-        if (senha.length < 6) {
-            alert("A senha precisa ter no mínimo 6 caracteres.");
+        if (senha.length < 5) {
+            alert("A senha precisa ter no mínimo 5 caracteres.");
             return;
         }
 
         try {
-            // Faz a requisição para o backend para atualizar a senha
-            const resposta = await fetch(`http://localhost:4000/usuario/atualizarsenha/${id}`, {
+            const resposta = await fetch("http://localhost:4000/usuario/atualizarsenha", {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify({ senha }),
+                body: JSON.stringify({ email, senha }), // Envia o e-mail e a nova senha
             });
 
             const resultado = await resposta.json();
 
             if (resposta.ok) {
                 alert(resultado.message);
-                // Redireciona para a página de login ou onde preferir
-                window.location.href = "login.html";
+                localStorage.removeItem("email"); // Limpa o e-mail do localStorage após redefinir a senha
+                window.location.href = "login.html"; // Redireciona para o login
             } else {
                 alert(resultado.message);
             }

@@ -196,7 +196,7 @@ class UserController{
                 },
             }); 
             const mailOptions = {
-                from: 'elojobxcronos@gmail.com', 
+                from: process.env.DB_HOST_EMAIL, 
                 to: email,  
                 subject: 'Recuperação de Senha',  
                 html: `<p>Seu código de recuperação de senha é: <strong>${codigoVerificacao}</strong></p>`,  
@@ -212,28 +212,72 @@ class UserController{
         }
     }
 
-    async redefinirSenha(request, response){
-        const {id} = request.params
-        const {senha} = request.body
- 
-        const senhaSegura = await bcrypt.hash(senha, 10)
- 
-        database.where({id_cadastro: id}).update({senha: senhaSegura}).table('usuarios').then(usuario =>{
-            response.json({message: "Senha atualizada com sucesso!"})
-        }).catch(error => {
-            response.status(500).json({message: "Erro ao redefinir a senha"})
-        })
-     }
+    async confirmarCodigoRecuperacao(request, response) {
+        const { email, codigo } = request.body;
+    
+        try {
+            // Verifica se o código de verificação é válido para o e-mail fornecido
+            const usuario = await database('usuarios')
+                .where({ email, codigo_verificacao: codigo })
+                .first();
+    
+            if (!usuario) {
+                return response.status(400).json({ message: "Código de verificação inválido." });
+            }
+    
+            // Limpa o código de verificação após confirmação
+            await database('usuarios')
+                .where({ email })
+                .update({ codigo_verificacao: null });
+    
+            
+            return response.status(200).json({ 
+                message: "Conta verificada com sucesso!",
+                email: usuario.email 
+            });
+    
+        } catch (error) {
+            console.error('Erro ao confirmar código de recuperação:', error);
+            return response.status(500).json({ message: "Erro ao confirmar o código de recuperação." });
+        }
+    }
+    
+    async atualizarSenha(request, response) {
+        const { email, senha } = request.body; 
+    
+        try {
+            // Criptografa a nova senha
+            const senhaSegura = await bcrypt.hash(senha, 10);
+    
+            // Atualiza a senha no banco de dados
+            const atualizado = await database('usuarios')
+                .where({ email })  // Usamos o email para identificar o usuário
+                .update({ senha: senhaSegura });
+    
+            // Verifica se alguma linha foi realmente atualizada
+            if (atualizado === 0) {
+                return response.status(400).json({ message: "Usuário não encontrado ou senha não alterada." });
+            }
+    
+            return response.status(200).json({ message: "Senha atualizada com sucesso!" });
+        } catch (error) {
+            console.error("Erro ao redefinir a senha:", error);
+            return response.status(500).json({ message: "Erro ao redefinir a senha." });
+        }
+    }
+    
+    
 
     // Trazer info do Usuario
     listarUmUsuario(request, response) {
         const { id } = request.params
- 
+
         database.where({ id_cadastro: id }).select('*').table('usuarios').then(usuario => {
             response.status(200).json({ usuario })
         }).catch(error => {
             response.status(500).json({message: "Erro ao obter os dados do usuário"})
         })
+        
     }
 
     atualizarUsuario(request, response) {
