@@ -254,6 +254,9 @@ class UserController{
                 .where({ email })  // Usamos o email para identificar o usuário
                 .update({ senha: senhaSegura });
     
+            if (senha.length < 5) {
+               return response.status(400).json({ message: "A senha precisa ter no mínimo 5 caracteres."})
+                }    
             // Verifica se alguma linha foi realmente atualizada
             if (atualizado === 0) {
                 return response.status(400).json({ message: "Usuário não encontrado ou senha não alterada." });

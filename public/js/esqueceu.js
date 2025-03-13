@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () { 
     const form = document.querySelector("form");
+    const mensagemElemento = document.getElementById("mensagem");
 
     form.addEventListener("submit", async function (event) {
         event.preventDefault(); // Evita o recarregamento da página
@@ -23,16 +24,17 @@ document.addEventListener("DOMContentLoaded", function () {
             const resultado = await resposta.json();
 
             if (resposta.ok) {
-                alert(resultado.message); 
+           
                 
                 localStorage.setItem("email", email); // Armazenar o e-mail no localStorage
                 window.location.href = "recuperacao.html"; 
             } else {
-                alert(resultado.message); 
+                mensagemElemento.textContent = resultado.message; 
+                mensagemElemento.style.color = "red";
             }
         } catch (error) {
             console.error("Erro na requisição:", error);
-            alert("Erro ao tentar recuperar a senha. Tente novamente mais tarde.");
+            
         }
     });
 });

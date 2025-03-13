@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
     const inputs = document.querySelectorAll(".codigo-input");
     const form = document.getElementById("codigoForm");
+    const mensagemElemento = document.getElementById("mensagem");
 
     inputs.forEach((input, index) => {
         input.addEventListener("input", (e) => {
@@ -58,13 +59,13 @@ document.addEventListener("DOMContentLoaded", function () {
             const resultado = await resposta.json();
 
             if (resposta.ok) {
-                alert(resultado.message);
+              
 
-                
                 localStorage.setItem("email", email);  // Aqui garantimos que o e-mail seja salvo corretamente
                 window.location.href = "redefinir.html";
             } else {
-                alert(resultado.message);
+                mensagemElemento.textContent = resultado.message;
+                mensagemElemento.style.color = "red";
             }
         } catch (error) {
             console.error("Erro na requisição:", error);

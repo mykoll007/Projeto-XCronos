@@ -148,8 +148,8 @@ input{
     color: white;
 }
 .codigo-container {
-    margin-top: 46px;
-    margin-bottom: 141px;
+    margin-top: 30px;
+    margin-bottom: 156px;
     justify-content: center;
     display: flex;
     gap: 8px;
@@ -171,7 +171,7 @@ input{
     background-size: cover;
 }
 .imagem-trynda p{
-    text-align: start;
+    text-align: center;
     margin-left: 22px;
     opacity: 60%;
     line-height: 24px;

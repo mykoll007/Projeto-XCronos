@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     const form = document.querySelector("form");
+    const mensagemElemento = document.getElementById("mensagem"); // Elemento para exibir mensagens
 
     form.addEventListener("submit", async function (event) {
         event.preventDefault(); // Evita o recarregamento da página
@@ -8,8 +9,6 @@ document.addEventListener("DOMContentLoaded", function () {
         const email = document.getElementById("email").value;
         const senha = document.getElementById("senha").value;
         const confirmarSenha = document.getElementById("confirmar-senha").value;
-
-
 
         const dados = {
             usuario,
@@ -28,18 +27,21 @@ document.addEventListener("DOMContentLoaded", function () {
             });
 
             const resultado = await resposta.json();
+             // Define a mensagem no HTML
 
             if (resposta.ok) {
-                alert(resultado.message);
-                localStorage.setItem("email", email);
                 
+                localStorage.setItem("email", email);
                 window.location.href = "verificacao.html"; 
+               
             } else {
-                alert(resultado.message);
+                mensagemElemento.textContent = resultado.message;
+                mensagemElemento.style.color = "red"; // Mensagem de erro vermelha
             }
         } catch (error) {
             console.error("Erro na requisição:", error);
-            alert("Erro ao se cadastrar. Tente novamente mais tarde.");
+            mensagemElemento.textContent = "Erro ao se cadastrar. Tente novamente mais tarde.";
+            mensagemElemento.style.color = "red";
         }
     });
 });

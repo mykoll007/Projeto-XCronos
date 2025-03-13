@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     const form = document.getElementById("redefinirForm");
+    const mensagemElemento = document.getElementById("mensagem");
 
     form.addEventListener("submit", async function (event) {
         event.preventDefault();
@@ -16,14 +17,10 @@ document.addEventListener("DOMContentLoaded", function () {
         const confirmarSenha = document.getElementById("confirmar-senha").value;
 
         if (senha !== confirmarSenha) {
-            alert("As senhas não coincidem. Tente novamente.");
+            mensagemElemento.textContent = "As senhas não coincidem"
             return;
         }
 
-        if (senha.length < 5) {
-            alert("A senha precisa ter no mínimo 5 caracteres.");
-            return;
-        }
 
         try {
             const resposta = await fetch("http://localhost:4000/usuario/atualizarsenha", {
@@ -37,11 +34,12 @@ document.addEventListener("DOMContentLoaded", function () {
             const resultado = await resposta.json();
 
             if (resposta.ok) {
-                alert(resultado.message);
+                localStorage.setItem("mensagemSucesso", "Senha alterada com sucesso!");
                 localStorage.removeItem("email"); // Limpa o e-mail do localStorage após redefinir a senha
                 window.location.href = "login.html"; // Redireciona para o login
+    
             } else {
-                alert(resultado.message);
+                mensagemElemento.textContent = resultado.message;
             }
         } catch (error) {
             console.error("Erro na requisição:", error);

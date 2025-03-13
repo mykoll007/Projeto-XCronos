@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
     const inputs = document.querySelectorAll(".codigo-input");
     const form = document.getElementById("codigoForm");
+    const mensagemElemento = document.getElementById("mensagem");
 
     inputs.forEach((input, index) => {
         input.addEventListener("input", (e) => {
@@ -52,8 +53,9 @@ document.addEventListener("DOMContentLoaded", function () {
             const resultado = await resposta.json();
 
             if (resposta.ok) {
-                alert("Código verificado com sucesso!");
-                window.location.href = "index.html"; // Redireciona após sucesso
+                localStorage.setItem("mensagemSucesso", "Conta verificada com sucesso !"); 
+                window.location.href = "login.html"; // Redireciona após sucesso
+
             } 
             else if (resultado.precisaVerificar) {
                 // Se precisar reenviar o código de verificação
@@ -65,10 +67,10 @@ document.addEventListener("DOMContentLoaded", function () {
                     body: JSON.stringify({ email }),
                 });
 
-                alert("Seu código de verificação foi reenviado. Verifique seu e-mail.");
+                
             } 
             else {
-                alert(resultado.message || "Código inválido. Tente novamente.");
+                mensagemElemento.textContent = resultado.message;
             }
         } catch (error) {
             console.error("Erro na verificação:", error);
