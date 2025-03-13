@@ -1,0 +1,74 @@
+body{
+    background-color: black;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+h3{
+    font-family: "Urbanist", sans-serif;
+    color: white;
+    font-weight: 500;
+
+}
+p{
+    color: white;
+}
+#align-logoEh3{
+    display: grid;
+    justify-content: center;
+    justify-items: center;
+    margin-bottom: 23px;
+}
+#align-logoEh3 h3{
+    max-width: 700px;
+    padding-left: 11px;
+    font-size: 21px;
+    text-align: center;
+}
+
+#align-campeoes{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 31px;
+}
+#align-campeoes h2{
+    font-family: "DM Sans", sans-serif;
+    color: #FF8C00;
+    font-size: 27px;
+}
+#align-campeoes p{
+    font-family: "Inter", sans-serif;
+    color: #B3B0B8;
+    font-size: 18px;
+}
+
+
+.swiper-slide{
+    max-width: 148px;
+}
+.swiper-wrapper {
+    transition-timing-function: linear !important; 
+    display: flex;
+   
+}
+.card img{
+    border-radius: 8px;
+    width: 148px;
+}
+.desc-nome{
+    font-family: "Inter";
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    max-width: 148px;
+}
+
+.desc-titul{
+    font-family: "Inter";
+    font-weight: 400;
+    opacity: 60%;
+    margin: 0;
+    font-size: 15px;
+    max-width: 148px;
+}
