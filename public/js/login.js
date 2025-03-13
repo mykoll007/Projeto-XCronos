@@ -32,8 +32,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 localStorage.setItem("token", resultado.token);
 
                 // Redireciona para a página principal ou dashboard
-                window.location.href = "index.html";
-            }             else if (resultado.precisaVerificar) {
+                window.location.href = "inicio.html";
+            }   else if (resultado.precisaVerificar) {
                 // Caso precise verificar, salva o e-mail e reenvia código antes de redirecionar
                 localStorage.setItem("email", email);
 
