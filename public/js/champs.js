@@ -16,33 +16,41 @@ const championRoles = {
         
     ],
     jg: [
-        "Amumu", "Elise", "Evelynn", "Fiddlesticks", "Gragas", 
+        "Amumu", "Bel'veth", "Briar", "Diana", "Ekko", 
+        "Elise", "Evelynn", "Fiddlesticks", "Gragas", "Graves", 
         "Hecarim", "Ivern", "Jarvan IV", "Karthus", "Kayn", 
-        "Kennen", "Lee Sin", "Lillia", "Maokai", "Master Yi", 
-        "Morgana", "Nidalee", "Olaf", "Rengar", "Shaco", 
-        "Sejuani", "Skarner", "Taliyah", "Trundle", "Udyr", 
-        "Viego", "Warwick", "Wukong", "Zac", "Zed"
+        "Kha'zix", "Kindred", "Lee Sin", "Lillia", "Master Yi", 
+        "Nidalee", "Nocturne", "Nunu", "Pantheon", "Rammus", 
+        "Rek'Sai", "Rengar", "Sejuani", "Shaco", "Shyvana",    
+        "Skarner", "Talon", "Udyr" , "Vi", "Viego", "Volibear",
+        "Warwick","Wukong", "Xin Zhao" , "Zac", "Zyra"
     ],
     mid: [
-        "Ahri", "Akali", "Anivia", "Aurelion Sol", "Brand", 
-        "Corki", "Diana", "Ekko", "Fizz", "Galio", 
-      "Irelia", "Katarina", "Kassadin", 
-        "Leblanc", "Lissandra", "Lux", "Malzahar", "Orianna", 
-        "Qiyana", "Ryze", "Syndra", "Talon", "Twisted Fate", 
-        "Viktor", "Vladimir", 
-        "Veigar", "Yasuo", "Yone", "Zed", "Zilean", "Zoe"
+        "Ahri", "Akali", "Akshan", "Anivia", "Annie", 
+        "Aurelion Sol","Azir", "Cassiopeia", "Diana", "Ekko", 
+        "Fizz", "Galio", "Hwei","Irelia","Kassadin", "Katarina", 
+        "Leblanc", "Lissandra", "Lux", "Malzahar", "Naafiri", 
+        "Orianna", "Qiyana", "Ryze", "Sylas", "Syndra", 
+        "Taliyah", "Talon","Twisted Fate", 
+        "Veigar", "Vex", "Viktor", "Vladimir", "Xerath",
+        "Yasuo", "Yone", "Zed", "Zoe"
     ],
     adc: [
-        "Aphelios", "Ashe", "Caitlyn", "Draven", "Ezreal", 
-        "Jhin", "Kai'sa", "Kog'Maw", "Miss Fortune", "Samira", 
-        "Senna", "Sivir", "Tristana", "Twitch", "Varus", 
-        "Vayne", "Zeri"
+        "Aphelios", "Ashe", "Caitlyn","Corki", "Draven", "Ezreal", 
+        "Jhin", "Jinx", "Kai'sa", "Kalista",
+        "Kog'Maw","Lucian", "Miss Fortune","Nilah",
+        "Samira", "Sivir", "Smolder", "Tristana",
+        "Twitch", "Varus", "Vayne","Xayah", "Zeri" , 
+        "Ziggs"
     ],
     sup: [
-        "Alistar", "Bard", "Blitzcrank", "Brand", "Leona", 
-        "Lulu", "Lux", "Morgana", "Nautilus", "Nami", 
-        "Pyke", "Rakan", "Seraphine", "Senna", "Sona", 
-        "Soraka", "Swain", "Thresh", "Yuumi", "Zilean", "Zyra"
+        "Alistar", "Bard", "Blitzcrank", "Brand", "Braum", 
+        "Janna", "Karma", "Leona", "Lulu", "Lux", 
+        "Maokai", "Milio", "Morgana", "Nami", "Nautilus", 
+        "Neeko", "Pantheon", "Poppy", "Pyke", "Rakan", "Rell",
+        "Renata", "Senna", "Seraphine", "Sona", "Soraka", "Swain",
+        "Tahm Kench", "Taric", "Thresh", "Vel'koz", "Xerath", "Yuumi",
+        "Zilean", "Zyra"
     ]
 };
 
@@ -117,9 +125,14 @@ async function getChampionsByRole(role) {
         getChampions();
         toggleOrangeBorderToRole(role);
         currentRole = null; // Reseta a role atual
+        document.getElementById("role-selected").textContent = "";
     } else {
         toggleOrangeBorderToRole(role); // Aplica a borda laranja na imagem da role clicada
         currentRole = role; // Atualiza a role atual
+        
+        // Atualiza o texto da role selecionada
+        const roleName = getRoleName(role);
+        document.getElementById("role-selected").textContent = ` ${roleName}`;
     }
 
     const champions = championRoles[role];
@@ -171,7 +184,22 @@ async function getChampionsByRole(role) {
         }
     }
 }
-
+function getRoleName(role) {
+    switch(role) {
+        case "top":
+            return "Top-laners";
+        case "jg":
+            return "Caçadores";
+        case "mid":
+            return "Mid-laners";
+        case "adc":
+            return "Atiradores";
+        case "sup":
+            return "Suportes";           
+        default:
+            return "";
+    }
+}
 
 // Função para normalizar o nome dos campeões para a URL
 function normalizeChampionName(champion) {
