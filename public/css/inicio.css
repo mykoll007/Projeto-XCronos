@@ -41,10 +41,12 @@ p{
 }
 #align-campeoes p{
     font-family: "Inter", sans-serif;
-    color: #B3B0B8;
     font-size: 18px;
 }
-
+#align-campeoes a{
+    text-decoration: none;
+    color: #B3B0B8;
+}
 
 .swiper-slide{
     max-width: 148px;
@@ -74,4 +76,82 @@ p{
     margin: 0;
     font-size: 15px;
     max-width: 148px;
+}
+
+
+
+/* ---------------------CHAMPS.HTML */
+#align-logoChamps{
+    display: flex;
+    justify-content: center;
+}
+#align-arrow{
+    position: fixed;
+    top: 10%;
+    left: 20px;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: solid white;
+    z-index: 1000;
+}
+#align-arrow img{
+    height: auto;
+}
+#align-arrow a{
+    height: 32px;
+}
+#h2-champs{
+    color: #FF8C00;
+    font-family: 'DM SANS';
+    text-align: center;
+}
+
+#roles{
+    text-align: center;
+    margin-bottom: 29px;
+}
+
+#roles img{
+    padding: 0 6px;
+}
+
+.grid-view {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); 
+    gap: 10px;
+    justify-items: center;
+}
+
+.champions-img{
+    width: 180px;
+}
+#back-to-top {
+    position: fixed;
+    bottom: 20px; /* Distância do fundo */
+    right: 20px; /* Distância da direita */
+    background: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: solid white;
+    z-index: 1000;
+    opacity: 0; /* Começa invisível */
+    transition: opacity 0.3s ease-in-out;
+}
+
+#back-to-top img {
+    height: auto;
+    transform: rotate(-270deg);
+}
+#back-to-top.show {
+    opacity: 1;
 }
