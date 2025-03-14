@@ -20,6 +20,9 @@ class UserController{
                 if (existeUsuario.length > 0) {
                     return response.status(400).json({ message: "Usuário ou e-mail já cadastrado." });
                 }
+                if (senha.length < 5) {
+                    return response.status(400).json({ message: "A senha precisa ter no mínimo 5 caracteres."})
+                     }    
     
                 database.insert({ usuario, email, senha: senhaSegura, codigo_verificacao: codigoVerificacao }).table("usuarios").then(() => {
 

@@ -12,6 +12,9 @@ h3{
 p{
     color: white;
 }
+.container-app{
+    overflow-x: hidden;
+}
 #align-logoEh3{
     display: grid;
     justify-content: center;
