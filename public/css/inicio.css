@@ -110,13 +110,15 @@ p{
     color: #FF8C00;
     font-family: 'DM SANS';
     text-align: center;
+    font-size: 26px;
 }
 .posicoes{
     text-align: center;
+    font-size: 21px;
 }
 #roles{
     text-align: center;
-    margin-bottom: 29px;
+    margin-bottom: 15px;
 }
 
 #roles img{
@@ -156,4 +158,47 @@ p{
 }
 #back-to-top.show {
     opacity: 1;
+}
+
+/* -----------------CHAMP.HTML */
+#campeao-selecionado{
+    color: white;
+    font-size: 44px;
+    margin-left: 16px;
+    margin-bottom: 0;
+    font-family: "DM Sans", sans-serif;
+}
+#campeao-titulo{
+    font-family: inter;
+    margin-left: 16px;
+    margin-top: 5px;
+    font-size: 21px;
+    color: #B3B0B8;
+}
+#campeao-resumo{
+    font-family: inter;
+    margin-left: 16px;
+    font-size: 18px;
+}
+#funcao-dificuldade{
+    display: flex;
+}
+#align-funcao{
+    display: flex;
+}
+#img-funcao{
+    width: 85px;
+    height: 85px;
+    margin-right: 21px;
+}
+#title-funcao{
+    font-family: inter;
+    color: #B3B0B8;
+    margin-bottom: 5px;
+}
+#funcao{
+    font-family: "DM Sans", sans-serif;
+    font-size: 28px;
+    font-weight: bold;
+    margin-top: 0;
 }
