@@ -161,6 +161,11 @@ p{
 }
 
 /* -----------------CHAMP.HTML */
+#img-campeao{
+    width: 100%; /* Faz a imagem ocupar 100% da largura disponível */
+    height: auto; /* Mantém a proporção da imagem */
+    object-fit: cover; 
+}
 #campeao-selecionado{
     color: white;
     font-size: 44px;
@@ -220,4 +225,44 @@ p{
 }
 #nivel{
     display: flex;
+}
+
+#title-habilidades{
+    font-family: "DM Sans", sans-serif;
+    color: white;
+    text-align: center;
+    font-size: 30px;
+    margin-top: 45px;
+}
+
+#skills{
+    display: flex;
+    justify-content: center;
+}
+
+#skills img{
+    border-radius: 8px;
+    margin-right: 2%;
+    opacity: 40%;
+    transition: opacity 0.3s ease;
+}
+#habilidade-p{
+    opacity: 100% ;
+}
+
+#title-habilidade{
+    font-family: "DM Sans";
+    font-weight: bold;
+    text-align: center;
+    margin-top: 42px;
+    font-size: 22px;
+}
+
+#atalho-tecla{
+    font-family: Inter;
+    text-align: center;
+}
+#desc-habilidade{
+    font-family: Inter;
+    text-align: center;
 }

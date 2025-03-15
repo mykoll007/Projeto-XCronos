@@ -70,6 +70,7 @@ async function getChampions() {
             // Criar o card para o campeão
             const card = document.createElement("div");
             card.classList.add("cards-champ");
+            card.dataset.champion = id; // Armazena o ID do campeão
 
             const img = document.createElement("img");
             img.classList.add("champions-img");
@@ -87,6 +88,12 @@ async function getChampions() {
             card.appendChild(img);
             card.appendChild(nameElement);
             card.appendChild(titleElement);
+
+            // Adiciona evento de clique para armazenar o campeão selecionado e redirecionar
+            card.addEventListener("click", () => {
+                localStorage.setItem("selectedChampion", id);
+                window.location.href = "champ.html"; // Redireciona para a página do campeão
+            });            
 
             container.appendChild(card);
         }
@@ -155,6 +162,7 @@ async function getChampionsByRole(role) {
                     // Criar o card para o campeão
                     const card = document.createElement("div");
                     card.classList.add("cards-champ");
+                    card.dataset.champion = id;
 
                     const img = document.createElement("img");
                     img.classList.add("champions-img");
@@ -173,6 +181,12 @@ async function getChampionsByRole(role) {
                     card.appendChild(nameElement);
                     card.appendChild(titleElement);
 
+                    // Adiciona evento de clique para armazenar o campeão selecionado e redirecionar
+                    card.addEventListener("click", () => {
+                        localStorage.setItem("selectedChampion", id);
+                        window.location.href = "champ.html"; // Redireciona para a página do campeão
+                    });
+                    
                     container.appendChild(card);
                 }
             });
@@ -184,6 +198,8 @@ async function getChampionsByRole(role) {
         }
     }
 }
+
+
 function getRoleName(role) {
     switch(role) {
         case "top":
