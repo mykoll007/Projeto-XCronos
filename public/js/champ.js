@@ -94,6 +94,79 @@ document.getElementById("dificuldade-p2").textContent = dificuldade[nivelDificul
                 
             });
         });
+
+
+
+// Função para atualizar o vídeo da habilidade
+// Função para atualizar o vídeo da habilidade
+function atualizarVideoHabilidade(championKey, tecla) {
+    const videoElement = document.querySelector("#video-habilidade video");
+    const habilidadesCodigos = { "P": "P1", "Q": "Q1", "W": "W1", "E": "E1", "R": "R1" };
+
+    // Verifique se a tecla existe no objeto habilidadesCodigos
+    if (!habilidadesCodigos[tecla]) {
+        console.error("Código de habilidade não encontrado para a tecla:", tecla);
+        return;
+    }
+
+    const habilidadeCodigo = habilidadesCodigos[tecla]; // Obtém o código da habilidade (P1, Q1, etc.)
+
+    // Formata a chave do campeão para garantir que seja a versão correta
+    const championKeyFormatado = championKey.toLowerCase(); // Ex: "ashe" ou "ezreal", sem formatação numérica
+    const novoSrc = `https://d28xe8vt774jo5.cloudfront.net/champion-abilities/${championKeyFormatado}/ability_${championKeyFormatado}_${habilidadeCodigo}.mp4`;
+
+    console.log("Nova URL do vídeo:", novoSrc); // Verifique se a URL está correta no console
+
+    // Se o vídeo não foi carregado ainda, exibe o primeiro vídeo
+    if (!videoElement.src) {
+        videoElement.src = novoSrc; // Define o primeiro vídeo
+        videoElement.play(); // Inicia a reprodução
+    } else {
+        // Caso o vídeo já esteja carregado, troca suavemente
+
+        // Criar um novo vídeo temporário para carregar o próximo vídeo
+        const novoVideo = document.createElement("video");
+        novoVideo.autoplay = true;
+        novoVideo.loop = true;
+        novoVideo.muted = true;
+
+        const novoSource = document.createElement("source");
+        novoSource.src = novoSrc;
+        novoSource.type = "video/mp4";
+        novoVideo.appendChild(novoSource);
+
+        // Quando o novo vídeo estiver carregado, troca suavemente
+        novoVideo.addEventListener("loadeddata", () => {
+            videoElement.src = novoSrc; // Atualiza o src do vídeo existente
+            videoElement.play(); // Garante que o novo vídeo comece a rodar
+        });
+
+        // Caso ocorra um erro no carregamento, evita que o vídeo fique preto
+        novoVideo.addEventListener("error", () => {
+            console.error("Erro ao carregar o vídeo:", novoSrc);
+        });
+
+        novoVideo.load(); // Inicia o carregamento do novo vídeo
+    }
+}
+
+// Adiciona eventos de clique para atualizar o vídeo ao clicar nas habilidades
+document.getElementById("habilidade-p").addEventListener("click", () => atualizarVideoHabilidade("ashe", "P"));
+document.getElementById("habilidade-q").addEventListener("click", () => atualizarVideoHabilidade("ashe", "Q"));
+document.getElementById("habilidade-w").addEventListener("click", () => atualizarVideoHabilidade("ashe", "W"));
+document.getElementById("habilidade-e").addEventListener("click", () => atualizarVideoHabilidade("ashe", "E"));
+document.getElementById("habilidade-r").addEventListener("click", () => atualizarVideoHabilidade("ashe", "R"));
+
+// Define o vídeo inicial como a habilidade passiva
+atualizarVideoHabilidade("ashe", "P");
+
+
+
+
+
+
+
+
         
     } catch (error) {
         console.error("Erro ao buscar informações do campeão:", error);

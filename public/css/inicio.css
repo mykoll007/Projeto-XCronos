@@ -246,6 +246,16 @@ p{
     opacity: 40%;
     transition: opacity 0.3s ease;
 }
+
+#video-habilidade{
+    text-align: center;
+    margin-top: 26px;
+}
+video{
+    width: 90%;
+    max-height: 100%;
+    border: 3px solid #FF8C00;
+}
 #habilidade-p{
     opacity: 100% ;
 }
