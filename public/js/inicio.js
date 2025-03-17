@@ -1,3 +1,4 @@
+//Section 1
 async function getChampions() {
     try {
         const response = await fetch("https://ddragon.leagueoflegends.com/cdn/14.4.1/data/pt_BR/champion.json");
@@ -96,8 +97,49 @@ $(document).ready(function(){
         ]
     });
 });
-
-
-
-// Chamar a função quando a página carregar
+// Chamar a função para atualizar os campeões da API quando a página carregar
 document.addEventListener("DOMContentLoaded", getChampions);
+
+//Section 2
+
+// Função para trocar a imagem e a descrição ao clicar na classe (Classes de Campeões)
+const classData = {
+    "funcao-suporte.png": { img: "suporte-classe.png", name: "Lulu", desc: "Suporte: Campeões que auxiliam seus aliados com habilidades de cura, escudos, controle de grupo ou aumento de poder, focados em ajudar a equipe a vencer.", width: "215px" },
+    "funcao-mago.png": { img: "mago-classe.png", name: "Veigar", desc: "Mago: Campeões com habilidades de longo alcance, especializados em causar dano mágico em área ou em alvos individuais, muitas vezes com controle de grupo.", width: "300px" },
+    "funcao-lutador.png": { img: "lutador-classe.png", name: "Yasuo", desc: "Lutadores em League of Legends são campeões equilibrados, com boa resistência e capacidade de causar dano, sendo eficazes em combates prolongados e duelos um-a-um.", width: "300px" },
+    "funcao-atirador.png": { img: "atirador-classe.png", name: "Jinx", desc: "Atirador: Campeões focados em dano a distância, geralmente fragilizados, mas com alto potencial de dano em lutas prolongadas.", width: "300px" },
+    "funcao-assassino.png": { img: "assassino-classe.png", name: "Akali", desc: "Assassino: Campeões ágeis e letais, focados em eliminar rapidamente alvos frágeis, geralmente causando grande dano de burst.", width: "300px" },
+    "funcao-tanque.png": { img: "tanque-classe.png", name: "Leona", desc: "Tanque: Campeões com alta resistência e capacidade de absorver muito dano, sendo essenciais para proteger aliados e iniciar lutas.", width: "300px" }
+};
+
+const imgs = document.querySelectorAll(".classes-champ img");
+const circleClasseImg = document.querySelector("#circle-classe img");
+const nomePerson = document.querySelector("#nome-person");
+const descClasse = document.querySelector("#desc-classe");
+
+// Função para atualizar a classe selecionada
+function updateClass(img) {
+    const imgSrc = img.getAttribute("src").split("/").pop();
+    if (classData[imgSrc]) {
+        circleClasseImg.src = `../assets/${classData[imgSrc].img}`;
+        circleClasseImg.style.width = classData[imgSrc].width;
+        
+        nomePerson.textContent = classData[imgSrc].name;
+        descClasse.textContent = classData[imgSrc].desc;
+
+        imgs.forEach(el => el.style.opacity = "50%");
+        img.style.opacity = "100%";
+    }
+}
+
+// Define a classe Lutador como padrão ao carregar a página
+window.addEventListener("DOMContentLoaded", () => {
+    const defaultImg = document.querySelector('.classes-champ img[src*="funcao-lutador.png"]');
+    if (defaultImg) updateClass(defaultImg);
+});
+
+// Adiciona evento de clique
+imgs.forEach(img => img.addEventListener("click", () => updateClass(img)));
+
+
+

@@ -118,7 +118,6 @@ p{
     left: 50%; 
     transform: translateX(-50%); 
     z-index: 2;
-
 }
 #nome-person{
     font-family: 'inter';
