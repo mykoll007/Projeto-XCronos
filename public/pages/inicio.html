@@ -7,10 +7,13 @@
     <link href="../css/inicio.css" rel="stylesheet">
     <!-- Swiper.js CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <!-- Slicker Caroussel -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
 </head>
 <body>
@@ -53,36 +56,96 @@
             <img src="../assets/funcao-assassino.png" alt="Função assassino">
             <img src="../assets/funcao-tanque.png" alt="Função tanque">
            </div>
+
+           <div id="align-circleClasse">
+             <div id="circle-classe">
+            <img src="../assets/lutador-classe.png" alt="Classe do Lutador">
+             </div>
+           </div>
+           <p id="nome-person">Yasuo</p>
+           <span id="span-class">
+           <p id="desc-classe">Lutadores em League of Legends são campeões equilibrados, com boa resistência e capacidade de causar dano, sendo eficazes em combates prolongados e duelos um-a-um.</p>
+           </span>
         </section>
 
         <section id="section-3">
             <h2>Runeterra</h2>
-            <div class="cards-rune">
+            <div class="carousel-rune">
                 <!-- Card 1 -->
                 <div class="card-rune">
                     <div class="retangulo-rune">
-                        <img src="" alt="">
+                        <img src="../assets/demacia.png" alt="País Demacia">
                     </div>
                     <p>Demacia</p>
                 </div>
-
+            
                 <!-- Card 2 -->
                 <div class="card-rune">
                     <div class="retangulo-rune">
-                        <img src="" alt="">
+                        <img src="../assets/noxus.png" alt="País Noxus">
                     </div>
                     <p>Noxus</p>
                 </div>
-
+            
                 <!-- Card 3 -->
                 <div class="card-rune">
                     <div class="retangulo-rune">
-                        <img src="" alt="">
+                        <img src="../assets/shurima.png" alt="País Shurima">
                     </div>
                     <p>Shurima</p>
-                </div>                
+                </div>
+            
+                <!-- Card 4 -->
+                <div class="card-rune">
+                    <div class="retangulo-rune">
+                        <img src="../assets/ilhadassombras.png" alt="País Ilha das Sombras">
+                    </div>
+                    <p>Ilha das Sombras</p>
+                </div>
+            
+                <!-- Card 5 -->
+                <div class="card-rune">
+                    <div class="retangulo-rune">
+                        <img src="../assets/aguassentina.png" alt="País Águas de Sentina">
+                    </div>
+                    <p>Águas de Sentina</p>
+                </div>
+            
+                <!-- Card 6 -->
+                <div class="card-rune">
+                    <div class="retangulo-rune">
+                        <img src="../assets/targon.png" alt="País Targon">
+                    </div>
+                    <p>Targon</p>
+                </div>
+            
+                <!-- Card 7 -->
+                <div class="card-rune">
+                    <div class="retangulo-rune">
+                        <img src="../assets/ionia.png" alt="País Ionia">
+                    </div>
+                    <p>Ionia</p>
+                </div>
+            
+                <!-- Card 8 -->
+                <div class="card-rune">
+                    <div class="retangulo-rune">
+                        <img src="../assets/freljord.png" alt="País Freljord">
+                    </div>
+                    <p>Freljord</p>
+                </div>
+            
+                <!-- Card 9 -->
+                <div class="card-rune">
+                    <div class="retangulo-rune">
+                        <img src="../assets/piltoverzaun.png" alt="País Piltover e Zaun">
+                    </div>
+                    <p>Piltover e Zaun</p>
+                </div>
             </div>
+            
         </section>
+        
 
         <section id="section-4">
             <h2>Sistema de ranqueamento</h2>
@@ -210,6 +273,10 @@
 
     <!-- Swiper.js JS -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
 <script src="../js/inicio.js"></script>
 </body>
 </html>

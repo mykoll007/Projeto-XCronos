@@ -79,6 +79,111 @@ p{
 }
 
 
+#section-2 h2{
+    font-family: "DM Sans", sans-serif;
+    color: #FF8C00;
+    font-size: 29px;
+    text-align: center;
+    margin-top: 44px;
+    margin-bottom: 47px;
+}
+.classes-champ{
+    display: flex;
+    justify-content: space-evenly;
+}
+.classes-champ img{
+    opacity: 50%;
+}
+
+#align-circleClasse{
+    display: flex;
+    justify-content: center;
+    margin-top: 38px;
+    position: relative;
+}
+#circle-classe{
+    border: 3px solid rgba(255, 140, 0, 0.8);;
+    border-radius: 170px;
+    width: 250px;
+    height: 250px; 
+    position: relative;
+    z-index: 1;
+
+}
+#circle-classe img {
+    width: 300px;  
+    height: auto; 
+    position: absolute;
+    top: -25px; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    z-index: 2;
+
+}
+#nome-person{
+    font-family: 'inter';
+    font-style: italic;
+    text-align: center;
+    font-size: 32px;
+}
+#span-class{
+    display: flex;
+    justify-content: center;
+}
+
+#desc-classe{
+    font-family: 'Urbanist';
+    text-align: center;
+    max-width: 700px;
+    font-size: 21px;
+    margin-top: 0;
+}
+#section-3 h2{
+    font-family: "DM Sans", sans-serif;
+    color: #FF8C00;
+    font-size: 33px;
+    text-align: center;
+    margin-top: 44px;
+    margin-bottom: 47px;
+}
+.carousel-rune{
+    display: flex;
+    justify-content: space-around;
+}
+.slick-slide {
+    margin: 0 5px; /* Ajuste para um espaço menor entre os slides */
+}
+
+@media screen and (min-width:1600px){
+    .slick-track{
+        display: flex !important;
+    justify-content: center !important; 
+    }
+}
+
+
+.carousel-rune .slick-slide {
+    width: 150px !important; /* Largura fixa de cada slide */
+    margin: 0 10px; /* Espaçamento lateral entre os slides */
+}
+.card-rune{
+   width: 150px;
+}
+.retangulo-rune{
+    background-color: #2B2C33;
+    border-radius: 8px;
+    width: 150px;
+}
+.card-rune p{
+    font-family: inter;
+    margin-top: 11px;
+    font-size: 19px;
+    max-width: 150px;
+    text-align: center;
+}
+
+
+
 
 /* ---------------------CHAMPS.HTML */
 #align-logoChamps{
@@ -160,18 +265,8 @@ p{
 #back-to-top.show {
     opacity: 1;
 }
-#section-2 h2{
-    font-family: "DM Sans", sans-serif;
-    color: #FF8C00;
-    font-size: 27px;
-    text-align: center;
-    margin-top: 44px;
-    margin-bottom: 47px;
-}
-.classes-champ{
-    display: flex;
-    justify-content: space-evenly;
-}
+
+
 
 /* -----------------CHAMP.HTML */
 #img-campeao{

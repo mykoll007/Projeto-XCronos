@@ -63,5 +63,41 @@ async function getChampions() {
     }
 }
 
+$(document).ready(function(){
+    $('.carousel-rune').slick({
+        infinite: false, // Faz o loop infinito
+        slidesToShow: 5, // Exibe 5 slides por vez
+        slidesToScroll: 2, // Move 2 slides por vez  // Tempo de 2 segundos entre os slides
+        speed: 500,
+        centerMode: false, // Remove o espaço extra nas laterais
+        variableWidth: false, // Mantém largura fixa dos slides
+        responsive: [
+            {
+                breakpoint: 1561, // Para telas menores que 1024px
+                settings: {
+                    slidesToShow: 4,
+                    slidesToScroll: 2
+                }
+            },
+            {
+                breakpoint: 768, // Para telas menores que 768px
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 1
+                }
+            },
+            {
+                breakpoint: 480, // Para telas menores que 480px
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1
+                }
+            }
+        ]
+    });
+});
+
+
+
 // Chamar a função quando a página carregar
 document.addEventListener("DOMContentLoaded", getChampions);
