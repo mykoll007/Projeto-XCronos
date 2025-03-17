@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio</title>
     <link href="../css/inicio.css" rel="stylesheet">
+    <link href="../css/responsive.css" rel="stylesheet">
     
     <!-- Swiper.js CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
@@ -73,7 +74,7 @@
             <h2>Runeterra</h2>
             <div class="carousel-rune">
                 <!-- Card 1 -->
-                <div class="card-rune">
+                <div class="card-rune" data-region="demacia">
                     <div class="retangulo-rune">
                         <img src="../assets/demacia.png" alt="País Demacia">
                     </div>
@@ -81,7 +82,7 @@
                 </div>
             
                 <!-- Card 2 -->
-                <div class="card-rune">
+                <div class="card-rune" data-region="noxus">
                     <div class="retangulo-rune">
                         <img src="../assets/noxus.png" alt="País Noxus">
                     </div>
@@ -89,7 +90,7 @@
                 </div>
             
                 <!-- Card 3 -->
-                <div class="card-rune">
+                <div class="card-rune" data-region="shurima">
                     <div class="retangulo-rune">
                         <img src="../assets/shurima.png" alt="País Shurima">
                     </div>
@@ -97,7 +98,7 @@
                 </div>
             
                 <!-- Card 4 -->
-                <div class="card-rune">
+                <div class="card-rune" data-region="ilhadassombras">
                     <div class="retangulo-rune">
                         <img src="../assets/ilhadassombras.png" alt="País Ilha das Sombras">
                     </div>
@@ -105,7 +106,7 @@
                 </div>
             
                 <!-- Card 5 -->
-                <div class="card-rune">
+                <div class="card-rune" data-region="aguassentina">
                     <div class="retangulo-rune">
                         <img src="../assets/aguassentina.png" alt="País Águas de Sentina">
                     </div>
@@ -113,7 +114,7 @@
                 </div>
             
                 <!-- Card 6 -->
-                <div class="card-rune">
+                <div class="card-rune " data-region="targon">
                     <div class="retangulo-rune">
                         <img src="../assets/targon.png" alt="País Targon">
                     </div>
@@ -121,7 +122,7 @@
                 </div>
             
                 <!-- Card 7 -->
-                <div class="card-rune">
+                <div class="card-rune" data-region="ionia">
                     <div class="retangulo-rune">
                         <img src="../assets/ionia.png" alt="País Ionia">
                     </div>
@@ -129,7 +130,7 @@
                 </div>
             
                 <!-- Card 8 -->
-                <div class="card-rune">
+                <div class="card-rune" data-region="freljord">
                     <div class="retangulo-rune">
                         <img src="../assets/freljord.png" alt="País Freljord">
                     </div>
@@ -137,7 +138,7 @@
                 </div>
             
                 <!-- Card 9 -->
-                <div class="card-rune">
+                <div class="card-rune" data-region="piltoverzaun">
                     <div class="retangulo-rune">
                         <img src="../assets/piltoverzaun.png" alt="País Piltover e Zaun">
                     </div>
@@ -147,6 +148,21 @@
             
         </section>
         
+        <!-- Modal Runeterra -->
+         <div id="open-modalrune">
+            <div id="modal-runeterra">
+                <div id="block-arrow">
+                    <img src="../assets/arrow-right.png" alt=""> 
+                </div>
+                <img src="../assets/noxus.png" id="logo-runeterra" alt="Noxus">
+                <h3>NOXUS</h3>
+                <p id="desc-rune">Império expansionista e brutal</p>
+                <div id="align-imgsRune">
+                    <img src=" " alt="Aqui vai os personagens da Runeterra selecionada puxando da API">
+                </div>
+                <p id="text-rune">Noxus é um império expansionista brutal; entretanto, aqueles que conseguem enxergar além de seu exterior bélico encontram uma sociedade excepcionalmente inclusiva. Qualquer um pode conquistar uma posição de poder e respeito se demonstrar a aptidão necessária, independentemente de classe social, antecedentes ou riquezas. Os noxianos valorizam a força acima de tudo, apesar dela poder ser manifestada de várias formas diferentes.</p>
+            </div>
+         </div>
 
         <section id="section-4">
             <h2>Sistema de ranqueamento</h2>

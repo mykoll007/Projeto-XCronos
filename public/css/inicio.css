@@ -153,13 +153,6 @@ p{
     margin: 0 5px; /* Ajuste para um espaço menor entre os slides */
 }
 
-@media screen and (min-width:1600px){
-    .slick-track{
-        display: flex !important;
-    justify-content: center !important; 
-    }
-}
-
 
 .carousel-rune .slick-slide {
     width: 150px !important; /* Largura fixa de cada slide */
@@ -180,8 +173,56 @@ p{
     max-width: 150px;
     text-align: center;
 }
+#open-modalrune{
+    display: none; /* Inicialmente escondido */
+    position: fixed; /* Fica fixo na tela */
+    top: 0; /* Alinha no topo da tela */
+    left: 0; /* Alinha à esquerda da tela */
+    width: 100%; /* Ocupa toda a largura da tela */
+    height: 100%; /* Ocupa toda a altura da tela */
+    background-color: rgba(0, 0, 0, 0.5); /* Fundo semitransparente */
+    justify-content: center; /* Alinha o conteúdo do modal no centro */
+    align-items: center; /* Alinha verticalmente o conteúdo no centro */
+    z-index: 9999; /* Certifica-se de que o modal fique acima de outros conteúdos */
+}
+#modal-runeterra{
+    width: 90%;
+    text-align: center;
+    background: url(../assets/fundo-noxus.png) no-repeat center;
+    background-size: cover;
+    background-color: rgba(0, 0, 0, 1);
+}
+#block-arrow{
+    width: 48px;
+    height: 48px;
+    background-color: black;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 6%;
+    margin-top: 15px;
+}
+#modal-runeterra h3{
+    font-size: 23px;
+    margin-bottom: 0;
+    margin-top: 3px;
+}
+#desc-rune{
+    font-family: 'DM Sans';
+    font-size: 18px;
+    margin-top: 5px;
+}
+#align-imgsRune img{
+    width: 50px;
+    margin-right: 7px;
+}
 
-
+#text-rune{
+    font-family: 'DM Sans';
+    padding: 0 4%;
+    line-height: 26px;
+}
 
 
 /* ---------------------CHAMPS.HTML */

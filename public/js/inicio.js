@@ -64,39 +64,6 @@ async function getChampions() {
     }
 }
 
-$(document).ready(function(){
-    $('.carousel-rune').slick({
-        infinite: false, // Faz o loop infinito
-        slidesToShow: 5, // Exibe 5 slides por vez
-        slidesToScroll: 2, // Move 2 slides por vez  // Tempo de 2 segundos entre os slides
-        speed: 500,
-        centerMode: false, // Remove o espaço extra nas laterais
-        variableWidth: false, // Mantém largura fixa dos slides
-        responsive: [
-            {
-                breakpoint: 1561, // Para telas menores que 1024px
-                settings: {
-                    slidesToShow: 4,
-                    slidesToScroll: 2
-                }
-            },
-            {
-                breakpoint: 768, // Para telas menores que 768px
-                settings: {
-                    slidesToShow: 3,
-                    slidesToScroll: 1
-                }
-            },
-            {
-                breakpoint: 480, // Para telas menores que 480px
-                settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 1
-                }
-            }
-        ]
-    });
-});
 // Chamar a função para atualizar os campeões da API quando a página carregar
 document.addEventListener("DOMContentLoaded", getChampions);
 
@@ -140,6 +107,308 @@ window.addEventListener("DOMContentLoaded", () => {
 
 // Adiciona evento de clique
 imgs.forEach(img => img.addEventListener("click", () => updateClass(img)));
+
+
+//Section 3
+
+const regioes = {
+    noxus: {
+        img: "../assets/noxus.png",
+        fundo: "../assets/fundo-noxus.png",
+        titulo: "Noxus",
+        descricao: "Império expansionista e brutal",
+        texto: "Noxus é um império expansionista brutal; entretanto, aqueles que conseguem enxergar além de seu exterior bélico encontram uma sociedade excepcionalmente inclusiva. Qualquer um pode conquistar uma posição de poder e respeito se demonstrar a aptidão necessária, independentemente de classe social, antecedentes ou riquezas. Os noxianos valorizam a força acima de tudo, apesar dela poder ser manifestada de várias formas diferentes.",
+        personagens: [
+            { nome: "Darius", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Darius.png" },
+            { nome: "Swain", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Swain.png" },
+            { nome: "Katarina", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Katarina.png" },
+            { nome: "Draven", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Draven.png" },
+            { nome: "Riven", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Riven.png" },
+            { nome: "Briar", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Briar.png" },
+            { nome: "Cassiopeia", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Cassiopeia.png" },
+            { nome: "Kled", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Kled.png" },
+            { nome: "LeBlanc", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Leblanc.png" },
+            { nome: "Mordekaiser", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Mordekaiser.png" },
+            { nome: "Rell", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Rell.png" },
+            { nome: "Samira", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Samira.png" },
+            { nome: "Sion", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Sion.png" },
+            { nome: "Talon", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Talon.png" },
+            { nome: "Vladimir", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Vladimir.png" }
+        ]
+    },
+    demacia: {
+        img: "../assets/demacia.png",
+        fundo: "../assets/fundo-demacia.png",
+        titulo: "Demacia",
+        descricao: "Um orgulhoso reino militar",
+        texto: "Demacia é um reino altivo e legítimo com uma prestigiosa história militar. Fundada após as Guerras Rúnicas para ser um local livre de qualquer magia, alguns sugerem que a era dourada de Demacia já passou, a menos que a cidade se mostre capaz de se adaptar ao novo mundo. Autossuficiente e agrária, sua sociedade é inerentemente defensiva e insular, valorizando a justiça, a honra e o dever acima de tudo.",
+        personagens: [
+            { nome: "Garen", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Garen.png" },
+            { nome: "Lux", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Lux.png" },
+            { nome: "Jarvan IV", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/JarvanIV.png" },
+            { nome: "Vayne", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Vayne.png" },
+            { nome: "Fiora", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Fiora.png" },
+            { nome: "Galio", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Galio.png" },
+            { nome: "Kayle", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Kayle.png" },
+            { nome: "Lucian", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Lucian.png" },
+            { nome: "Morgana", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Morgana.png" },
+            { nome: "Poppy", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Poppy.png" },
+            { nome: "Quinn", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Quinn.png" },
+            { nome: "Shyvana", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Shyvana.png" },
+            { nome: "Sona", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Sona.png" },
+            { nome: "Sylas", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Sylas.png" },
+            { nome: "Xin Zhao", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/XinZhao.png" }
+        ]
+    },
+    shurima: {
+        img: "../assets/shurima.png",  // Caminho para a imagem de Shurima
+        fundo: "../assets/fundo-shurima.png",  // Caminho para o fundo de Shurima
+        titulo: "Shurima",
+        descricao: "Império antigo e deserto místico",
+        texto: "Shurima já foi uma civilização próspera que ocupava grande parte do continente do sul, mas foi deixada em ruínas após a queda de seu deus-imperador. Por milênios, contos de sua antiga glória se tornaram mitos e rituais. Agora, seus habitantes nômades ganham a vida a muito custo nos desertos ou recorrem ao trabalho mercenário. Ainda assim, alguns ousam sonhar com o retorno de seu antigo estilo de vida.",
+        personagens: [
+            { nome: "Azir", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Azir.png" },
+            { nome: "Nasus", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Nasus.png" },
+            { nome: "Renekton", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Renekton.png" },
+            { nome: "Sivir", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Sivir.png" },
+            { nome: "Taliyah", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Taliyah.png" },
+            { nome: "Akshan", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Akshan.png" },
+            { nome: "Amumu", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Amumu.png" },
+            { nome: "K'Sante", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/KSante.png" },
+            { nome: "Naafiri", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Naafiri.png" },
+            { nome: "Rammus", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Rammus.png" },
+            { nome: "Xerath", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Xerath.png" }
+        ]
+    },
+    aguassentina: {
+        img: "../assets/aguassentina.png",
+        fundo: "../assets/fundo-aguassentina.png",
+        titulo: "Águas de Sentina",
+        descricao: "Cidade portuária sem lei",
+        texto: "Águas de Sentina é uma cidade de porto como nenhuma outra, lar de caçadores de monstros, gangues portuárias, população indígena e comerciantes do mundo todo. Quase tudo pode ser comprado aqui, desde tecnologia Hextec contrabandeada até favores de senhores do crime local. Não existe lugar melhor para alcançar fama e fortuna, embora a morte esteja à espreita em cada beco e a lei seja praticamente inexistente.",
+        personagens: [
+            { nome: "Miss Fortune", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/MissFortune.png" },
+            { nome: "Gangplank", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Gangplank.png" },
+            { nome: "Twisted Fate", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/TwistedFate.png" },
+            { nome: "Pyke", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Pyke.png" },
+            { nome: "Graves", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Graves.png" },
+            { nome: "Fizz", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Fizz.png" },
+            { nome: "Illaoi", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Illaoi.png" },
+            { nome: "Nautilus", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Nautilus.png" },
+            { nome: "Tahm Kench", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/TahmKench.png" }
+        ]
+    },
+    ilhadassombras: {
+        img: "../assets/ilhadassombras.png",
+        fundo: "../assets/fundo-ilhadassombras.png",
+        titulo: "Ilhas das Sombras",
+        descricao: "Regiões envoltas pela Névoa Negra",
+        texto: "A Ilhas das Sombras já foi um belo reino, bem antes de ser devastado por um cataclisma mágico. Agora, a Névoa Negra cobre permanentemente o solo, manchando e corrompendo tudo com sua feitiçaria maligna. Aqueles que perecem sob seu efeito ficam condenados a fazer parte da Névoa Negra por toda a eternidade… e pior ainda, a cada ano ela estende seu alcance para ceifar ainda mais almas em Runeterra.",
+        personagens: [
+            { nome: "Hecarim", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Hecarim.png" },
+            { nome: "Thresh", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Thresh.png" },
+            { nome: "Karthus", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Karthus.png" },
+            { nome: "Elise", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Elise.png" },
+            { nome: "Gwen", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Gwen.png" },
+            { nome: "Kalista", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Kalista.png" },
+            { nome: "Maokai", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Maokai.png" },
+            { nome: "Vex", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Vex.png" },
+            { nome: "Viego", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Viego.png" },
+            { nome: "Yorick", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Yorick.png" }
+        ]
+    },
+    targon: {
+        img: "../assets/targon.png",
+        fundo: "../assets/fundo-targon.png",
+        titulo: "Targon",
+        descricao: "Cadeia de montanhas ocidentais",
+        texto: "Região montanhosa e escassamente habitada a oeste de Shurima, o Targon é o pico mais alto de toda Runeterra. Afastado da civilização, o Monte Targon é praticamente inalcançável, e só aqueles peregrinos com profundo desejo e intensa determinação conseguem chegar ao topo. Os poucos que conseguem sobreviver à escalada voltam atormentados, vazios por dentro ou transformados a ponto de não serem mais reconhecidos.",
+        personagens: [
+            { nome: "Aphelios", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Aphelios.png" },
+            { nome: "Aurelion Sol", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/AurelionSol.png" },
+            { nome: "Diana", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Diana.png" },
+            { nome: "Leona", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Leona.png" },
+            { nome: "Pantheon", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Pantheon.png" },
+            { nome: "Soraka", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Soraka.png" },
+            { nome: "Taric", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Taric.png" },
+            { nome: "Zoe", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Zoe.png" }
+        ]
+    },
+    ionia: {
+        img: "../assets/ionia.png",
+        fundo: "../assets/fundo-ionia.png",
+        titulo: "Ionia",
+        descricao: "As Primeiras Terras",
+        texto: "Conhecida como as Primeiras Terras, Ionia é um ilha-continente dotada de beleza natural e magia. Seus habitantes, que vivem em províncias livremente agrupadas, são um povo espiritual sempre em busca de harmonia com o mundo. Eles se mantinham predominantemente neutros até que suas terras foram invadidas por Noxus. Essa brutal ocupação forçou Ionia a reavaliar seu lugar no mundo, e seu futuro permanece indeterminado.",
+        personagens:[
+            { nome: "Ahri", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Ahri.png" },
+            { nome: "Akali", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Akali.png" },
+            { nome: "Irelia", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Irelia.png" },
+            { nome: "Karma", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Karma.png" },
+            { nome: "Kennen", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Kennen.png" },
+            { nome: "Lee Sin", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/LeeSin.png" },
+            { nome: "Master Yi", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/MasterYi.png" },
+            { nome: "Rakan", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Rakan.png" },
+            { nome: "Sett", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Sett.png" },
+            { nome: "Shen", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Shen.png" },
+            { nome: "Syndra", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Syndra.png" },
+            { nome: "Varus", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Varus.png" },
+            { nome: "Xayah", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Xayah.png" },
+            { nome: "Yasuo", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Yasuo.png" },
+            { nome: "Yone", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Yone.png" },
+            { nome: "Zed", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Zed.png" },
+            { nome: "Lilia", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Lillia.png" },
+            { nome: "Wukong", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/MonkeyKing.png" },
+            { nome: "Jhin", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Jhin.png" },
+            { nome: "Kayn", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Kayn.png" },
+            { nome: "Ivern", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Ivern.png" }
+        ]
+        
+        
+    },
+    freljord: {
+        img: "../assets/freljord.png",
+        fundo: "../assets/fundo-freljord.png",
+        titulo: "Freljord",
+        descricao: "Terras gélidas severas",
+        texto: "Freljord é uma terra hostil e impiedosa, onde os semideuses caminham entre as pessoas, e os indivíduos já nascem guerreiros. Apesar da abundância de tribos independentes, as três maiores são a Avarosianos, a Garra do Inverno e a Praeglacius, cada uma moldada única e exclusivamente pela vontade de sobreviver. Lá é também o único lugar em toda a Runeterra onde o Gelo Verdadeiro pode ser encontrado.",
+        personagens: [
+            { nome: "Ashe", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Ashe.png" },
+            { nome: "Sejuani", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Sejuani.png" },
+            { nome: "Lissandra", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Lissandra.png" },
+            { nome: "Braum", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Braum.png" },
+            { nome: "Trundle", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Trundle.png" },
+            { nome: "Anivia", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Anivia.png" },
+            { nome: "Gnar", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Gnar.png" },
+            { nome: "Gragas", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Gragas.png" },
+            { nome: "Nunu", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Nunu.png" },
+            { nome: "Olaf", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Olaf.png" },
+            { nome: "Ornn", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Ornn.png" },
+            { nome: "Tryndamere", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Tryndamere.png" },
+            { nome: "Udyr", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Udyr.png" },
+            { nome: "Volibear", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Volibear.png" }
+        ]
+    },
+    piltoverzaun: {
+        img: "../assets/piltoverzaun.png",
+        fundo: "../assets/fundo-piltover-zaun.png",
+        titulo: "Piltover & Zaun",
+        descricao: "Cidades-estados duplas",
+        texto: "Dupla de Cidades-Estado que controlam a maior parte das rotas de comércio entre Valoran e Shurima. Lar de inventores visionários e de seus ricos patrocinadores, onde a desigualdade social vem se tornando cada vez mais perigosa.",
+        personagens: [
+            { nome: "Jinx", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Jinx.png" },
+            { nome: "Vi", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Vi.png" },
+            { nome: "Ekko", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Ekko.png" },
+            { nome: "Caitlyn", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Caitlyn.png" },
+            { nome: "Heimerdinger", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Heimerdinger.png" },
+            { nome: "Camille", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Camille.png" },
+            { nome: "Ezreal", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Ezreal.png" },
+            { nome: "Jayce", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Jayce.png" },
+            { nome: "Orianna", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Orianna.png" },
+            { nome: "Seraphine", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Seraphine.png" },
+            { nome: "Blitzcrank", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Blitzcrank.png" },
+            { nome: "Dr. Mundo", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/DrMundo.png" },
+            { nome: "Janna", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Janna.png" },
+            { nome: "Renata Glasc", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Renata.png" },
+            { nome: "Singed", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Singed.png" },
+            { nome: "Twitch", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Twitch.png" },
+            { nome: "Urgot", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Urgot.png" },
+            { nome: "Viktor", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Viktor.png" },
+            { nome: "Warwick", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Warwick.png" },
+            { nome: "Zac", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Zac.png" },
+            { nome: "Ziggs", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Ziggs.png" },
+            { nome: "Zeri", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Zeri.png" }
+        ]
+    }
+
+    // Adicione outras regiões conforme necessário
+};
+
+document.addEventListener("DOMContentLoaded", () => {
+    const modal = document.getElementById("open-modalrune");
+    const blockArrow = document.getElementById("block-arrow");
+    const cards = document.querySelectorAll(".card-rune");
+    
+    const toggleScroll = (state) => {
+        document.body.style.overflow = state ? "hidden" : "";
+    };
+
+    const openModal = (regiao) => {
+        if (regioes[regiao]) {
+            const info = regioes[regiao];
+            document.querySelector("#modal-runeterra h3").textContent = info.titulo;
+            document.getElementById("desc-rune").textContent = info.descricao;
+            document.getElementById("text-rune").textContent = info.texto;
+            document.getElementById("modal-runeterra").style.backgroundImage = `url(${info.fundo})`;
+            document.getElementById("logo-runeterra").src = info.img;
+            
+            const alignImgsRune = document.getElementById("align-imgsRune");
+            alignImgsRune.innerHTML = "";
+            info.personagens.forEach(p => {
+                const img = document.createElement("img");
+                img.src = p.img;
+                img.alt = p.nome;
+                alignImgsRune.appendChild(img);
+            });
+
+            modal.style.display = "flex";
+            toggleScroll(true);
+        }
+    };
+
+    const closeModal = () => {
+        modal.style.display = "none";
+        toggleScroll(false);
+    };
+
+    cards.forEach(card => card.addEventListener("click", () => openModal(card.getAttribute("data-region"))));
+    blockArrow.addEventListener("click", closeModal);
+    modal.addEventListener("click", (e) => e.target === modal && closeModal());
+});
+
+
+
+
+
+
+//Carrossel Slick
+$(document).ready(function(){
+    $('.carousel-rune').slick({
+        infinite: false, // Faz o loop infinito
+        slidesToShow: 5, // Exibe 5 slides por vez
+        slidesToScroll: 2, // Move 2 slides por vez  // Tempo de 2 segundos entre os slides
+        speed: 500,
+        centerMode: false, // Remove o espaço extra nas laterais
+        variableWidth: false, // Mantém largura fixa dos slides
+        responsive: [
+            {
+                breakpoint: 1561, // Para telas menores que 1024px
+                settings: {
+                    slidesToShow: 4,
+                    slidesToScroll: 2,
+                    variableWidth: true
+
+                }
+            },
+            {
+                breakpoint: 768, // Para telas menores que 768px
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1,
+                    variableWidth: true
+                }
+            },
+            {
+                breakpoint: 480, // Para telas menores que 480px
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1,
+                    variableWidth: true
+                }
+            }
+        ]
+    });
+});
 
 
 
