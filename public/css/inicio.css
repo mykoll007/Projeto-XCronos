@@ -223,6 +223,61 @@ p{
     padding: 0 4%;
     line-height: 26px;
 }
+#section-4 h2{
+    font-family: "DM Sans", sans-serif;
+    color: #FF8C00;
+    font-size: 26px;
+    text-align: center;
+    margin-top: 28px;
+    margin-bottom: 47px;
+}
+.cards-rank{
+    display: grid;
+    justify-content: center;
+}
+.card-rank{
+    width: 344px;
+    background: linear-gradient(90deg, #534440 0%, #6b5b5a 100%);
+    height: 52px;
+    border-radius: 49px;
+    margin-bottom: 47px;
+    position: relative;
+}
+.card-rank::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../assets/Glitter.png'); /* Caminho para sua imagem de glitter */
+    background-size: cover;
+    background-position: center;
+    mix-blend-mode: multiply;
+}
+.align-rankEdesc{
+    position: absolute;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 31px;
+}
+.align-rankEdesc img{
+    margin-bottom: 0px;
+    position: absolute;
+    top: -19px;
+    right: -7px;
+    width: 133px;
+}
+.align-rankEdesc p{
+    margin: 0;
+    position: relative;
+    left: 176px;
+    font-size: 22px;
+    font-family: 'Inter';
+    bottom: -10px;
+    color: #CCC0C0;
+}
 
 
 /* ---------------------CHAMPS.HTML */

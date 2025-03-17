@@ -5,6 +5,13 @@
     }
 }
 
+@media screen and (min-width: 780px){
+    .align-rankEdesc img {
+        top: -25px;
+        width: 147px;
+    }
+}
+
 @media screen and (min-width: 500px) {
     #container-cadastro{
         border: 1px solid white;
@@ -23,4 +30,15 @@
     }
 
 
+}
+
+@media screen and (max-width: 450px) {
+    .align-rankEdesc img {
+        top: -13px;
+        right: -13px;
+        width: 113px;
+    }
+    .card-rank{
+        width: 334px;
+    }
 }

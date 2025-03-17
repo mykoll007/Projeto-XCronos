@@ -320,8 +320,6 @@ const regioes = {
             { nome: "Zeri", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Zeri.png" }
         ]
     }
-
-    // Adicione outras regiões conforme necessário
 };
 
 document.addEventListener("DOMContentLoaded", () => {
