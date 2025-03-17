@@ -92,7 +92,7 @@ async function getChampions() {
             // Adiciona evento de clique para armazenar o campeão selecionado e redirecionar
             card.addEventListener("click", () => {
                 localStorage.setItem("selectedChampion", id);
-                window.location.href = "champ.html"; // Redireciona para a página do campeão
+                window.location.href = "champ.html?origin=champs"; // Redireciona para a página do campeão
             });            
 
             container.appendChild(card);

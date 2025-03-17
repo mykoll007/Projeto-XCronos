@@ -30,6 +30,12 @@ async function getChampions() {
             const titleElement = card.querySelector(".desc-titul");
             titleElement.textContent = title;
 
+            // Adiciona o evento de clique para salvar o id do campeão no localStorage e redirecionar
+            card.addEventListener("click", () => {
+                localStorage.setItem("selectedChampion", id);
+                window.location.href = "champ.html"; 
+            });
+
             // Adiciona o slide preenchido ao container
             container.appendChild(slide);
         }

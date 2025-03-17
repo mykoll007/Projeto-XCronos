@@ -85,7 +85,7 @@ p{
     display: flex;
     justify-content: center;
 }
-#align-arrow{
+.align-arrow{
     position: fixed;
     top: 10%;
     left: 20px;
@@ -99,11 +99,12 @@ p{
     cursor: pointer;
     border: solid white;
     z-index: 1000;
+    transition: opacity 0.3s ease;
 }
-#align-arrow img{
+.align-arrow img{
     height: auto;
 }
-#align-arrow a{
+.align-arrow a{
     height: 32px;
 }
 #h2-champs{
@@ -158,6 +159,18 @@ p{
 }
 #back-to-top.show {
     opacity: 1;
+}
+#section-2 h2{
+    font-family: "DM Sans", sans-serif;
+    color: #FF8C00;
+    font-size: 27px;
+    text-align: center;
+    margin-top: 44px;
+    margin-bottom: 47px;
+}
+.classes-champ{
+    display: flex;
+    justify-content: space-evenly;
 }
 
 /* -----------------CHAMP.HTML */
