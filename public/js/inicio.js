@@ -370,7 +370,7 @@ function changeImage() {
     const imgElement = document.getElementById('champ-marketing');
     
     // Verifica o tamanho da janela e troca a imagem
-    if (window.innerWidth <= 595) {
+    if (window.innerWidth <= 637) {
         imgElement.src = '../assets/teemo-marketing.png'; // Troque pela URL da nova imagem
     } else {
         imgElement.src = '../assets/ashe-marketing.png'; // Se a tela for maior, volta para a imagem original

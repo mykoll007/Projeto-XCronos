@@ -389,6 +389,7 @@ color: #CCF6F1;
 #section-5{
     display: flex;
     justify-content: space-around;
+    margin-bottom: 137px;
 }
 
 #desc-site h3{
@@ -532,6 +533,7 @@ color: #CCF6F1;
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); 
     gap: 10px;
     justify-items: center;
+    margin-bottom: 110px
 }
 
 .champions-img{
@@ -539,8 +541,8 @@ color: #CCF6F1;
 }
 #back-to-top {
     position: fixed;
-    bottom: 20px; /* Distância do fundo */
-    right: 20px; /* Distância da direita */
+    bottom: 114px; 
+    right: 20px; 
     background: rgba(0, 0, 0, 0.5);
     padding: 10px;
     border-radius: 8px;
@@ -668,7 +670,7 @@ video{
     font-family: "DM Sans";
     font-weight: bold;
     text-align: center;
-    margin-top: 42px;
+    margin-top: 16px;
     font-size: 22px;
 }
 
@@ -679,4 +681,5 @@ video{
 #desc-habilidade{
     font-family: Inter;
     text-align: center;
+    margin-bottom: 131px;
 }
