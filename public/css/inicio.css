@@ -204,13 +204,14 @@ p{
     margin-top: 15px;
 }
 #modal-runeterra h3{
-    font-size: 23px;
+    text-transform: uppercase;
+    font-size: 26px;
     margin-bottom: 0;
     margin-top: 3px;
 }
 #desc-rune{
     font-family: 'DM Sans';
-    font-size: 18px;
+    font-size: 23px;
     margin-top: 5px;
 }
 #align-imgsRune img{
