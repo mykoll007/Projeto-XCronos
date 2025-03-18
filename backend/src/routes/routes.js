@@ -5,6 +5,7 @@ const express = require('express');
 const verificarToken = require('../middleware/authMiddleware');
 const router = express.Router();
 
+
 //Rotas Usuário
 
 //Rotas para processos de cadastro, confirmar e logar
@@ -13,10 +14,16 @@ router.put('/usuario/confirmarconta', UserController.confirmarCodigo)
 router.post('/usuario/reenviarcodigo', UserController.reenviarCodigoVerificacao)
 router.post('/usuario/autenticar', UserController.autenticarUsuario)
 
+router.get('/usuario/validar', verificarToken, (req, res) => {
+    // Se o token for válido, retornamos um status 200, só para confirmar
+    res.status(200).json({ message: 'Token válido!' });
+});
+
 //Rotas para recuperar e redefinir senha
 router.post('/usuario/recuperar', UserController.recuperarSenha)
 router.put('/usuario/redefinir', UserController.confirmarCodigoRecuperacao)
 router.put('/usuario/atualizarsenha', UserController.atualizarSenha)
+
 
 //Rotas para o usuario atualizar seus dados
 router.get('/usuario/:id', verificarToken, UserController.listarUmUsuario)
