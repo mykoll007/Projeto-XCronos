@@ -14,10 +14,7 @@ router.put('/usuario/confirmarconta', UserController.confirmarCodigo)
 router.post('/usuario/reenviarcodigo', UserController.reenviarCodigoVerificacao)
 router.post('/usuario/autenticar', UserController.autenticarUsuario)
 
-router.get('/usuario/validar', verificarToken, (req, res) => {
-    // Se o token for válido, retornamos um status 200, só para confirmar
-    res.status(200).json({ message: 'Token válido!' });
-});
+router.get('/usuario/validar', verificarToken)
 
 //Rotas para recuperar e redefinir senha
 router.post('/usuario/recuperar', UserController.recuperarSenha)
