@@ -10,6 +10,11 @@
         top: -25px;
         width: 147px;
     }
+    #card-bronze img{
+        width: 163px;
+    }
+    
+
 }
 
 @media screen and (min-width: 500px) {
@@ -17,6 +22,13 @@
         border: 1px solid white;
     }
 
+}
+
+@media screen  and (max-width:780px){
+    #card-platina img {
+        top: -52px;
+        left: -21px;
+    }
 }
 
 
@@ -38,7 +50,25 @@
         right: -13px;
         width: 113px;
     }
+    #card-ferro img{
+        width: 124px;
+    }
     .card-rank{
         width: 334px;
     }
+    #card-prata img {
+        top: -37px;
+        left: -10px;
+        width: 132px;
+    }
+    #card-ouro img {
+        top: -36px;
+        left: -10px;
+    }
+    #card-platina img {
+        top: -45px;
+        left: -13px;
+        width: 124px;
+    }
+
 }
