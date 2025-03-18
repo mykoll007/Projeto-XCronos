@@ -364,7 +364,27 @@ document.addEventListener("DOMContentLoaded", () => {
     modal.addEventListener("click", (e) => e.target === modal && closeModal());
 });
 
+// Section 5
+// Função para trocar a imagem
+function changeImage() {
+    const imgElement = document.getElementById('champ-marketing');
+    
+    // Verifica o tamanho da janela e troca a imagem
+    if (window.innerWidth <= 595) {
+        imgElement.src = '../assets/teemo-marketing.png'; // Troque pela URL da nova imagem
+    } else {
+        imgElement.src = '../assets/ashe-marketing.png'; // Se a tela for maior, volta para a imagem original
+    }
+}
+// Espera o carregamento completo da página
+    window.onload = function() {
+    changeImage(); // Troca a imagem assim que a página é carregada
+};
 
+// Ajusta a imagem quando a janela for redimensionada
+    window.onresize = function() {
+    changeImage();
+};
 
 
 

@@ -31,7 +31,17 @@
     }
 }
 
-
+@media screen and (max-width: 595px){
+    #section-5{
+        display: grid;
+    justify-content: center;
+    justify-items: center;
+    }
+    #section-5 img{
+        position: unset;
+        height: 300px;
+    }
+}
 @media screen and (max-width: 500px) {
     #body-cadastro{
         margin-top: -15px;
@@ -70,5 +80,28 @@
         left: -13px;
         width: 124px;
     }
-
+    #card-esmeralda img{
+        left: -15px;
+        width: 134px;
+        top: -33px;   
+    }
+    #card-diamante img{
+        right: 37px;
+        top: -16px;
+        width: 115px;
+    }
+    #card-mestre img{
+        width: 161px;
+        top: -44px;
+        left: -25px;
+    }
+    #card-gm img{
+        width: 171px;
+        top: -42px;
+    }
+    #card-desafiante img{
+        width: 129px;
+        right: -14px;
+        top: -46px;
+    }
 }

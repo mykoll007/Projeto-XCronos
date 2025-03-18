@@ -275,10 +275,12 @@ p{
     font-size: 22px;
     font-family: 'Inter';
     bottom: -10px;
-    color: #CCC0C0;
 }
 #card-ferro{
     background: linear-gradient(90deg, #534440 0%, #6b5b5a 100%);
+}
+#card-ferro p{
+    color: #CCC0C0;
 }
 #card-bronze{
     background: linear-gradient(90deg, #361D1A 0%, #936E64 100%);
@@ -286,18 +288,30 @@ p{
 #card-bronze img{
     width: 149px;
 }
+#card-bronze p{
+    color: #C4A39C;
+}
 #card-prata{
     background: linear-gradient(90deg, #26303b 0%, #A5ADB1 100%); 
 }
 #card-prata img{
     top: -38px;
 }
+
+#card-prata p{
+    color: #E2E6EA;
+}
+
 #card-ouro{
     background: linear-gradient(90deg, #482913 0%, #CCA166 100%); 
 }
 #card-ouro img{
     top: -56px;
 }
+#card-ouro p{
+    color: #FFEFC2;
+}
+
 #card-platina {
     background: linear-gradient(90deg, #012F1F 0%, #6BCEC0 100%); 
 }
@@ -305,6 +319,164 @@ p{
     top: -57px;
     left: -36px;
 }
+#card-platina p{
+color: #CCF6F1;
+}
+#card-esmeralda{
+    background: linear-gradient(90deg, #132E1F 0%, #4ED499 100%); 
+}
+#card-esmeralda p{
+    color: #AEFCE9;
+    left: 153px;
+}
+#card-esmeralda img{
+    left: -42px;
+    width: 165px;
+    top: -49px;
+}
+#card-diamante{
+    background: linear-gradient(90deg, #150643 0%, #4E98DB 100%); 
+}
+#card-diamante p{
+    left: 160px;
+    color: #BCF6FE;
+}
+#card-diamante img{
+    right: 39px;
+    top: -30px;
+    width: 141px;
+
+}
+
+#card-mestre{
+    background: linear-gradient(90deg, #2C1B47 0%, #C35AC6 100%); 
+}
+#card-mestre img{
+    width: 186px;
+    top: -59px;
+    left: -52px;
+}
+#card-mestre p{
+    color: #FEE3FE;
+}
+#card-gm{
+    background: linear-gradient(90deg, #4B1C25 12%,#AB2C36 64%, #D16831 91%,  #FF9341 100%); 
+}
+#card-gm img{
+    width: 178px;
+    top: -45px;
+}
+#card-gm p{
+    color: #FFE9CA;
+}
+
+#card-desafiante{
+    background: linear-gradient(90deg, #0A306A 0%, #3398BA 100%);
+}
+
+#card-desafiante img{
+    top: -50px;
+}
+#card-desafiante p{
+    color: #F9F7DC;
+}
+
+#custom-hr{
+    width: 100%;
+    height: 29px;
+  }
+
+#section-5{
+    display: flex;
+    justify-content: space-around;
+}
+
+#desc-site h3{
+    font-style: italic;
+    font-weight: bold;
+    font-size: 34px;
+    width: 296px;
+   margin: 0;
+}
+#desc-site p{
+    font-family: 'Urbanist';
+    font-size: 20px;
+    width: 300px;
+    text-align: center;
+}
+#infos-botao{
+    text-align: center;
+    width: 300px;
+    display: grid;
+    justify-items: center;
+}
+#infos-botao a{
+    text-decoration: none;
+    color: inherit;
+    outline: none;
+}
+
+#retangulo-btn {
+    width: 292px;
+    border: 1px solid #FDB44B;
+    height: 72px;
+    background-color: #FDB44B;
+    position: relative;
+}
+#retangulo-site {
+    position: absolute;
+    width: 300px;
+    left: -8px;
+    top: -9%;
+    border: 4px solid #A1A1A1;
+    height: 79px;
+    clip-path: polygon(10% 0, 100% 0, 100% 80%, 90% 100%, 0 100%, 0 20%);
+}
+#retangulo-site::before {
+    content: "";
+    position: absolute;
+    top: -5px;
+    left: 0px;
+    width: 0px;
+    height: 30px;
+    transform: skewX(-60deg);
+    border-left: 11px solid #A1A1A1;
+
+}
+
+#retangulo-site::after {
+    content: "";
+    position: absolute;
+    bottom: -1px;
+    right: -7px;
+    width: 40px;
+    height: 30px;
+    transform: skewX(-60deg);
+    border-right: 11px solid #A1A1A1;
+}
+#retangulo-btn p{
+    font-family: 'Urbanist';
+    font-size: 23px;
+    font-weight: bold;
+    color: black;
+}
+#acessar-politica{
+    font-family: 'Urbanist';
+    font-weight: 600;
+    font-size: 14px;
+    font-style: italic;
+}
+#section-5 img{
+    position: relative;
+    top: -28px;
+    left: 11%;
+}
+
+
+
+
+
+
 
 
 
