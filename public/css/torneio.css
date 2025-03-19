@@ -183,10 +183,12 @@ li{
     border-radius: 9px;
     margin-left: 172px;
 }
-
-.display-alternar2{
-    display: none;
+.display-alternar1, .display-alternar2 {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out;
 }
+
 
 #sobre-1 h3, #sobre-2 h3{
     text-align: left;

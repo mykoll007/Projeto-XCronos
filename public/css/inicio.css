@@ -174,11 +174,11 @@ p{
     text-align: center;
 }
 #open-modalrune{
-    display: none; /* Inicialmente escondido */
+    display: flex; /* Inicialmente escondido */
     position: fixed; /* Fica fixo na tela */
     top: 0; /* Alinha no topo da tela */
     left: 0; /* Alinha à esquerda da tela */
-    width: 100%; /* Ocupa toda a largura da tela */
+
     height: 100%; /* Ocupa toda a altura da tela */
     background-color: rgba(0, 0, 0, 0.5); /* Fundo semitransparente */
     justify-content: center; /* Alinha o conteúdo do modal no centro */

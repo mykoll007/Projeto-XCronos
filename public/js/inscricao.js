@@ -9,12 +9,12 @@ document.addEventListener('DOMContentLoaded', function () {
         // Verifica a imagem atual da seta e troca pela imagem oposta
         if (arrowIcon.src.includes(arrowUpSrc)) {
             arrowIcon.src = `../assets/${arrowDownSrc}`;
-            // Exibe a seção
-            section.style.display = 'block';
+            // Ajusta a altura máxima da seção para mostrar
+            section.style.maxHeight = section.scrollHeight + 'px'; // Desce
         } else {
             arrowIcon.src = `../assets/${arrowUpSrc}`;
-            // Esconde a seção
-            section.style.display = 'none';
+            // Ajusta a altura máxima da seção para esconder
+            section.style.maxHeight = '0'; // Sobe
         }
     }
 

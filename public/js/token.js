@@ -21,13 +21,12 @@ function login(email, senha) {
     });
 }
 
-// globalToken.js
+
 (function() {
     function verificarToken() {
-
-
         const token = localStorage.getItem('token');
         if (!token) {
+            console.log('Token ausente, redirecionando para a página de login...');
             window.location.href = 'index.html';
             return;
         }
@@ -39,7 +38,12 @@ function login(email, senha) {
         const expDate = decoded.exp * 1000;
         const currentTime = Date.now();
 
+        console.log('Token decodificado:', decoded);
+        console.log('Data de expiração:', expDate);
+        console.log('Tempo atual:', currentTime);
+
         if (currentTime > expDate) {
+            console.log('Token expirado, redirecionando para a página de login...');
             window.location.href = 'index.html';
             return;
         }

@@ -84,6 +84,8 @@ class InscricaoController {
                         <p>Olá!</p>
                         <p>Você se inscreveu com sucesso no torneio: <strong>${torneio.nome_torneio}</strong>.</p>
                         <p>O torneio acontecerá no dia <strong>${dataInicio}</strong> às <strong>${horaFormatada}</strong>.</p>
+                        <p>Para acompanhar a chave do torneio, todas as informações estarão disponíveis em nosso servidor. Acesse regularmente para ficar por dentro de atualizações e detalhes importantes sobre os confrontos.</p>
+                        <p>Acompanhe pelo nosso servidor do discord: https://discord.gg/De8xvUaX7Q</p>
                     `,
                 };
 

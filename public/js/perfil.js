@@ -40,29 +40,34 @@ document.addEventListener('DOMContentLoaded', function() {
         return;
     }
 
-    fetch(`http://localhost:4000/usuario/${usuarioId}`, {
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}`
-        }
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.usuario) {
-            // Exibe os dados do usuário na página
-            document.getElementById('usuario-desc').innerText = data.usuario.usuario;
-            document.getElementById('email-desc').innerText = data.usuario.email;
-            document.querySelector('input[name="usuario"]').value = data.usuario.usuario;
-            document.querySelector('input[name="email"]').value = data.usuario.email;
-            document.querySelector('input[name="telefone"]').value = data.usuario.telefone || '';
-        } else {
-            console.error('Erro ao carregar os dados do usuário');
-        }
-    })
-    .catch(error => {
-        console.error('Erro ao tentar obter os dados do usuário:', error);
-    });
+    // Tenta pegar os dados do usuário
+    try {
+        fetch(`http://localhost:4000/usuario/${usuarioId}`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.usuario) {
+                // Exibe os dados do usuário na página
+                document.getElementById('usuario-desc').innerText = data.usuario.usuario;
+                document.getElementById('email-desc').innerText = data.usuario.email;
+                document.querySelector('input[name="usuario"]').value = data.usuario.usuario;
+                document.querySelector('input[name="email"]').value = data.usuario.email;
+                document.querySelector('input[name="telefone"]').value = data.usuario.telefone || '';
+            } else {
+                console.error('Erro ao carregar os dados do usuário');
+            }
+        })
+        .catch(error => {
+            console.error('Erro ao tentar obter os dados do usuário:', error);
+        });
+    } catch (error) {
+        console.error('Erro ao tentar buscar os dados do usuário:', error);
+    }
 
     // Evento de submissão do formulário
     document.querySelector('form').addEventListener('submit', function(event) {
@@ -73,57 +78,63 @@ document.addEventListener('DOMContentLoaded', function() {
         const email = document.querySelector('input[name="email"]').value;
         const telefone = document.querySelector('input[name="telefone"]').value;
     
-        fetch(`http://localhost:4000/usuario/atualizar/${usuarioId}`, {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`
-            },
-            body: JSON.stringify({ usuario, email, telefone })
-        })
-        .then(response => response.json())
-        .then(data => {
-            const mensagemElemento = document.getElementById('mensagem-atualizada');
-            
-            if (data.message === "Usuário atualizado com sucesso!") {
-                mensagemElemento.innerText = data.message;
-                mensagemElemento.style.color = 'lawngreen';
+        // Tenta atualizar os dados do usuário
+        try {
+            fetch(`http://localhost:4000/usuario/atualizar/${usuarioId}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
+                body: JSON.stringify({ usuario, email, telefone })
+            })
+            .then(response => response.json())
+            .then(data => {
+                const mensagemElemento = document.getElementById('mensagem-atualizada');
                 
-                // Atualiza os valores exibidos na página apenas em caso de sucesso
-                document.getElementById('usuario-desc').innerText = usuario;
-                document.getElementById('email-desc').innerText = email;
-            } else if (data.message === "Este email já está cadastrado!" || data.message === "Este nome de usuário já está em uso!") {
-                mensagemElemento.style.color = 'red';
-                mensagemElemento.innerText = data.message;
-            
-                // Limpar apenas o campo que gerou o erro
-                if (data.message === "Este email já está cadastrado!") {
-                    document.querySelector('input[name="email"]').value = ''; // Limpa campo de email
-                    document.querySelector('.align-input input[name="email"]').style.border = '2px solid red'; // Borda vermelha no email
-                    document.querySelector('.align-input input[name="usuario"]').style.border = ''; // Remove a borda do usuário
-                } else if (data.message === "Este nome de usuário já está em uso!") {
-                    document.querySelector('input[name="usuario"]').value = ''; // Limpa campo de usuário
-                    document.querySelector('.align-input input[name="usuario"]').style.border = '2px solid red'; // Borda vermelha no usuário
-                    document.querySelector('.align-input input[name="email"]').style.border = ''; // Remove a borda do email
+                if (data.message === "Atualizado com sucesso!") {
+                    mensagemElemento.innerText = data.message;
+                    mensagemElemento.style.color = 'lawngreen';
+
+                    document.querySelector('.align-input input[name="email"]').style.border = '';
+                    document.querySelector('.align-input input[name="usuario"]').style.border = '';
+                    // Atualiza os valores exibidos na página apenas em caso de sucesso
+                    document.getElementById('usuario-desc').innerText = usuario;
+                    document.getElementById('email-desc').innerText = email;
+                } else if (data.message === "Este email já está cadastrado!" || data.message === "Este nome de usuário já está em uso!") {
+                    mensagemElemento.style.color = 'red';
+                    mensagemElemento.innerText = data.message;
+                
+                    // Limpar apenas o campo que gerou o erro
+                    if (data.message === "Este email já está cadastrado!") {
+                        document.querySelector('input[name="email"]').value = ''; // Limpa campo de email
+                        document.querySelector('.align-input input[name="email"]').style.border = '2px solid red'; // Borda vermelha no email
+                        document.querySelector('.align-input input[name="usuario"]').style.border = ''; // Remove a borda do usuário
+                    } else if (data.message === "Este nome de usuário já está em uso!") {
+                        document.querySelector('input[name="usuario"]').value = ''; // Limpa campo de usuário
+                        document.querySelector('.align-input input[name="usuario"]').style.border = '2px solid red'; // Borda vermelha no usuário
+                        document.querySelector('.align-input input[name="email"]').style.border = ''; // Remove a borda do email
+                    }
                 }
-            }
-            else {
+                else {
+                    alert('Erro ao atualizar os dados');
+                }
+            })
+            .catch(error => {
+                console.error('Erro ao tentar atualizar os dados:', error);
                 alert('Erro ao atualizar os dados');
-            }
-        })
-        .catch(error => {
-            console.error('Erro ao tentar atualizar os dados:', error);
-            alert('Erro ao atualizar os dados');
-            
-            // Limpar os valores dos campos do formulário em caso de erro
-            document.querySelector('input[name="usuario"]').value = ''; // Limpa campo de usuário
-            document.querySelector('input[name="email"]').value = ''; // Limpa campo de email
-            document.querySelector('input[name="telefone"]').value = ''; // Limpa campo de telefone
-        });
+                
+                // Limpar os valores dos campos do formulário em caso de erro
+                document.querySelector('input[name="usuario"]').value = ''; // Limpa campo de usuário
+                document.querySelector('input[name="email"]').value = ''; // Limpa campo de email
+                document.querySelector('input[name="telefone"]').value = ''; // Limpa campo de telefone
+            });
+        } catch (error) {
+            console.error('Erro ao tentar atualizar os dados do usuário:', error);
+        }
     });
-    
-    
 });
+
 
 //Logout
 document.getElementById('logout').addEventListener('click', function() {

@@ -1,6 +1,9 @@
 body{
     background-color: black;
 }
+.container-aulas{
+    margin-bottom: 144px;
+}
 .video-container{
     margin-top: 65px;
     display: flex;

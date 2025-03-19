@@ -279,22 +279,26 @@ class UserController{
 
 
 
-listarUmUsuario(request, response) {
-    const { id } = request.params; // O ID vem como parâmetro da URL
-
-    database.where({ id_cadastro: id }).select('*').table('usuarios')
-        .then(usuario => {
-            if (usuario.length > 0) {
-                response.status(200).json({ usuario: usuario[0] }); // Retorna o primeiro usuário encontrado
-            } else {
-                response.status(404).json({ message: 'Usuário não encontrado' });
-            }
-        })
-        .catch(error => {
-            console.error(error);
-            response.status(500).json({ message: "Erro ao obter os dados do usuário" });
-        });
-}
+    listarUmUsuario(request, response) {
+        const { id } = request.params;
+        console.log(`Buscando usuário com ID: ${id}`); // Verifique o ID recebido
+    
+        database.where({ id_cadastro: id }).select('*').table('usuarios')
+            .then(usuario => {
+                if (usuario.length > 0) {
+                    console.log('Usuário encontrado:', usuario[0]); // Verifique o que está retornando
+                    response.status(200).json({ usuario: usuario[0] });
+                } else {
+                    console.log('Usuário não encontrado'); // Log se o usuário não for encontrado
+                    response.status(404).json({ message: 'Usuário não encontrado' });
+                }
+            })
+            .catch(error => {
+                console.error('Erro ao buscar usuário:', error); // Log de erro
+                response.status(500).json({ message: "Erro ao obter os dados do usuário" });
+            });
+    }
+    
 
 
 
@@ -321,7 +325,7 @@ atualizarUsuario(request, response) {
 
                     database.where({ id_cadastro: id }).update(dadosAtualizados).table('usuarios')
                         .then(() => {
-                            response.status(200).json({ message: "Usuário atualizado com sucesso!" });
+                            response.status(200).json({ message: "Atualizado com sucesso!" });
                         })
                         .catch(error => {
                             console.error(error);
