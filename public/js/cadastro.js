@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
         };
 
         try {
-            const resposta = await fetch("http://localhost:4000/usuario/cadastrar", {
+            const resposta = await fetch("https://projeto-x-cronos.vercel.app/usuario/cadastrar", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

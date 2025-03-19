@@ -44,7 +44,7 @@ async function carregarDetalhesTorneio() {
     const { id_torneio } = getQueryParams();
 
     try {
-        const response = await fetch(`http://localhost:4000/torneios/${id_torneio}`);
+        const response = await fetch(`https://projeto-x-cronos.vercel.app/torneios/${id_torneio}`);
 
         if (!response.ok) {
             throw new Error(`Erro HTTP! Status: ${response.status}`);
@@ -99,7 +99,7 @@ async function carregarDetalhesTorneio() {
     const token = localStorage.getItem('token');
 
     try {
-        const response = await fetch(`http://localhost:4000/inscrever/${id_cadastro}`, {
+        const response = await fetch(`https://projeto-x-cronos.vercel.app/inscrever/${id_cadastro}`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

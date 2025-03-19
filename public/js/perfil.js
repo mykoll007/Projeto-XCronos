@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Tenta pegar os dados do usuário
     try {
-        fetch(`http://localhost:4000/usuario/${usuarioId}`, {
+        fetch(`https://projeto-x-cronos.vercel.app/usuario/${usuarioId}`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
         // Tenta atualizar os dados do usuário
         try {
-            fetch(`http://localhost:4000/usuario/atualizar/${usuarioId}`, {
+            fetch(`https://projeto-x-cronos.vercel.app/usuario/atualizar/${usuarioId}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',

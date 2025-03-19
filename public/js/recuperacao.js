@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         try {
             // Faz a requisição para o backend para confirmar o código
-            const resposta = await fetch("http://localhost:4000/usuario/confirmarconta", {
+            const resposta = await fetch("https://projeto-x-cronos.vercel.app/usuario/confirmarconta", {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json",

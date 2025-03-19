@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         try {
-            const resposta = await fetch("http://localhost:4000/usuario/recuperar", {
+            const resposta = await fetch("https://projeto-x-cronos.vercel.app/usuario/recuperar", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

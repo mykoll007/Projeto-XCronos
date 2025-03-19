@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
         try {
-            const resposta = await fetch("http://localhost:4000/usuario/atualizarsenha", {
+            const resposta = await fetch("https://projeto-x-cronos.vercel.app/usuario/atualizarsenha", {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json",

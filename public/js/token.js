@@ -1,6 +1,6 @@
 // Função para fazer login
 function login(email, senha) {
-    fetch('http://localhost:4000/usuario/autenticar', {
+    fetch('https://projeto-x-cronos.vercel.app/usuario/autenticar', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

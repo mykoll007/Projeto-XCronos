@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         try {
-            const resposta = await fetch("http://localhost:4000/usuario/autenticar", {
+            const resposta = await fetch("https://projeto-x-cronos.vercel.app/usuario/autenticar", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 // Caso precise verificar, salva o e-mail e reenvia código antes de redirecionar
                 localStorage.setItem("email", email);
 
-                const reenviarResposta = await fetch("http://localhost:4000/usuario/reenviarcodigo", {
+                const reenviarResposta = await fetch("https://projeto-x-cronos.vercel.app/usuario/reenviarcodigo", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",

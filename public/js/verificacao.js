@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         try {
-            const resposta = await fetch("http://localhost:4000/usuario/confirmarconta", {
+            const resposta = await fetch("https://projeto-x-cronos.vercel.app/usuario/confirmarconta", {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json",
@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", function () {
             } 
             else if (resultado.precisaVerificar) {
                 // Se precisar reenviar o código de verificação
-                await fetch("http://localhost:4000/usuario/reenviarcodigo", {
+                await fetch("https://projeto-x-cronos.vercel.app/usuario/reenviarcodigo", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",

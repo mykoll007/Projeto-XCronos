@@ -47,7 +47,7 @@ buttons.forEach(button => {
 
 async function getInscricoesDoUsuario(idUsuario) {
     try {
-        const response = await fetch(`http://localhost:4000/inscricoes/${idUsuario}`);
+        const response = await fetch(`https://projeto-x-cronos.vercel.app/inscricoes/${idUsuario}`);
         if (!response.ok) throw new Error("Erro ao buscar inscrições");
         return await response.json(); // Retorna a lista de torneios que o usuário está inscrito
     } catch (error) {
@@ -62,7 +62,7 @@ async function getTorneios() {
         const idUsuario = getIdFromToken(); // Obtém o ID do usuário logado
         const inscricoes = idUsuario ? await getInscricoesDoUsuario(idUsuario) : []
         // Fazendo a requisição GET para obter os torneios
-        const response = await fetch('http://localhost:4000/torneios'); // URL do seu servidor
+        const response = await fetch('https://projeto-x-cronos.vercel.app/torneios'); // URL do seu servidor
         const torneios = await response.json(); // Recebe os torneios em formato JSON
 
         // Selecionando o container onde os torneios serão exibidos
