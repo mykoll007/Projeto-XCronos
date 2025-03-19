@@ -16,7 +16,7 @@ app.get('/', (req, res) => {
 });
 
 // const PORT = process.env.PORT || 4000;
-const PORT =  4000;
+const PORT =  process.env.PORT;
 app.listen(PORT, () => {
   console.log(`Servidor rodando em http://localhost:4000`);
 });
