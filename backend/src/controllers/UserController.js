@@ -277,34 +277,66 @@ class UserController{
     
     
 
-    // Trazer info do Usuario
-    listarUmUsuario(request, response) {
-        const { id } = request.params
 
-        database.where({ id_cadastro: id }).select('*').table('usuarios').then(usuario => {
-            response.status(200).json({ usuario })
-        }).catch(error => {
-            response.status(500).json({message: "Erro ao obter os dados do usuário"})
+
+listarUmUsuario(request, response) {
+    const { id } = request.params; // O ID vem como parâmetro da URL
+
+    database.where({ id_cadastro: id }).select('*').table('usuarios')
+        .then(usuario => {
+            if (usuario.length > 0) {
+                response.status(200).json({ usuario: usuario[0] }); // Retorna o primeiro usuário encontrado
+            } else {
+                response.status(404).json({ message: 'Usuário não encontrado' });
+            }
         })
-        
-    }
+        .catch(error => {
+            console.error(error);
+            response.status(500).json({ message: "Erro ao obter os dados do usuário" });
+        });
+}
 
-    atualizarUsuario(request, response) {
-        const { id } = request.params;  
-        const { email, usuario, telefone } = request.body; 
-    
-        const dadosAtualizados = { usuario, email };
-    
-        // Se o telefone foi fornecido, adiciona ao objeto de dados
-        if (telefone) { dadosAtualizados.telefone = telefone }
-    
-        database.where({ id_cadastro: id }).update(dadosAtualizados) .table('usuarios').then(() => {
-                response.status(200).json({ message: "Usuário atualizado com sucesso!" });
-            })
-            .catch(error => { 
-                response.status(500).json({ message: "Erro ao atualizar os dados do usuário" });
-            });
-    }
+
+
+
+atualizarUsuario(request, response) {
+    const { id } = request.params;
+    const { email, usuario, telefone } = request.body;
+
+    database('usuarios').where('email', email).andWhereNot('id_cadastro', id).first()
+        .then(emailExistente => {
+            if (emailExistente) {
+                return response.status(400).json({ message: "Este email já está cadastrado!" });
+            }
+
+            return database('usuarios').where('usuario', usuario).andWhereNot('id_cadastro', id).first()
+                .then(usuarioExistente => {
+                    if (usuarioExistente) {
+                        return response.status(400).json({ message: "Este nome de usuário já está em uso!" });
+                    }
+
+                    const dadosAtualizados = { usuario, email };
+
+                    if (telefone) { dadosAtualizados.telefone = telefone }
+
+                    database.where({ id_cadastro: id }).update(dadosAtualizados).table('usuarios')
+                        .then(() => {
+                            response.status(200).json({ message: "Usuário atualizado com sucesso!" });
+                        })
+                        .catch(error => {
+                            console.error(error);
+                            response.status(500).json({ message: "Erro ao atualizar os dados do usuário" });
+                        });
+                });
+        })
+        .catch(error => {
+            console.error(error);
+            response.status(500).json({ message: "Erro ao verificar os dados no banco de dados" });
+        });
+}
+
+
+
 
     
 }

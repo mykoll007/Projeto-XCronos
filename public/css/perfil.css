@@ -1,0 +1,123 @@
+body{
+    background-color: black;
+}
+p{
+    color: white;
+}
+section{
+    max-width: 500px;
+    width: 90%;
+    background-color: #1F242D;
+    border: 1px solid #393939;
+    text-align: center;
+    padding-top: 13px;
+    margin-bottom: 40px;
+    border-radius: 4px;
+}
+.align-section{
+    display: flex;
+    justify-content: center;
+}
+
+#align-perfil{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+#logo-xCronos{
+    width: 117px;
+}
+#section-usuario{
+    margin-top: 27px;
+    height: 117px;
+}
+#align-desc{
+    text-align: left;
+}
+#usuario-desc{
+    font-size: 24px;
+    margin: 0;
+    margin-bottom: 4px;
+    font-family: 'inter';
+}
+#email-desc{
+    margin: 0;
+    font-family: 'inter';
+}
+
+#section-form {
+    display: none;
+    overflow: hidden;
+    height: 0; 
+    transition: height 0.5s ease; 
+}
+
+#section-form.show {
+    display: block;
+    height: 365px;
+}
+
+label{
+    font-family: 'Poppins';
+    color: #545F71;
+    font-weight: 500;
+    text-align: center;
+    display: block;
+}
+input {
+    font-family: 'inter';
+    height: 37px;
+    width: 300px;
+    border: 1px solid;
+    border-radius: 6px;
+    margin-bottom: 24px;
+    padding-left: 2px;
+    font-size: 17px;
+}
+.align-input {
+    display: flex;
+    justify-content: center;
+}
+
+button{
+    background-color: #FF8C00;
+    border: 1px;
+    margin-top: 12px;
+    margin-bottom: 16px;
+    width: 215px;
+    height: 35px;
+    border-radius: 4px;
+    color: white;
+    font-family: 'Inter';
+}
+
+#mensagem-atualizada{
+    font-family: 'inter';
+    margin-top: 0;
+    font-weight: 500;
+    font-size: 13px;
+}
+
+#section-infos{
+    margin-bottom: 142px;
+    padding-bottom: 9px;
+
+}
+
+.align-iconEperfil{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+}
+.align-iconEperfil p{
+    font-family: inter;
+    font-size: 18px;
+    font-weight: bold;
+    margin-left: 13px;
+}
+.align-iconEperfil img{
+    width: 40px;
+    height: 40px;
+}
