@@ -3,7 +3,7 @@ const jwt = require('jsonwebtoken');
 function verificarToken(request, response, next) {
     // Pega o token do cabeçalho "Authorization"
     const token = request.header('Authorization')?.split(' ')[1];
-    console.log('Cabeçalho Authorization:', request.headers['authorization']);
+    
 
     // Se não houver token, retorna erro
     if (!token) {

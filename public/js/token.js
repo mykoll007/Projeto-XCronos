@@ -1,6 +1,6 @@
 // Função para fazer login
 function login(email, senha) {
-    fetch('http://localhost:4000/usuario/autenticar', {
+    fetch('https://projeto-x-cronos.vercel.app/usuario/autenticar', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -34,7 +34,7 @@ function verificarToken() {
     }
 
     // Fazendo uma requisição para o backend para validar o token
-    fetch('http://localhost:4000/usuario/validar', {
+    fetch('https://projeto-x-cronos.vercel.app/usuario/validar', {
         method: 'GET',
         headers: {
             'Authorization': `Bearer ${token}`,  // Enviando o token corretamente no cabeçalho

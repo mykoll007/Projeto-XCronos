@@ -1,5 +1,9 @@
 const database = require('../database/connection')
 
+database.raw('SELECT 1')
+    .then(() => console.log("✅ Conexão com o banco de dados funcionando!"))
+    .catch(err => console.error("❌ Erro ao conectar no banco:", err));
+
 const bcrypt = require ('bcryptjs')
 const jwt = require('jsonwebtoken')
 const nodemailer = require('nodemailer');

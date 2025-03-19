@@ -6,7 +6,11 @@ require('dotenv').config()
 const router = require ('./src/routes/routes')
 
 const app = express();
-app.use(cors())
+app.use(cors({
+  origin: '*',
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
 app.use(express.json())
 app.use(router)
 
@@ -16,8 +20,8 @@ app.get('/', (req, res) => {
 });
 
 // const PORT = process.env.PORT || 4000;
-const PORT =  4000;
+const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
-  console.log(`Servidor rodando em http://localhost:4000`);
+  console.log(`🚀 Servidor rodando em http://localhost:${PORT}`);
 });
 
