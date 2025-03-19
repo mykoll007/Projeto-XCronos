@@ -21,47 +21,35 @@ function login(email, senha) {
     });
 }
 
+// globalToken.js
+(function() {
+    function verificarToken() {
 
 
-// Função para verificar se o token é válido
-function verificarToken() {
-    const token = localStorage.getItem('token'); // Pega o token do localStorage
+        const token = localStorage.getItem('token');
+        if (!token) {
+            window.location.href = 'index.html';
+            return;
+        }
 
-    if (!token) {
-        // Se não houver token, redireciona para a página index.html
-        window.location.href = 'index.html';
-        return;
+        const base64Url = token.split('.')[1];
+        const base64 = base64Url.replace('-', '+').replace('_', '/');
+        const decoded = JSON.parse(atob(base64));
+
+        const expDate = decoded.exp * 1000;
+        const currentTime = Date.now();
+
+        if (currentTime > expDate) {
+            window.location.href = 'index.html';
+            return;
+        }
+
+        // Caso o token seja válido, continua no site
+        console.log('Token válido!');
     }
 
-    // Fazendo uma requisição para o backend para validar o token
-    fetch('http://localhost:4000/usuario/validar', {
-        method: 'GET',
-        headers: {
-            'Authorization': `Bearer ${token}`,  // Enviando o token corretamente no cabeçalho
-        },
-    })
-    .then(response => {
-        if (!response.ok) {
-            // Se a resposta for inválida, redireciona para o index.html
-            window.location.href = 'index.html';
-        } else {
-            // Caso o token seja válido, continue na página
-            console.log('Token válido!');
-        }
-    })
-    .catch(error => {
-        // Se ocorrer um erro na requisição, redireciona
-        console.error('Erro ao verificar o token:', error);
-        window.location.href = 'index.html';
-    });
-}
+    // Executa a verificação ao carregar o script
+    verificarToken();
+})();
 
 
-
-
-
-
-
-
-// Chama a função de verificação ao carregar a página
-verificarToken();

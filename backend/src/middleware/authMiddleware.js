@@ -13,9 +13,10 @@ function verificarToken(request, response, next) {
     try {
         // Decodifica o token usando o SALT (chave secreta)
         const decodificado = jwt.verify(token, process.env.SALT);
-        
-        // Adiciona o id do usuário na requisição para que possa ser utilizado nas rotas
-        request.id = decodificado.id;
+
+        // Adiciona o id_cadastro do usuário na requisição para que possa ser utilizado nas rotas
+        // Aqui, ajustamos para acessar 'id_cadastro' no payload
+        request.id = decodificado.id_cadastro;  // Alterado para 'id_cadastro'
 
         // Chama a próxima função ou rota
         next();

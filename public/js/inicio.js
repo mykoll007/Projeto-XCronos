@@ -1,10 +1,3 @@
-
-
-
-
-
-
-
 //Section 1
 async function getChampions() {
     try {

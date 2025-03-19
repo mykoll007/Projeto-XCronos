@@ -7,9 +7,7 @@ class InscricaoController {
         const { id_usuario } = request.params;
         const { id_torneio, discord, nick_jogo } = request.body;
     
-        if (!id_torneio || !discord || !nick_jogo) {
-            return response.status(400).json({ message: 'Todos os campos são obrigatórios.' });
-        }
+
     
         let emailUsuario;
     
@@ -18,7 +16,7 @@ class InscricaoController {
             .first()
             .then(usuario => {
                 if (!usuario) {
-                    return Promise.reject({ status: 404, message: 'Usuário não encontrado.' });
+                    return Promise.reject({ status: 404, message: 'Usuário não está logado.' });
                 }
     
                 emailUsuario = usuario.email;
@@ -101,5 +99,7 @@ class InscricaoController {
                 return response.status(500).json({ message: 'Erro interno do servidor.', error: error.message });
             });
     }
+
+    
 }
 module.exports = new InscricaoController();

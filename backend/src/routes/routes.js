@@ -1,6 +1,7 @@
 const connection = require('../database/connection')
 const UserController = require('../controllers/UserController');
 const InscricaoController = require('../controllers/InscricaoController')
+const TorneioController = require('../controllers/TorneioController')
 const express = require('express');
 const verificarToken = require('../middleware/authMiddleware');
 const router = express.Router();
@@ -30,5 +31,9 @@ router.put('/usuario/atualizar/:id',verificarToken, UserController.atualizarUsua
 //Rotas Inscrição Torneio
 router.post('/inscrever/:id_usuario', verificarToken, InscricaoController.inscrever);
 
+
+//Rotas Torneio
+router.get('/torneios', TorneioController.getTorneios);
+router.get('/torneios/:id_torneio', TorneioController.getTorneioById);
 
 module.exports = router

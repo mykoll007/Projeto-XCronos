@@ -7,6 +7,7 @@ let knex = require('knex')({
         user: process.env.DB_USER,
         password: "",
         database: process.env.DB_DATABASE
+        
     }
 })
 

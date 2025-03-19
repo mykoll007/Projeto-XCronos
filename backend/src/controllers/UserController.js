@@ -94,33 +94,36 @@ class UserController{
         }
     
 
-   async autenticarUsuario(request, response){
-        const {email, senha} = request.body
-
-        database.select('*').where({email: email}).table("usuarios").then(async usuario => {
-            if(!usuario[0])
-              return  response.status(401).json({message: "Login ou senha incorreta !"})
-
-            const validarSenha = await bcrypt.compare(senha, usuario[0].senha)
-
-            if(!validarSenha)
-              return  response.status(401).json({message: "Login ou senha incorreta !"})
-
-            if (usuario[0].verificado === 0) {
-              return   response.status(403).json({ message: "Conta não verificada. Insira o código enviado por e-mail.",
-                    precisaVerificar: true
-                  });
-            }
-
-            const token = jwt.sign({id: usuario[0].id}, process.env.SALT, {
-                expiresIn: '1h'
-            })
-            response.status(200).json({cod: 0, token})
-            
-        }).catch(error => {
-            response.status(500).json({message: "Erro ao tentar autenticar o usuário"})
-        })
-    }
+        async autenticarUsuario(request, response) {
+            const { email, senha } = request.body;
+        
+            database.select('*').where({ email: email }).table("usuarios").then(async usuario => {
+                if (!usuario[0])
+                    return response.status(401).json({ message: "Login ou senha incorreta !" });
+        
+                const validarSenha = await bcrypt.compare(senha, usuario[0].senha);
+        
+                if (!validarSenha)
+                    return response.status(401).json({ message: "Login ou senha incorreta !" });
+        
+                if (usuario[0].verificado === 0) {
+                    return response.status(403).json({
+                        message: "Conta não verificada. Insira o código enviado por e-mail.",
+                        precisaVerificar: true
+                    });
+                }
+        
+                // Gerar o token com o id_cadastro no payload
+                const token = jwt.sign({ id_cadastro: usuario[0].id_cadastro }, process.env.SALT, {
+                    expiresIn: '1h'
+                });
+        
+                response.status(200).json({ cod: 0, token });
+            }).catch(error => {
+                response.status(500).json({ message: "Erro ao tentar autenticar o usuário" });
+            });
+        }
+        
     async reenviarCodigoVerificacao(request, response) {
         const { email } = request.body;
     

@@ -19,10 +19,11 @@ CREATE TABLE IF NOT EXISTS usuarios (
 CREATE TABLE IF NOT EXISTS torneios (
   id_torneio INT AUTO_INCREMENT PRIMARY KEY,
   nome_torneio VARCHAR(255) NOT NULL,
-  descricao TEXT,
+  valor_premio DECIMAL(10,2),
   data_inicio DATETIME NOT NULL,
-  valor_premio DECIMAL(10,2)
+  hora_inicio TIME NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
 
 -- Tabela de inscrições
 CREATE TABLE IF NOT EXISTS inscricoes (
@@ -36,7 +37,7 @@ CREATE TABLE IF NOT EXISTS inscricoes (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- Inserção de torneios
-INSERT INTO torneios (nome_torneio, valor_premio, data_inicio) 
+INSERT INTO torneios (nome_torneio, valor_premio, data_inicio, hora_inicio) 
 VALUES 
-('DESAFIO EM HOWLING ABYSS: 1X1', 100.00, '2025-03-22'),
-('DESAFIO EM SUMMONER’S RIFT: 1X1', 100.00, '2025-03-23');
+('DESAFIO EM HOWLING ABYSS: 1X1', 100.00, '2025-03-22', '20:00:00'),
+('DESAFIO EM SUMMONER’S RIFT: 1X1', 100.00, '2025-03-23', '20:00:00');
