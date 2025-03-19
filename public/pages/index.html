@@ -13,6 +13,13 @@
     
 </head>
 <body>
+
+    <div id="preloader">
+        <div id="loader">
+            <img src="../assets/Logo.png" alt="Logo">
+        </div>
+    </div>
+
     <div class="container">
         <img src="/public/assets/Logo.png" id="logoxcronos-index" alt="logo xcronos">
         <h1>ASCENDA AO TOPO COM A XCRONOS!</h1>
@@ -25,13 +32,13 @@
         </div>
     </div>
 
+    <script src="../js/preload.js"></script>
     <script>
-        document.getElementById("cadastro-btn").addEventListener('click', function(){
-            window.location.href ='cadastro.html';
-        });
-        document.getElementById("login-btn").addEventListener('click', function(){
-            window.location.href ='login.html';
-        });
-    </script>
+    document.getElementById("cadastro-btn").addEventListener('click', function(){
+        window.location.href ='cadastro.html';
+    });
+    document.getElementById("login-btn").addEventListener('click', function(){
+        window.location.href ='login.html';
+    });</script>
 </body>
 </html>

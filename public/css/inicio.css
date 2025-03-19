@@ -174,7 +174,7 @@ p{
     text-align: center;
 }
 #open-modalrune{
-    display: flex; /* Inicialmente escondido */
+    display: none; /* Inicialmente escondido */
     position: fixed; /* Fica fixo na tela */
     top: 0; /* Alinha no topo da tela */
     left: 0; /* Alinha à esquerda da tela */
