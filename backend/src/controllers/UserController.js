@@ -286,7 +286,7 @@ class UserController{
             // Excluir registros na tabela 'inscricoes' que estão vinculados ao id_cadastro
             const resultadoInscricoes = await database('inscricoes')
                 .where('id_cadastro', id)  // Onde o id_cadastro for igual ao id do usuário
-                .del();  // Deleta os registros
+                .del();  // Deleta os registros na tabela inscricoes
     
             if (resultadoInscricoes === 0) {
                 console.log('Nenhum registro encontrado na tabela inscricoes para este usuário.');
@@ -295,7 +295,7 @@ class UserController{
             // Deletar o usuário da tabela 'usuarios'
             const resultadoUsuario = await database('usuarios')
                 .where('id_cadastro', id)  // Usa o id recebido na URL
-                .del();  // Deleta o usuário
+                .del();  // Deleta o usuário da tabela usuarios
     
             // Verifique o resultado
             if (resultadoUsuario === 0) {
