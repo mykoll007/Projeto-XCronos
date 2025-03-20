@@ -3,9 +3,9 @@ node_modules/
 .env
 
 # Ignorar node_modules, android, .vscode e outros arquivos no diretório pai
-../node_modules/
-../android/
-../.vscode/
-../package-lock.json
-../package.json
-../capacitor.config.json
+./node_modules/
+./android/
+./.vscode/
+./package-lock.json
+./package.json
+./capacitor.config.json
