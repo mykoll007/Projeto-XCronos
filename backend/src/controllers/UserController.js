@@ -276,37 +276,37 @@ class UserController{
     }
 
     async deletarConta(request, response) {
-        const { id } = request.body; // Agora você pega o ID do corpo da requisição
+        const { id } = request.body; // Recebe o id do corpo da requisição
         
+        if (!id) {
+            return response.status(400).json({ message: 'ID é necessário' });
+        }
+    
         try {
-            // Verifica se o id foi passado
-            if (!id) {
-                return response.status(400).json({ message: 'id é necessário no corpo da requisição' });
-            }
-        
-            // Excluir registros na tabela 'inscricoes' que estão vinculados ao id_cadastro
+            // Excluir registros na tabela 'inscricoes'
             const resultadoInscricoes = await database('inscricoes')
-                .where('id_cadastro', id)  // Onde o id_cadastro for igual ao id do usuário
-                .del();  // Deleta os registros
-        
+                .where('id_cadastro', id)  // Verifica se o id existe na tabela 'inscricoes'
+                .del();
+    
             if (resultadoInscricoes === 0) {
-                console.log('Nenhum registro encontrado na tabela inscricoes para este usuário.');
+                console.log(`Nenhum registro encontrado na tabela 'inscricoes' para o id ${id}`);
             }
-        
+    
             // Deletar o usuário da tabela 'usuarios'
             const resultadoUsuario = await database('usuarios')
-                .where('id_cadastro', id)  // Usa o id recebido no corpo da requisição
-                .del();  // Deleta o usuário
-        
-            // Verifique o resultado
+                .where('id_cadastro', id)  // Verifica se o id existe na tabela 'usuarios'
+                .del();
+    
             if (resultadoUsuario === 0) {
                 return response.status(404).json({ message: 'Usuário não encontrado' });
-            } else {
-                return response.status(200).json({ message: 'Conta deletada com sucesso!' });
             }
+    
+            // Sucesso
+            return response.status(200).json({ message: 'Conta deletada com sucesso!' });
+    
         } catch (error) {
             console.error('Erro ao deletar a conta:', error.message);
-            return response.status(500).json({ message: 'Erro ao deletar a conta.' });
+            return response.status(500).json({ message: `Erro ao deletar a conta: ${error.message}` });
         }
     }
     
