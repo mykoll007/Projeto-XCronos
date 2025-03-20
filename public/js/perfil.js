@@ -6,7 +6,7 @@ document.getElementById("editar").addEventListener("click", function() {
     if (sectionForm.style.height === "0px" || sectionForm.style.height === "") {
         sectionForm.style.display = "block"; // Faz a div ser exibida
         setTimeout(function() {
-            sectionForm.style.height = "365px"; // Ajuste a altura conforme o conteúdo
+            sectionForm.style.height = "417px"; // Ajuste a altura conforme o conteúdo
         }, 10); // Espera um pequeno intervalo para o display ser aplicado
     } else {
         // Se a div já estiver visível, animamos o fechamento
@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const token = localStorage.getItem('token');
 
     if (!token) {
-        window.location.href = 'index.html'; // Caso não tenha token, redireciona para a página de login
+        window.location.href = '../index.html'; // Caso não tenha token, redireciona para a página de login
         return;
     }
 
@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Evento de submissão do formulário
-    document.querySelector('form').addEventListener('submit', function(event) {
+    document.querySelector('#form-update').addEventListener('submit', function(event) {
         event.preventDefault(); // Evita o envio padrão do formulário
     
         // Obtém os dados do formulário
@@ -136,14 +136,75 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
+
+
+
+
 //Logout
 document.getElementById('logout').addEventListener('click', function() {
     // Remover o token do localStorage
     localStorage.removeItem('token');
 
     // Redirecionar o usuário para a página de login
-    window.location.href = 'index.html';
+    window.location.href = '../index.html';
 });
+
+// Excluir conta
+document.getElementById('excluir-conta').addEventListener('click', (event) => {
+    event.preventDefault(); // Evita o envio do formulário, se for um botão dentro de um form
+    
+    // Exibe o modal
+    document.getElementById('modal-exclusao').style.display = 'block';
+});
+
+document.getElementById('confirmar-exclusao').addEventListener('click', async () => {
+    try {
+        // Obtém o token do localStorage
+        const token = localStorage.getItem('token');
+        
+        // Decodifica o token diretamente aqui
+        const base64Url = token.split('.')[1];
+        const base64 = base64Url.replace('-', '+').replace('_', '/');
+        const dadosUsuario = JSON.parse(atob(base64));
+        
+        if (!dadosUsuario) {
+            alert('Erro ao obter dados do token.');
+            return;
+        }
+
+        const idUsuario = dadosUsuario.id_cadastro; // Extraindo o ID do usuário do payload do token
+        
+        // Faz a requisição DELETE para a API
+        const response = await fetch(`https://projeto-x-cronos.vercel.app/usuario/delete/${idUsuario}`, {
+            method: 'DELETE',
+            headers: {
+                'Authorization': `Bearer ${token}`, // Usando o token de autenticação
+                'Content-Type': 'application/json',
+            },
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+            alert(data.message); // Exibe a mensagem de sucesso
+            window.location.href = "/"; // Redireciona para a página inicial ou login
+        } else {
+            alert(data.message); // Exibe a mensagem de erro
+        }
+    } catch (error) {
+        console.error('Erro ao excluir a conta:', error);
+        alert("Ocorreu um erro ao tentar excluir sua conta.");
+    }
+
+    // Fecha o modal após a confirmação
+    document.getElementById('modal-exclusao').style.display = 'none';
+});
+
+document.getElementById('cancelar-exclusao').addEventListener('click', () => {
+    // Fecha o modal se o usuário cancelar
+    document.getElementById('modal-exclusao').style.display = 'none';
+});
+
 
 
 

@@ -27,7 +27,7 @@ function login(email, senha) {
         const token = localStorage.getItem('token');
         if (!token) {
             console.log('Token ausente, redirecionando para a página de login...');
-            window.location.href = 'index.html';
+            window.location.href = '../index.html';
             return;
         }
 
@@ -44,7 +44,7 @@ function login(email, senha) {
 
         if (currentTime > expDate) {
             console.log('Token expirado, redirecionando para a página de login...');
-            window.location.href = 'index.html';
+            window.location.href = '../index.html';
             return;
         }
 

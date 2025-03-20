@@ -28,7 +28,7 @@
         </div>
         <div class="align-section">
             <section id="section-form">
-            <form>
+            <form id="form-update">
                 <label for="usuario">Usuário</label>
                 <div class="align-input">
                 <input type="text" name="usuario" value="" required>
@@ -45,7 +45,11 @@
              </div>
 
              <button type="submit">Salvar</button>
+             
             </form>
+            <div>
+                <button type="submit" id="excluir-conta">Excluir a Conta</button>
+            </div>
             <p id="mensagem-atualizada"></p>
             </section>
         </div>
@@ -98,6 +102,8 @@
                 <p>Sair</p>
             </div>
 
+
+
             </section>
         </div>
     </div>
@@ -136,6 +142,16 @@
                 <p class="desc-icon">Perfil</p>
             </a>
         </div>
+
+        <!-- Modal -->
+    <div id="modal-exclusao" class="modal">
+        <div class="modal-content">
+            <h4>Tem certeza que deseja excluir sua conta?</h4>
+            <p>Essa ação não pode ser desfeita.</p>
+            <button id="confirmar-exclusao" class="btn">Confirmar</button>
+            <button id="cancelar-exclusao" class="btn">Cancelar</button>
+        </div>
+  </div>
     </footer>
 
     <script src="../js/footer.js"></script>

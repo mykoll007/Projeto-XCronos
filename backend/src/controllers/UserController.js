@@ -275,6 +275,26 @@ class UserController{
         }
     }
     
+    async deletarConta(request, response) {
+        const { id } = request.params;
+    
+        try {
+            // Verifica se o usuário existe
+            const usuario = await database('usuarios').where('id_cadastro', id).first();
+    
+            if (!usuario) {
+                return response.status(404).json({ message: "Usuário não encontrado." });
+            }
+    
+            // Deleta o usuário do banco de dados
+            await database('usuarios').where('id_cadastro', id).del();
+    
+            return response.status(200).json({ message: "Conta deletada com sucesso!" });
+        } catch (error) {
+            console.error('Erro ao deletar a conta:', error);
+            return response.status(500).json({ message: "Erro ao tentar deletar a conta." });
+        }
+    }
     
 
 

@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">XCronos</string>
+    <string name="title_activity_main">XCronos</string>
+    <string name="package_name">com.xcronos.mobile</string>
+    <string name="custom_url_scheme">com.xcronos.mobile</string>
+</resources>
