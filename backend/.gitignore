@@ -1,5 +1,0 @@
-# Ignorar node_modules e .env na pasta atual
-node_modules/
-.env
-
-# Ignorar node_modules, android, .vscode e outros arquivos no diretório pai
