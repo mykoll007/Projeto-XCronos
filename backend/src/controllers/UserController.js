@@ -285,7 +285,7 @@ class UserController{
         try {
             // Excluir registros na tabela 'inscricoes'
             const resultadoInscricoes = await database('inscricoes')
-                .where('id_cadastro', id)  // Verifica se o id existe na tabela 'inscricoes'
+                .where('id_usuario', id)  // Verifica se o id existe na tabela 'inscricoes'
                 .del();
     
             if (resultadoInscricoes === 0) {
