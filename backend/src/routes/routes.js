@@ -26,7 +26,7 @@ router.put('/usuario/atualizarsenha', UserController.atualizarSenha)
 //Rotas para o usuario atualizar seus dados e excluir
 router.get('/usuario/:id',  UserController.listarUmUsuario);
 router.put('/usuario/atualizar/:id',verificarToken, UserController.atualizarUsuario)
-router.delete('/usuario/delete/:id',verificarToken, UserController.deletarConta);
+router.delete('/usuario/delete/:id_cadastro',verificarToken, UserController.deletarConta);
 
 
 //Rotas Inscrição Torneio
