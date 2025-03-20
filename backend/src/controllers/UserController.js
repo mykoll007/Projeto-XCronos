@@ -274,27 +274,34 @@ class UserController{
             return response.status(500).json({ message: "Erro ao redefinir a senha." });
         }
     }
-    
+
     async deletarConta(request, response) {
-        const { id } = request.params;
-    
+        const { id } = request.params;  // Acessa o id passado na URL
         try {
-            // Verifica se o usuário existe
-            const usuario = await database('usuarios').where('id_cadastro', id).first();
-    
-            if (!usuario) {
-                return response.status(404).json({ message: "Usuário não encontrado." });
+            // Certifique-se de que o id foi passado corretamente
+            if (!id) {
+                return response.status(400).json({ message: 'id é necessário' });
             }
     
-            // Deleta o usuário do banco de dados
-            await database('usuarios').where('id_cadastro', id).del();
+            // Deletar o usuário com o id fornecido
+            const result = await database('usuarios')
+                .where('id_cadastro', id)  // Usa o id recebido na URL
+                .del();  // Comando para deletar
     
-            return response.status(200).json({ message: "Conta deletada com sucesso!" });
+            // Verifique o resultado
+            if (result === 0) {
+                return response.status(404).json({ message: 'Usuário não encontrado' });
+            } else {
+                return response.status(200).json({ message: 'Conta deletada com sucesso!' });
+            }
         } catch (error) {
-            console.error('Erro ao deletar a conta:', error);
-            return response.status(500).json({ message: "Erro ao tentar deletar a conta." });
+            console.error('Erro ao deletar a conta:', error.message);
+            return response.status(500).json({ message: 'Erro ao deletar a conta.' });
         }
     }
+    
+    
+
     
 
 
