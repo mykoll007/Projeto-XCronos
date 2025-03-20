@@ -275,21 +275,30 @@ class UserController{
         }
     }
 
-    async deletarConta(request, response) {
-        const { id } = request.params;  // Acessa o id passado na URL
+  async deletarConta(request, response) {
+        const { id } = request.params;  // Acessa o id do usuário passado na URL
         try {
             // Certifique-se de que o id foi passado corretamente
             if (!id) {
                 return response.status(400).json({ message: 'id é necessário' });
             }
     
-            // Deletar o usuário com o id fornecido
-            const result = await database('usuarios')
+            // Excluir registros na tabela 'inscricoes' que estão vinculados ao id_cadastro
+            const resultadoInscricoes = await database('inscricoes')
+                .where('id_cadastro', id)  // Onde o id_cadastro for igual ao id do usuário
+                .del();  // Deleta os registros
+    
+            if (resultadoInscricoes === 0) {
+                console.log('Nenhum registro encontrado na tabela inscricoes para este usuário.');
+            }
+    
+            // Deletar o usuário da tabela 'usuarios'
+            const resultadoUsuario = await database('usuarios')
                 .where('id_cadastro', id)  // Usa o id recebido na URL
-                .del();  // Comando para deletar
+                .del();  // Deleta o usuário
     
             // Verifique o resultado
-            if (result === 0) {
+            if (resultadoUsuario === 0) {
                 return response.status(404).json({ message: 'Usuário não encontrado' });
             } else {
                 return response.status(200).json({ message: 'Conta deletada com sucesso!' });
