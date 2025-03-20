@@ -109,7 +109,7 @@ section{
 #align-detalheEicon img{
     border: 2px solid #FF8C00;
     background-color: #FF8C00;
-    padding: 9px;
+    padding: 4px;
     border-radius: 9px;
 }
 
@@ -124,7 +124,7 @@ section{
     font-family: 'Urbanist';
     font-weight: bold;
     color: white;
-    font-size: 22px;
+    font-size: 18px;
 }
 hr{
     border: 1px solid #5f5f5f;
@@ -134,7 +134,7 @@ li{
     font-family: 'Urbanist';
     font-weight: 400;
     color: white;
-    margin: 19px 0;
+    margin: 13px 0;
 }
 .align-iconEnome{
     display: flex;
@@ -174,12 +174,12 @@ li{
     font-family: 'Urbanist';
     font-weight: bold;
     color: white;
-    font-size: 22px;
+    font-size: 18px;
 }
 #align-h2Eicon img{
     border: 2px solid #FF8C00;
     background-color: #FF8C00;
-    padding: 9px;
+    padding: 4px;
     border-radius: 9px;
     margin-left: 172px;
 }
@@ -211,7 +211,7 @@ li{
     font-family: 'Urbanist';
     font-weight: bold;
     color: white;
-    font-size: 22px;
+    font-size: 19px;
     text-align: center;
 }
 #hr-form{
@@ -229,7 +229,7 @@ label{
     display: block;
 }
 input{
-    height: 37px;
+    height: 32px;
     width: 275px;
     border: 1px solid;
     border-radius: 6px;

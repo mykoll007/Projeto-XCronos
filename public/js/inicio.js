@@ -117,7 +117,7 @@ const regioes = {
         fundo: "../assets/fundo-noxus.png",
         titulo: "Noxus",
         descricao: "Império expansionista e brutal",
-        texto: "Noxus é um império expansionista brutal; entretanto, aqueles que conseguem enxergar além de seu exterior bélico encontram uma sociedade excepcionalmente inclusiva. Qualquer um pode conquistar uma posição de poder e respeito se demonstrar a aptidão necessária, independentemente de classe social, antecedentes ou riquezas. Os noxianos valorizam a força acima de tudo, apesar dela poder ser manifestada de várias formas diferentes.",
+        texto: "Noxus é um império expansionista brutal; entretanto, aqueles que conseguem enxergar além de seu exterior bélico encontram uma sociedade excepcionalmente inclusiva. Qualquer um pode conquistar uma posição de poder e respeito se demonstrar a aptidão necessária, independentemente de classe social, antecedentes ou riquezas.",
         personagens: [
             { nome: "Darius", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Darius.png" },
             { nome: "Swain", img: "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Swain.png" },

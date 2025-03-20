@@ -23,16 +23,27 @@ section{
     display: flex;
     justify-content: space-around;
     align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
 }
 #logo-xCronos{
     width: 117px;
 }
 #section-usuario{
     margin-top: 27px;
-    height: 117px;
 }
 #align-desc{
     text-align: left;
+}
+#align-edit{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#editar{
+    width: 33px;
+    margin-left: 63px;
+    margin-bottom: 8px;
 }
 #usuario-desc{
     font-size: 24px;
@@ -43,6 +54,7 @@ section{
 #email-desc{
     margin: 0;
     font-family: 'inter';
+    margin-bottom: 11px;
 }
 
 #section-form {
@@ -66,12 +78,12 @@ label{
 }
 input {
     font-family: 'inter';
-    height: 37px;
-    width: 300px;
+    height: 32px;
+    width: 287px;
     border: 1px solid;
     border-radius: 6px;
-    margin-bottom: 24px;
-    padding-left: 2px;
+    margin-bottom: 19px;
+    padding-left: 5px;
     font-size: 17px;
 }
 .align-input {
@@ -115,13 +127,13 @@ button{
 }
 .align-iconEperfil p{
     font-family: inter;
-    font-size: 18px;
+    font-size: 15px;
     font-weight: bold;
     margin-left: 13px;
 }
 .align-iconEperfil img{
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
 }
 
 /* Estilos do modal */

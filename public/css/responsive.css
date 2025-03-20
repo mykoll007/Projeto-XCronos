@@ -54,6 +54,108 @@
 
 }
 
+@media screen and (max-width: 412px){
+    .retangulo-rune {
+        width: 100px;
+    }
+    .retangulo-rune img{
+        width: 100px;
+        height: 100px;
+    }
+    .card-rune p {
+        font-size: 16px;
+        max-width: 100px; 
+    }
+    .slick-initialized .slick-slide {
+        max-width: 100px;
+    }
+    #align-logoEh3 h3 {
+        font-size: 18px;
+
+    }
+    #nome-person {
+        font-size: 28px;
+    }
+    #desc-classe{
+        font-size: 15px;
+    }
+    footer{
+        height: 70px;
+    }
+    .nav-link img{
+        width: 24px;
+    }
+    .linha-teto{
+        width: 52px;
+    }
+    #align-imgsRune img {
+        width: 35px;
+        margin-right: 7px;
+    }
+    #modal-runeterra h3 {
+
+        font-size: 23px;
+
+    }
+    #desc-rune {
+        font-size: 18px;
+ 
+    }
+
+    #text-rune{
+        font-size: 14px;
+    }
+    #logo-runeterra {
+        width: 120px;
+    }
+    #section-2 h2 {
+        font-size: 23px;
+    }
+    #section-3 h2 {
+        font-size: 23px;
+
+    }
+    #align-campeoes h2 {
+
+        font-size: 23px;
+    }
+    #section-4 h2{
+        font-size: 23px;
+    }
+    .align-rankEdesc p {
+        font-size: 16px;
+    }
+    #card-ferro img {
+        width: 114px;
+        right: -39px;
+        top: -18px;
+    }
+    #card-bronze img {
+        width: 138px;
+        top: -26px;
+        right: -31px;
+    }
+    #card-diamante img {
+        right: -2px;
+        top: -16px;
+        width: 119px;
+    }
+    #card-gm img {
+        width: 150px;
+        top: -34px;
+        left: -34px;
+    }
+    #card-desafiante img {
+        right: -33px;
+    
+    }
+}
+
+
+
+
+
+
 @media screen and (max-width: 450px) {
     .align-rankEdesc img {
         top: -13px;
@@ -85,11 +187,6 @@
         width: 134px;
         top: -33px;   
     }
-    #card-diamante img{
-        right: 37px;
-        top: -16px;
-        width: 115px;
-    }
     #card-mestre img{
         width: 161px;
         top: -44px;
@@ -101,7 +198,6 @@
     }
     #card-desafiante img{
         width: 129px;
-        right: -14px;
         top: -46px;
     }
 }
