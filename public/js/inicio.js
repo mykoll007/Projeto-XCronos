@@ -324,9 +324,11 @@ const regioes = {
 
 document.addEventListener("DOMContentLoaded", () => {
     const modal = document.getElementById("open-modalrune");
+    const loader = document.getElementById("loader");
+    const conteudo = document.getElementById("conteudo");
     const blockArrow = document.getElementById("block-arrow");
     const cards = document.querySelectorAll(".card-rune");
-    
+
     const toggleScroll = (state) => {
         document.body.style.overflow = state ? "hidden" : "";
     };
@@ -339,17 +341,33 @@ document.addEventListener("DOMContentLoaded", () => {
             document.getElementById("text-rune").textContent = info.texto;
             document.getElementById("modal-runeterra").style.backgroundImage = `url(${info.fundo})`;
             document.getElementById("logo-runeterra").src = info.img;
-            
+
             const alignImgsRune = document.getElementById("align-imgsRune");
             alignImgsRune.innerHTML = "";
+
+            let imagensCarregadas = 0;
+            const totalImagens = info.personagens.length;
+
             info.personagens.forEach(p => {
                 const img = document.createElement("img");
                 img.src = p.img;
                 img.alt = p.nome;
+
+                img.onload = () => {
+                    imagensCarregadas++;
+                    if (imagensCarregadas === totalImagens) {
+                        loader.style.display = "none"; 
+                        conteudo.style.display = "flex"; 
+                        conteudo.style.justifyContent = "center"
+                    }
+                };
+
                 alignImgsRune.appendChild(img);
             });
 
             modal.style.display = "flex";
+            loader.style.display = "block"; 
+            conteudo.style.display = "none"; 
             toggleScroll(true);
         }
     };
@@ -363,6 +381,8 @@ document.addEventListener("DOMContentLoaded", () => {
     blockArrow.addEventListener("click", closeModal);
     modal.addEventListener("click", (e) => e.target === modal && closeModal());
 });
+
+
 
 // Section 5
 // Função para trocar a imagem

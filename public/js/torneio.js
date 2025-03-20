@@ -58,28 +58,30 @@ async function getInscricoesDoUsuario(idUsuario) {
 
 
 async function getTorneios() {
+    const loader = document.getElementById("loader");
+    const conteudo = document.getElementById("conteudo");
+
     try {
-        const idUsuario = getIdFromToken(); // Obtém o ID do usuário logado
-        const inscricoes = idUsuario ? await getInscricoesDoUsuario(idUsuario) : []
-        // Fazendo a requisição GET para obter os torneios
-        const response = await fetch('https://projeto-x-cronos.vercel.app/torneios'); // URL do seu servidor
-        const torneios = await response.json(); // Recebe os torneios em formato JSON
+        const idUsuario = getIdFromToken();
+        const inscricoes = idUsuario ? await getInscricoesDoUsuario(idUsuario) : [];
 
-        // Selecionando o container onde os torneios serão exibidos
+        // Exibe o loader antes de carregar os torneios
+        loader.style.display = "block";
+        conteudo.style.display = "none";
+
+        const response = await fetch('https://projeto-x-cronos.vercel.app/torneios');
+        const torneios = await response.json();
+
         const torneiosContainer = document.querySelector('.torneios');
-
-        // Limpa os torneios atuais para não duplicar
         torneiosContainer.innerHTML = '';
 
-        // Itera sobre os torneios e adiciona cada um ao container
         torneios.forEach(torneio => {
             const torneioDiv = document.createElement('div');
             torneioDiv.classList.add('torneio');
-            
-            // Decidindo qual imagem mostrar com base no id_torneio ou nome
+
             const mapaImagem = torneio.nome_torneio.includes("DESAFIO EM SUMMONER’S RIFT: 1X1") 
                 ? "../assets/summoners-rift.png" 
-                : "../assets/howling-abyss.png"; // Se o nome do torneio contiver "summoners", usa a imagem do Summoner's Rift
+                : "../assets/howling-abyss.png";
 
             torneioDiv.innerHTML = `
                 <img src="${mapaImagem}" class="mapa" alt="Imagem do Mapa Torneio">
@@ -90,7 +92,6 @@ async function getTorneios() {
                         <img src="../assets/data.png" alt="Icone de data">
                         <p>${formatDate(torneio.data_inicio)}</p>
                     </div>
-
                     <div class="icon-hora">
                         <img src="../assets/hora.png" alt="Icone de relógio">
                         <p>${formatTime(torneio.hora_inicio)}</p>
@@ -102,30 +103,27 @@ async function getTorneios() {
                     <p>R$ ${parseFloat(torneio.valor_premio).toFixed(2)}</p>
                 </div>
 
-                <!-- Botão "INSCREVER-SE" dentro de cada torneio -->
                 <button class="inscrever-button" data-torneio-id="${torneio.id_torneio}">INSCREVER-SE</button>
             `;
 
-            // Adiciona o torneio ao container
             torneiosContainer.appendChild(torneioDiv);
         });
 
-        // Agora, adicionar a funcionalidade do botão de inscrição
-        const buttons = document.querySelectorAll('.inscrever-button');
-        
-        // Associando o evento de click para cada botão
+        document.querySelectorAll('.inscrever-button').forEach(button => {
+            button.addEventListener('click', function() {
+                const torneioId = button.getAttribute('data-torneio-id');
+                handleInscricao(torneioId);
+            });
+        });
 
-        buttons.forEach(button => {
-        button.addEventListener('click', function() {
-        const torneioId = button.getAttribute('data-torneio-id');
-        handleInscricao(torneioId); // Chama a função para redirecionar com os parâmetros
-    });
-});
-
-} catch (error) {
-console.error('Erro ao carregar torneios:', error);
+    } catch (error) {
+        console.error('Erro ao carregar torneios:', error);
+    } finally {
+            loader.style.display = "none";
+            conteudo.style.display = "block";
+    }
 }
-}   
+ 
 // Função para formatar a data para o formato dd/mm/yyyy
 function formatDate(date) {
     const d = new Date(date);

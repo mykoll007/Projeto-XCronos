@@ -62,17 +62,25 @@ const championRoles = {
 };
 
 async function getChampions() {
+    const loader = document.getElementById("loader");
+    const conteudo = document.getElementById("conteudo");
+    const container = document.getElementById("align-champs");
+
     try {
+        loader.style.display = "block"; // Mostra o loader
+        conteudo.style.display = "none"; // Esconde o conteúdo até tudo estar pronto
+
         const response = await fetch("https://ddragon.leagueoflegends.com/cdn/14.4.1/data/pt_BR/champion.json");
         const data = await response.json();
         const champions = data.data;
 
-        const container = document.getElementById("align-champs");
         container.innerHTML = ""; // Limpa o conteúdo anterior
 
-        // Adicionar todos os campeões ao container inicialmente
+        let imagensCarregadas = 0;
+        const totalImagens = Object.keys(champions).length;
+
         for (const champ in champions) {
-            const { id, name, title, tags } = champions[champ];
+            const { id, name, title } = champions[champ];
 
             // Criar o card para o campeão
             const card = document.createElement("div");
@@ -83,6 +91,14 @@ async function getChampions() {
             img.classList.add("champions-img");
             img.src = `https://ddragon.leagueoflegends.com/cdn/img/champion/loading/${id}_0.jpg`;
             img.alt = `Imagem de ${name}`;
+
+            img.onload = () => {
+                imagensCarregadas++;
+                if (imagensCarregadas === totalImagens) {
+                    loader.style.display = "none"; // Esconde o loader
+                    conteudo.style.display = "block"; // Exibe o conteúdo
+                }
+            };
 
             const nameElement = document.createElement("p");
             nameElement.classList.add("desc-nome");
@@ -109,6 +125,8 @@ async function getChampions() {
 
     } catch (error) {
         console.error("Erro ao buscar campeões:", error);
+        loader.style.display = "none"; // Garante que o loader não fique preso caso ocorra erro
+        conteudo.style.display = "block"; // Exibe o conteúdo mesmo se houver erro
     }
 }
 

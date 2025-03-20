@@ -571,6 +571,25 @@ color: #CCF6F1;
 
 
 /* -----------------CHAMP.HTML */
+#loader {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50px;
+    height: 50px;
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #FF8C00;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+
 #img-campeao{
     width: 100%; /* Faz a imagem ocupar 100% da largura disponível */
     height: auto; /* Mantém a proporção da imagem */

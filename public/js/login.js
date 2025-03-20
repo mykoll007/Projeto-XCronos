@@ -1,5 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
     const mensagemElemento = document.getElementById("mensagem-login");
+    const loader = document.querySelector(".loader");
+    const overlay = document.querySelector(".overlay");
 
     // Verifica se há uma mensagem de exclusão de conta
     const mensagemExclusao = localStorage.getItem('mensagemExclusao');
@@ -24,6 +26,10 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
         }
 
+        // Exibe o loader e o overlay enquanto a requisição está sendo processada
+        loader.style.display = "block";
+        overlay.style.display = "block";
+
         try {
             const resposta = await fetch("https://projeto-x-cronos.vercel.app/usuario/autenticar", {
                 method: "POST",
@@ -34,6 +40,10 @@ document.addEventListener("DOMContentLoaded", function () {
             });
 
             const resultado = await resposta.json();
+
+            // Oculta o loader e o overlay após a resposta
+            loader.style.display = "none";
+            overlay.style.display = "none";
 
             if (resposta.ok) {
                 // Armazena o token no localStorage
@@ -66,6 +76,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 mensagemElemento.style.color = "red";
             }
         } catch (error) {
+            // Oculta o loader e o overlay em caso de erro
+            loader.style.display = "none";
+            overlay.style.display = "none";
             console.error("Erro na requisição:", error);
             alert("Erro ao tentar fazer login. Tente novamente mais tarde.");
         }
