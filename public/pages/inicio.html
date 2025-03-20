@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio</title>
+    <link href="../css/inicio.css" rel="stylesheet">
+    <link href="../css/footer.css" rel="stylesheet">
+    <link href="../css/responsive.css" rel="stylesheet">
+    
+    <!-- Swiper.js CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <!-- Slicker Caroussel -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <div class="container-app">
+        <div id="align-logoEh3">
+        <img src="../assets/Logo.png" alt="">
+        <h3>Explore tudo sobre LoL com o app da XCronos: Campeões, Classes, Runeterra e Sistema de ranks!</h3>
+        </div>
+
+        <section id="section-1">
+            <div id="align-campeoes">
+                <h2>Campeões LoL</h2>
+                <p><a href="champs.html">Ver todos</a></p>
+            </div>
+
+        
+            <div class="swiper-container">
+                <div class="swiper-wrapper" id="champion-container">
+                    <div class="swiper-slide template-slide" style="display: none;">
+                        <!-- A API dos Campeões vem pra essa div -->
+                        <div class="card">
+                            <a href="champ.html?origin=inicio"><img src="champ" alt="Imagem de Campeão" class="champion-img"></a>
+                            <p class="desc-nome">Nome do Campeão</p>
+                            <p class="desc-titul">Título do Campeão</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            
+        </section>
+
+        <section id="section-2">
+            <h2>Classes de Campeões </h2>
+           <div class="classes-champ">
+            <img src="../assets/funcao-suporte.png" alt="Função suporte">
+            <img src="../assets/funcao-mago.png" alt="Função mago">
+            <img src="../assets/funcao-lutador.png" alt="Função lutador">
+            <img src="../assets/funcao-atirador.png" alt="Função atirador">
+            <img src="../assets/funcao-assassino.png" alt="Função assassino">
+            <img src="../assets/funcao-tanque.png" alt="Função tanque">
+           </div>
+
+           <div id="align-circleClasse">
+             <div id="circle-classe">
+            <img src="../assets/lutador-classe.png" alt="Classe do Lutador">
+             </div>
+           </div>
+           <p id="nome-person">Yasuo</p>
+           <span id="span-class">
+           <p id="desc-classe">Lutadores em League of Legends são campeões equilibrados, com boa resistência e capacidade de causar dano, sendo eficazes em combates prolongados e duelos um-a-um.</p>
+           </span>
+        </section>
+
+        <section id="section-3">
+            <h2>Runeterra</h2>
+            <div class="carousel-rune">
+                <!-- Card 1 -->
+                <div class="card-rune" data-region="demacia">
+                    <div class="retangulo-rune">
+                        <img src="../assets/demacia.png" alt="País Demacia">
+                    </div>
+                    <p>Demacia</p>
+                </div>
+            
+                <!-- Card 2 -->
+                <div class="card-rune" data-region="noxus">
+                    <div class="retangulo-rune">
+                        <img src="../assets/noxus.png" alt="País Noxus">
+                    </div>
+                    <p>Noxus</p>
+                </div>
+            
+                <!-- Card 3 -->
+                <div class="card-rune" data-region="shurima">
+                    <div class="retangulo-rune">
+                        <img src="../assets/shurima.png" alt="País Shurima">
+                    </div>
+                    <p>Shurima</p>
+                </div>
+            
+                <!-- Card 4 -->
+                <div class="card-rune" data-region="ilhadassombras">
+                    <div class="retangulo-rune">
+                        <img src="../assets/ilhadassombras.png" alt="País Ilha das Sombras">
+                    </div>
+                    <p>Ilha das Sombras</p>
+                </div>
+            
+                <!-- Card 5 -->
+                <div class="card-rune" data-region="aguassentina">
+                    <div class="retangulo-rune">
+                        <img src="../assets/aguassentina.png" alt="País Águas de Sentina">
+                    </div>
+                    <p>Águas de Sentina</p>
+                </div>
+            
+                <!-- Card 6 -->
+                <div class="card-rune " data-region="targon">
+                    <div class="retangulo-rune">
+                        <img src="../assets/targon.png" alt="País Targon">
+                    </div>
+                    <p>Targon</p>
+                </div>
+            
+                <!-- Card 7 -->
+                <div class="card-rune" data-region="ionia">
+                    <div class="retangulo-rune">
+                        <img src="../assets/ionia.png" alt="País Ionia">
+                    </div>
+                    <p>Ionia</p>
+                </div>
+            
+                <!-- Card 8 -->
+                <div class="card-rune" data-region="freljord">
+                    <div class="retangulo-rune">
+                        <img src="../assets/freljord.png" alt="País Freljord">
+                    </div>
+                    <p>Freljord</p>
+                </div>
+            
+                <!-- Card 9 -->
+                <div class="card-rune" data-region="piltoverzaun">
+                    <div class="retangulo-rune">
+                        <img src="../assets/piltoverzaun.png" alt="País Piltover e Zaun">
+                    </div>
+                    <p>Piltover e Zaun</p>
+                </div>
+            </div>
+            
+        </section>
+        
+        <!-- Modal Runeterra -->
+         <div id="open-modalrune">
+            <div id="modal-runeterra">
+                <div id="block-arrow">
+                    <img src="../assets/arrow-right.png" alt=""> 
+                </div>
+                <img src="../assets/noxus.png" id="logo-runeterra" alt="Noxus">
+                <h3>NOXUS</h3>
+                <p id="desc-rune">Império expansionista e brutal</p>
+                <div id="align-imgsRune">
+                    <img src=" " alt="Aqui vai os personagens da Runeterra selecionada puxando da API">
+                </div>
+                <p id="text-rune">Noxus é um império expansionista brutal; entretanto, aqueles que conseguem enxergar além de seu exterior bélico encontram uma sociedade excepcionalmente inclusiva. Qualquer um pode conquistar uma posição de poder e respeito se demonstrar a aptidão necessária, independentemente de classe social, antecedentes ou riquezas. Os noxianos valorizam a força acima de tudo, apesar dela poder ser manifestada de várias formas diferentes.</p>
+            </div>
+         </div>
+
+        <section id="section-4">
+            <h2>Sistema de Ranks</h2>
+            <div class="cards-rank">
+                <!-- Card rank 1 -->
+                <div class="card-rank" id="card-ferro">
+                    <div class="align-rankEdesc">
+                    <img src="../assets/rank-ferro.png"  alt="Ranque Ferro">
+                    <p>Ferro IV - I</p>
+                    </div>
+                </div>
+              
+                <!-- Card rank 2 -->
+                <div class="card-rank" id="card-bronze">
+                    <div class="align-rankEdesc">
+                    <img src="../assets/rank-bronze.png" alt="Ranque Bronze">
+                    <p>Bronze IV - I</p>
+                    </div>
+                </div>
+                <!-- Card rank 3 -->
+                <div class="card-rank" id="card-prata">
+                    <div class="align-rankEdesc">
+                    <img src="../assets/rank-prata.png" alt="Ranque Prata">
+                    <p>Prata IV - I</p>
+                    </div>
+                </div>
+                <!-- Card rank 4 -->
+                <div class="card-rank" id="card-ouro">
+                    <div class="align-rankEdesc">
+                    <img src="../assets/rank-gold.png" alt="Ranque Gold">
+                    <p>Ouro IV - I</p>
+                    </div>
+                </div>
+                <!-- Card rank 5 -->
+                <div class="card-rank" id="card-platina">
+                    <div class="align-rankEdesc">
+                    <img src="../assets/rank-platina.png" alt="Ranque Platina">
+                    <p>Platina IV - I</p>
+                    </div>
+                </div>
+                <!-- Card rank 6 -->
+                <div class="card-rank" id="card-esmeralda">
+                    <div class="align-rankEdesc">
+                    <img src="../assets/rank-esmeralda.png" alt="Ranque Esmeralda">
+                    <p>Esmeralda IV - I</p>
+                    </div>
+                </div>
+                <!-- Card rank 7 -->
+                <div class="card-rank" id="card-diamante">
+                    <div class="align-rankEdesc">
+                    <img src="../assets/rank-diamante.png" alt="Ranque Diamante">
+                    <p>Diamante IV - I</p>
+                    </div>
+                </div>
+                <!-- Card rank 8 -->
+                <div class="card-rank" id="card-mestre">
+                    <div class="align-rankEdesc">
+                    <img src="../assets/rank-mestre.png" alt="Ranque Mestre">
+                    <p>Mestre</p>
+                    </div>
+                </div>
+                <!-- Card rank 9 -->
+                <div class="card-rank" id="card-gm">
+                    <div class="align-rankEdesc">
+                    <img src="../assets/rank-gm.png" alt="Ranque Grão-Mestre">
+                    <p>Grão-Mestre</p>
+                    </div>
+                </div>   
+                <!-- Card rank 10 -->
+                <div class="card-rank" id="card-desafiante">
+                    <div class="align-rankEdesc">
+                    <img src="../assets/rank-challenger.png" alt="Ranque Challenger">
+                    <p>Desafiante</p>
+                    </div>
+                </div>                           
+            </div>
+        </section>
+
+        <img src="../assets/linha.png" id="custom-hr" alt="linha de separação">
+        
+        <section id="section-5">
+            <div id="container-site">
+                <div id="desc-site">
+                    <h3>Suba de Elo hoje!</h3>
+                    <p>Quer subir de elo com segurança? Deixe com a gente!</p>
+                </div>    
+                    <div id="infos-botao">
+                       <div id="retangulo-btn">
+                        <a href="https://elojobxcronos.com.br">   
+                        <div id="retangulo-site"></div>
+                            <p>SITE</p>
+                        </a>
+                        </div>
+                       
+                        <p id="acessar-politica">*Ao acessar, você concorda com nossa Política de Privacidade</p>
+                    </div>
+            </div>
+
+            <!-- Imagem da Ashe -->
+                <img src="../assets/ashe-marketing.png" id="champ-marketing" alt="Campeão Marketing">
+        </section>
+
+    </div>
+
+        <footer>
+            <div class="icon">
+                <a href="inicio.html" class="nav-link" data-page="inicio.html" >
+                    <div class="linha-teto" style="background-color: orange;"></div>
+                    <img src="../assets/inicio-selected.png" class="icon-img" alt="Inicio">
+                    <p class="desc-icon">Inicio</p>
+                </a>
+            </div>
+
+            <div class="icon">
+                <a href="aulas.html" class="nav-link" data-page="aulas.html">
+                    <div class="linha-teto" ></div>
+                    <img src="../assets/aulas.png" class="icon-img" alt="Aulas">
+                    <p class="desc-icon">Aulas</p>
+                </a>
+            </div>
+
+            <div class="icon">
+                <a href="torneio.html" class="nav-link" data-page="torneio.html">
+                    <div class="linha-teto"></div>
+                    <img src="../assets/torneio.png" class="icon-img" alt="Torneio">
+                    <p class="desc-icon">Torneio</p>
+                </a>
+            </div>
+
+            <div class="icon">
+                <a href="perfil.html" class="nav-link" data-page="perfil.html">
+                    <div class="linha-teto" style="background-color: transparent;"></div>
+                    <img src="../assets/perfil.png" class="icon-img" alt="Perfil">
+                    <p class="desc-icon">Perfil</p>
+                </a>
+            </div>
+        </footer>
+
+    <!-- Swiper.js JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<!-- Slick Carrousel -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+
+<script src="../js/token.js"></script>
+<script src="../js/inicio.js"></script>
+<script src="../js/footer.js"></script>
+
+</body>
+</html>

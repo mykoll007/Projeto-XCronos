@@ -1,0 +1,687 @@
+body{
+    background-color: black;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+h3{
+    font-family: "Urbanist", sans-serif;
+    color: white;
+    font-weight: 500;
+
+}
+p{
+    color: white;
+}
+.container-app{
+    overflow-x: hidden;
+}
+#align-logoEh3{
+    display: grid;
+    justify-content: center;
+    justify-items: center;
+    margin-bottom: 23px;
+}
+#align-logoEh3 h3{
+    max-width: 700px;
+    padding-left: 11px;
+    font-size: 21px;
+    text-align: center;
+}
+
+#align-campeoes{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 31px;
+}
+#align-campeoes h2{
+    font-family: "DM Sans", sans-serif;
+    color: #FF8C00;
+    font-size: 27px;
+}
+#align-campeoes p{
+    font-family: "Inter", sans-serif;
+    font-size: 18px;
+}
+#align-campeoes a{
+    text-decoration: none;
+    color: #B3B0B8;
+}
+
+.swiper-slide{
+    max-width: 148px;
+}
+.swiper-wrapper {
+    transition-timing-function: linear !important; 
+    display: flex;
+   
+}
+.card img{
+    border-radius: 8px;
+    width: 148px;
+}
+.desc-nome{
+    font-family: "Inter";
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    max-width: 148px;
+}
+
+.desc-titul{
+    font-family: "Inter";
+    font-weight: 400;
+    opacity: 60%;
+    margin: 0;
+    font-size: 15px;
+    max-width: 148px;
+}
+
+
+#section-2 h2{
+    font-family: "DM Sans", sans-serif;
+    color: #FF8C00;
+    font-size: 29px;
+    text-align: center;
+    margin-top: 44px;
+    margin-bottom: 47px;
+}
+.classes-champ{
+    display: flex;
+    justify-content: space-evenly;
+}
+.classes-champ img{
+    opacity: 50%;
+}
+
+#align-circleClasse{
+    display: flex;
+    justify-content: center;
+    margin-top: 38px;
+    position: relative;
+}
+#circle-classe{
+    border: 3px solid rgba(255, 140, 0, 0.8);;
+    border-radius: 170px;
+    width: 250px;
+    height: 250px; 
+    position: relative;
+    z-index: 1;
+
+}
+#circle-classe img {
+    width: 300px;  
+    height: auto; 
+    position: absolute;
+    top: -25px; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    z-index: 2;
+}
+#nome-person{
+    font-family: 'inter';
+    font-style: italic;
+    text-align: center;
+    font-size: 32px;
+}
+#span-class{
+    display: flex;
+    justify-content: center;
+}
+
+#desc-classe{
+    font-family: 'Urbanist';
+    text-align: center;
+    max-width: 700px;
+    font-size: 21px;
+    margin-top: 0;
+}
+#section-3 h2{
+    font-family: "DM Sans", sans-serif;
+    color: #FF8C00;
+    font-size: 33px;
+    text-align: center;
+    margin-top: 44px;
+    margin-bottom: 47px;
+}
+.carousel-rune{
+    display: flex;
+    justify-content: space-around;
+}
+.slick-slide {
+    margin: 0 5px; /* Ajuste para um espaço menor entre os slides */
+}
+
+
+.carousel-rune .slick-slide {
+    width: 150px !important; /* Largura fixa de cada slide */
+    margin: 0 10px; /* Espaçamento lateral entre os slides */
+}
+.card-rune{
+   width: 150px;
+}
+.retangulo-rune{
+    background-color: #2B2C33;
+    border-radius: 8px;
+    width: 150px;
+}
+.card-rune p{
+    font-family: inter;
+    margin-top: 11px;
+    font-size: 19px;
+    max-width: 150px;
+    text-align: center;
+}
+#open-modalrune{
+    display: none; /* Inicialmente escondido */
+    position: fixed; /* Fica fixo na tela */
+    top: 0; /* Alinha no topo da tela */
+    left: 0; /* Alinha à esquerda da tela */
+
+    height: 100%; /* Ocupa toda a altura da tela */
+    background-color: rgba(0, 0, 0, 0.5); /* Fundo semitransparente */
+    justify-content: center; /* Alinha o conteúdo do modal no centro */
+    align-items: center; /* Alinha verticalmente o conteúdo no centro */
+    z-index: 9999; /* Certifica-se de que o modal fique acima de outros conteúdos */
+}
+#modal-runeterra{
+    width: 90%;
+    text-align: center;
+    background: url(../assets/fundo-noxus.png) no-repeat center;
+    background-size: cover;
+    background-color: rgba(0, 0, 0, 1);
+}
+#block-arrow{
+    width: 48px;
+    height: 48px;
+    background-color: black;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 6%;
+    margin-top: 15px;
+}
+#modal-runeterra h3{
+    text-transform: uppercase;
+    font-size: 26px;
+    margin-bottom: 0;
+    margin-top: 3px;
+}
+#desc-rune{
+    font-family: 'DM Sans';
+    font-size: 23px;
+    margin-top: 5px;
+}
+#align-imgsRune img{
+    width: 50px;
+    margin-right: 7px;
+}
+
+#text-rune{
+    font-family: 'DM Sans';
+    padding: 0 4%;
+    line-height: 26px;
+    font-size: 19px;
+}
+#section-4 h2{
+    font-family: "DM Sans", sans-serif;
+    color: #FF8C00;
+    font-size: 26px;
+    text-align: center;
+    margin-top: 28px;
+    margin-bottom: 47px;
+}
+.cards-rank{
+    display: grid;
+    justify-content: center;
+}
+.card-rank{
+    width: 344px;
+    height: 52px;
+    border-radius: 49px;
+    margin-bottom: 47px;
+    position: relative;
+}
+.card-rank::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../assets/Glitter.png'); /* Caminho para sua imagem de glitter */
+    background-size: cover;
+    background-position: center;
+    mix-blend-mode: multiply;
+}
+.align-rankEdesc{
+    position: absolute;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 31px;
+}
+.align-rankEdesc img{
+    margin-bottom: 0px;
+    position: absolute;
+    top: -19px;
+    right: -7px;
+    width: 133px;
+}
+.align-rankEdesc p{
+    margin: 0;
+    position: relative;
+    left: 176px;
+    font-size: 22px;
+    font-family: 'Inter';
+    bottom: -10px;
+}
+#card-ferro{
+    background: linear-gradient(90deg, #534440 0%, #6b5b5a 100%);
+}
+#card-ferro p{
+    color: #CCC0C0;
+}
+#card-bronze{
+    background: linear-gradient(90deg, #361D1A 0%, #936E64 100%);
+}
+#card-bronze img{
+    width: 149px;
+}
+#card-bronze p{
+    color: #C4A39C;
+}
+#card-prata{
+    background: linear-gradient(90deg, #26303b 0%, #A5ADB1 100%); 
+}
+#card-prata img{
+    top: -38px;
+}
+
+#card-prata p{
+    color: #E2E6EA;
+}
+
+#card-ouro{
+    background: linear-gradient(90deg, #482913 0%, #CCA166 100%); 
+}
+#card-ouro img{
+    top: -56px;
+}
+#card-ouro p{
+    color: #FFEFC2;
+}
+
+#card-platina {
+    background: linear-gradient(90deg, #012F1F 0%, #6BCEC0 100%); 
+}
+#card-platina img{
+    top: -57px;
+    left: -36px;
+}
+#card-platina p{
+color: #CCF6F1;
+}
+#card-esmeralda{
+    background: linear-gradient(90deg, #132E1F 0%, #4ED499 100%); 
+}
+#card-esmeralda p{
+    color: #AEFCE9;
+    left: 153px;
+}
+#card-esmeralda img{
+    left: -42px;
+    width: 165px;
+    top: -49px;
+}
+#card-diamante{
+    background: linear-gradient(90deg, #150643 0%, #4E98DB 100%); 
+}
+#card-diamante p{
+    left: 160px;
+    color: #BCF6FE;
+}
+#card-diamante img{
+    right: 39px;
+    top: -30px;
+    width: 141px;
+
+}
+
+#card-mestre{
+    background: linear-gradient(90deg, #2C1B47 0%, #C35AC6 100%); 
+}
+#card-mestre img{
+    width: 186px;
+    top: -59px;
+    left: -52px;
+}
+#card-mestre p{
+    color: #FEE3FE;
+}
+#card-gm{
+    background: linear-gradient(90deg, #4B1C25 12%,#AB2C36 64%, #D16831 91%,  #FF9341 100%); 
+}
+#card-gm img{
+    width: 178px;
+    top: -45px;
+}
+#card-gm p{
+    color: #FFE9CA;
+}
+
+#card-desafiante{
+    background: linear-gradient(90deg, #0A306A 0%, #3398BA 100%);
+}
+
+#card-desafiante img{
+    top: -50px;
+}
+#card-desafiante p{
+    color: #F9F7DC;
+}
+
+#custom-hr{
+    width: 100%;
+    height: 29px;
+  }
+
+#section-5{
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 137px;
+}
+
+#desc-site h3{
+    font-style: italic;
+    font-weight: bold;
+    font-size: 34px;
+    width: 296px;
+   margin: 0;
+}
+#desc-site p{
+    font-family: 'Urbanist';
+    font-size: 20px;
+    width: 300px;
+    text-align: center;
+}
+#infos-botao{
+    text-align: center;
+    width: 300px;
+    display: grid;
+    justify-items: center;
+}
+#infos-botao a{
+    text-decoration: none;
+    color: inherit;
+    outline: none;
+}
+
+#retangulo-btn {
+    width: 292px;
+    border: 1px solid #FDB44B;
+    height: 72px;
+    background-color: #FDB44B;
+    position: relative;
+}
+#retangulo-site {
+    position: absolute;
+    width: 300px;
+    left: -8px;
+    top: -9%;
+    border: 4px solid #A1A1A1;
+    height: 79px;
+    clip-path: polygon(10% 0, 100% 0, 100% 80%, 90% 100%, 0 100%, 0 20%);
+}
+#retangulo-site::before {
+    content: "";
+    position: absolute;
+    top: -5px;
+    left: 0px;
+    width: 0px;
+    height: 30px;
+    transform: skewX(-60deg);
+    border-left: 11px solid #A1A1A1;
+
+}
+
+#retangulo-site::after {
+    content: "";
+    position: absolute;
+    bottom: -1px;
+    right: -7px;
+    width: 40px;
+    height: 30px;
+    transform: skewX(-60deg);
+    border-right: 11px solid #A1A1A1;
+}
+#retangulo-btn p{
+    font-family: 'Urbanist';
+    font-size: 23px;
+    font-weight: bold;
+    color: black;
+}
+#acessar-politica{
+    font-family: 'Urbanist';
+    font-weight: 600;
+    font-size: 14px;
+    font-style: italic;
+}
+#section-5 img{
+    position: relative;
+    top: -28px;
+    left: 11%;
+}
+
+
+
+
+
+
+
+
+
+
+/* ---------------------CHAMPS.HTML */
+#align-logoChamps{
+    display: flex;
+    justify-content: center;
+}
+.align-arrow{
+    position: fixed;
+    top: 10%;
+    left: 20px;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: solid white;
+    z-index: 1000;
+    transition: opacity 0.3s ease;
+}
+.align-arrow img{
+    height: auto;
+}
+.align-arrow a{
+    height: 32px;
+}
+#h2-champs{
+    color: #FF8C00;
+    font-family: 'DM SANS';
+    text-align: center;
+    font-size: 26px;
+}
+.posicoes{
+    text-align: center;
+    font-size: 21px;
+}
+#roles{
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+#roles img{
+    padding: 0 6px;
+}
+
+.grid-view {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); 
+    gap: 10px;
+    justify-items: center;
+    margin-bottom: 110px
+}
+
+.champions-img{
+    width: 180px;
+}
+#back-to-top {
+    position: fixed;
+    bottom: 114px; 
+    right: 20px; 
+    background: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: solid white;
+    z-index: 1000;
+    opacity: 0; /* Começa invisível */
+    transition: opacity 0.3s ease-in-out;
+}
+
+#back-to-top img {
+    height: auto;
+    transform: rotate(-270deg);
+}
+#back-to-top.show {
+    opacity: 1;
+}
+
+
+
+/* -----------------CHAMP.HTML */
+#img-campeao{
+    width: 100%; /* Faz a imagem ocupar 100% da largura disponível */
+    height: auto; /* Mantém a proporção da imagem */
+    object-fit: cover; 
+}
+#campeao-selecionado{
+    color: white;
+    font-size: 44px;
+    margin-left: 16px;
+    margin-bottom: 0;
+    font-family: "DM Sans", sans-serif;
+}
+#campeao-titulo{
+    font-family: inter;
+    margin-left: 16px;
+    margin-top: 5px;
+    font-size: 21px;
+    color: #B3B0B8;
+}
+#campeao-resumo{
+    font-family: inter;
+    margin-left: 16px;
+    font-size: 18px;
+}
+#funcao-dificuldade{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 56px;
+}
+#align-funcao{
+    display: flex;
+}
+#img-funcao{
+    width: 85px;
+    height: 85px;
+    margin-right: 12px;
+}
+#title-funcao{
+    font-family: inter;
+    color: #B3B0B8;
+    margin-bottom: 5px;
+}
+#funcao{
+    font-family: "DM Sans", sans-serif;
+    font-size: 28px;
+    font-weight: bold;
+    margin-top: 0;
+}
+#dificuldade-p1{
+    font-family: Inter;
+    color: #B3B0B8;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+#dificuldade-p2{
+    font-family: "DM Sans", sans-serif;
+    font-weight: bold;
+    margin-top: 7px;
+    margin-bottom: 5px;
+    font-size: 25px;
+}
+#nivel{
+    display: flex;
+}
+
+#title-habilidades{
+    font-family: "DM Sans", sans-serif;
+    color: white;
+    text-align: center;
+    font-size: 30px;
+    margin-top: 45px;
+}
+
+#skills{
+    display: flex;
+    justify-content: center;
+}
+
+#skills img{
+    border-radius: 8px;
+    margin-right: 2%;
+    opacity: 40%;
+    transition: opacity 0.3s ease;
+}
+
+#video-habilidade{
+    text-align: center;
+    margin-top: 26px;
+}
+video{
+    width: 90%;
+    max-height: 100%;
+    border: 3px solid #FF8C00;
+}
+#habilidade-p{
+    opacity: 100% ;
+}
+
+#title-habilidade{
+    font-family: "DM Sans";
+    font-weight: bold;
+    text-align: center;
+    margin-top: 16px;
+    font-size: 22px;
+}
+
+#atalho-tecla{
+    font-family: Inter;
+    text-align: center;
+}
+#desc-habilidade{
+    font-family: Inter;
+    text-align: center;
+    margin-bottom: 131px;
+}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <div class="container" id="container-cadastro">
+        <div class="imagem-trynda">
+            <a href="../index.html"><img src="../assets/arrow-right.png" id="arrow" alt="retroceder a página"></a>
+            <div >
+            <img  src="../assets/Logo.png" class="logoxcronos" alt="logo xcronos" >
+            <p>Conecte-se sua conta Elojob XCronos</p>
+             </div>
+        </div>
+        <p id="mensagem" style="color: green; text-align: center; margin: 0;" ></p>
+        <p id="mensagem-login" style="color: red; text-align: center; margin: 0;" ></p>
+    <form>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="text" id="email" name="email">
+        </div>
+        <div class="form-group">   
+            <label for="senha">Senha</label>
+            <input type="password" id="senha" name="senha">
+        </div>
+        <div class="div-esqueceuSenha">
+        <a href="esqueceu.html"><p class="desc-login">Esqueceu a sua senha?</p></a>
+        </div>
+        <a href="cadastro.html"><p class="desc-login">Não tem uma conta? <span id="cadastre-se">Cadastre-se agora</span></p></a>
+        <div class="form-group">
+            <button class="btn-cadastro" type="submit">Entrar</button>
+        </div>
+    </form>
+
+
+    </div>
+
+
+    <script src="../js/login.js"></script>
+</body>
+</html>
