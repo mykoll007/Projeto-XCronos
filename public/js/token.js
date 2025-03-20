@@ -50,6 +50,7 @@ function login(email, senha) {
 
         // Caso o token seja válido, continua no site
         console.log('Token válido!');
+        console.log(token)
     }
 
     // Executa a verificação ao carregar o script

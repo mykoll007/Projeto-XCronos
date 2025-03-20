@@ -174,13 +174,14 @@ document.getElementById('confirmar-exclusao').addEventListener('click', async ()
 
         const idUsuario = dadosUsuario.id_cadastro; // Extraindo o ID do usuário do payload do token
         
-        // Faz a requisição DELETE para a API
-        const response = await fetch(`https://projeto-x-cronos.vercel.app/usuario/delete/${idUsuario}`, {
+        // Faz a requisição DELETE para a API (agora passando o ID no corpo da requisição)
+        const response = await fetch('https://projeto-x-cronos.vercel.app/usuario/delete', {
             method: 'DELETE',
             headers: {
-                'Authorization': `Bearer ${token}`, // Usando o token de autenticação
+                'Authorization': `Bearer ${token}`,
                 'Content-Type': 'application/json',
             },
+            body: JSON.stringify({ id: idUsuario })  // Passando o ID no corpo da requisição
         });
 
         const data = await response.json();
