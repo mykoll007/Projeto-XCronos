@@ -6,7 +6,7 @@ document.getElementById("editar").addEventListener("click", function() {
     if (sectionForm.style.height === "0px" || sectionForm.style.height === "") {
         sectionForm.style.display = "block"; // Faz a div ser exibida
         setTimeout(function() {
-            sectionForm.style.height = "417px"; // Ajuste a altura conforme o conteúdo
+            sectionForm.style.height = "432px"; // Ajuste a altura conforme o conteúdo
         }, 10); // Espera um pequeno intervalo para o display ser aplicado
     } else {
         // Se a div já estiver visível, animamos o fechamento
@@ -187,10 +187,17 @@ document.getElementById('confirmar-exclusao').addEventListener('click', async ()
         const data = await response.json();
 
         if (response.ok) {
-            alert(data.message); // Exibe a mensagem de sucesso
-            window.location.href = "/"; // Redireciona para a página inicial ou login
+            // Armazenar a mensagem de sucesso em uma chave diferente
+            localStorage.setItem('mensagemExclusao', data.message);
+
+            // Remove o token do localStorage para deslogar o usuário
+            localStorage.removeItem('token');
+
+            // Redireciona para a página de login
+            window.location.href = "../pages/login.html";
         } else {
-            alert(data.message); // Exibe a mensagem de erro
+            // Caso haja erro, armazena a mensagem de erro em localStorage
+            localStorage.setItem('mensagemExclusao', data.message);
         }
     } catch (error) {
         console.error('Erro ao excluir a conta:', error);
@@ -200,6 +207,8 @@ document.getElementById('confirmar-exclusao').addEventListener('click', async ()
     // Fecha o modal após a confirmação
     document.getElementById('modal-exclusao').style.display = 'none';
 });
+
+
 
 document.getElementById('cancelar-exclusao').addEventListener('click', () => {
     // Fecha o modal se o usuário cancelar
