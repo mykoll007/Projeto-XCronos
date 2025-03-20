@@ -578,7 +578,7 @@ color: #CCF6F1;
 }
 #campeao-selecionado{
     color: white;
-    font-size: 44px;
+    font-size: 40px;
     margin-left: 16px;
     margin-bottom: 0;
     font-family: "DM Sans", sans-serif;
@@ -587,13 +587,13 @@ color: #CCF6F1;
     font-family: inter;
     margin-left: 16px;
     margin-top: 5px;
-    font-size: 21px;
+    font-size: 19px;
     color: #B3B0B8;
 }
 #campeao-resumo{
     font-family: inter;
     margin-left: 16px;
-    font-size: 18px;
+    font-size: 15px;
 }
 #funcao-dificuldade{
     display: flex;
@@ -616,7 +616,7 @@ color: #CCF6F1;
 }
 #funcao{
     font-family: "DM Sans", sans-serif;
-    font-size: 28px;
+    font-size: 22px;
     font-weight: bold;
     margin-top: 0;
 }
@@ -631,7 +631,7 @@ color: #CCF6F1;
     font-weight: bold;
     margin-top: 7px;
     margin-bottom: 5px;
-    font-size: 25px;
+    font-size: 21px;
 }
 #nivel{
     display: flex;
