@@ -423,9 +423,9 @@ color: #CCF6F1;
 
 #retangulo-btn {
     width: 292px;
-    border: 1px solid #FDB44B;
+    border: 1px solid white;
     height: 72px;
-    background-color: #FDB44B;
+    background-color: white;
     position: relative;
 }
 #retangulo-site {
@@ -463,7 +463,7 @@ color: #CCF6F1;
     font-family: 'Urbanist';
     font-size: 23px;
     font-weight: bold;
-    color: black;
+    color: #008000;
 }
 #acessar-politica{
     font-family: 'Urbanist';
@@ -476,7 +476,16 @@ color: #CCF6F1;
     top: -28px;
     left: 11%;
 }
-
+#grupo{
+    display: flex;
+    justify-content: center;
+}
+#grupo img{
+    width: 36px;
+    height: 36px;
+    position: relative;
+    top: 15px;
+}
 
 
 

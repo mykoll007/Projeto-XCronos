@@ -41,6 +41,12 @@
         position: unset;
         height: 300px;
     }
+    #grupo img {
+        width: 36px;
+        height: 36px;
+        position: relative;
+        top: 15px;
+    }
 }
 @media screen and (max-width: 500px) {
     .classes-champ img{
