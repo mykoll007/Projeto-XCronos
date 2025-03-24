@@ -369,17 +369,30 @@ document.addEventListener("DOMContentLoaded", () => {
             loader.style.display = "block"; 
             conteudo.style.display = "none"; 
             toggleScroll(true);
+
+            // Adiciona um estado ao histórico para que o botão de voltar funcione corretamente
+            history.pushState({ modalAberto: true }, null, "");
         }
     };
 
     const closeModal = () => {
         modal.style.display = "none";
         toggleScroll(false);
+
+        // Volta para o estado anterior no histórico, sem modal
+        history.back();
     };
 
     cards.forEach(card => card.addEventListener("click", () => openModal(card.getAttribute("data-region"))));
     blockArrow.addEventListener("click", closeModal);
     modal.addEventListener("click", (e) => e.target === modal && closeModal());
+
+        // Fecha o modal quando o usuário apertar o botão de voltar do celular
+        window.addEventListener("popstate", (event) => {
+            if (event.state && event.state.modalAberto) {
+                closeModal();
+            }
+        });
 });
 
 
