@@ -379,8 +379,8 @@ document.addEventListener("DOMContentLoaded", () => {
         modal.style.display = "none";
         toggleScroll(false);
 
-        // Volta para o estado anterior no histórico, sem modal
-        history.back();
+        // Substitui o estado do modal sem voltar para a página anterior
+        history.replaceState(null, "", location.href);
     };
 
     cards.forEach(card => card.addEventListener("click", () => openModal(card.getAttribute("data-region"))));
