@@ -379,23 +379,23 @@ document.addEventListener("DOMContentLoaded", () => {
         modal.style.display = "none";
         toggleScroll(false);
 
-        // Substitui o estado do modal sem voltar para a página anterior
-        history.replaceState(null, "", location.href);
+            // Remove o estado do modal do histórico
+        history.back();
 
         // Redireciona para a página inicio.html no id section-3
         window.location.href = "inicio.html#section-3";
     };
+            // Fecha o modal quando o usuário apertar o botão de voltar do celular
+        window.addEventListener("popstate", (event) => {
+            if (event.state && event.state.modalAberto) {
+                closeModal();
+            }
+            });
 
     cards.forEach(card => card.addEventListener("click", () => openModal(card.getAttribute("data-region"))));
     blockArrow.addEventListener("click", closeModal);
     modal.addEventListener("click", (e) => e.target === modal && closeModal());
 
-        // Fecha o modal quando o usuário apertar o botão de voltar do celular
-        window.addEventListener("popstate", (event) => {
-            if (event.state && event.state.modalAberto) {
-                closeModal();
-            }
-        });
 });
 
 
