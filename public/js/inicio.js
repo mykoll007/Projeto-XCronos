@@ -381,6 +381,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Substitui o estado do modal sem voltar para a página anterior
         history.replaceState(null, "", location.href);
+
+        // Redireciona para a página inicio.html no id section-3
+        window.location.href = "inicio.html#section-3";
     };
 
     cards.forEach(card => card.addEventListener("click", () => openModal(card.getAttribute("data-region"))));
