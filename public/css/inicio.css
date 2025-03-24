@@ -193,16 +193,23 @@ p{
     background-size: cover;
     background-color: rgba(0, 0, 0, 1);
 }
+#align-block{
+    display: flex;
+    justify-content: center;
+}
 #block-arrow{
-    width: 48px;
     height: 48px;
-    background-color: black;
-    border-radius: 8px;
+    width: 100%;
+    max-width: 200px;
+    color: white;
+    background-color: #FF8C00;
+    border-radius: 4px;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-left: 6%;
-    margin-top: 15px;
+    font-family: inter;
+    margin-top: 10px;
+    margin-bottom: 14px;
 }
 #modal-runeterra h3{
     text-transform: uppercase;

@@ -358,7 +358,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     if (imagensCarregadas === totalImagens) {
                         loader.style.display = "none"; 
                         conteudo.style.display = "flex"; 
-                        conteudo.style.justifyContent = "center"
+                        conteudo.style.justifyContent = "center";
                     }
                 };
 
@@ -370,8 +370,9 @@ document.addEventListener("DOMContentLoaded", () => {
             conteudo.style.display = "none"; 
             toggleScroll(true);
 
-            // Adiciona um estado ao histórico para que o botão de voltar funcione corretamente
-            history.pushState({ modalAberto: true }, null, "");
+            // Adiciona um estado de histórico para evitar o botão de voltar
+            history.pushState({ modalAberto: true }, null, "");            
+
         }
     };
 
@@ -379,24 +380,31 @@ document.addEventListener("DOMContentLoaded", () => {
         modal.style.display = "none";
         toggleScroll(false);
 
-            // Remove o estado do modal do histórico
-        history.back();
-
-        // Redireciona para a página inicio.html no id section-3
-        window.location.href = "inicio.html#section-3";
+        // Remove o estado do histórico ao fechar o modal
+        history.replaceState(null, "", location.href);        
     };
-            // Fecha o modal quando o usuário apertar o botão de voltar do celular
-        window.addEventListener("popstate", (event) => {
-            if (event.state && event.state.modalAberto) {
-                closeModal();
-            }
-            });
 
+    // Adiciona evento nos cards para abrir o modal
     cards.forEach(card => card.addEventListener("click", () => openModal(card.getAttribute("data-region"))));
+
+    // Fecha o modal ao clicar na seta de fechar
     blockArrow.addEventListener("click", closeModal);
-    modal.addEventListener("click", (e) => e.target === modal && closeModal());
+
+    // Fecha o modal ao clicar fora dele
+    modal.addEventListener("click", (e) => {
+        if (e.target === modal) closeModal();
+    });
+
+    // Impede o botão de voltar
+    window.addEventListener("popstate", (event) => {
+        if (event.state && event.state.modalAberto) {
+            // Bloqueia a navegação (não deixa voltar)
+            history.pushState({ modalAberto: true }, null, "");
+        }
+    });
 
 });
+
 
 
 
