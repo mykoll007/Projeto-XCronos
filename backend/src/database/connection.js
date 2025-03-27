@@ -16,4 +16,3 @@ let knex = require('knex')({
 })
 
 module.exports = knex
-
