@@ -1,9 +1,9 @@
 # Projeto XCronos 🎮  
 
 Explore tudo sobre League of Legends com o XCronos! Descubra informações sobre **Campeões, Classes, Runeterra e o Sistema de Ranks**. Além disso, participe de **aulas e torneios** para aprimorar suas habilidades no jogo.  
-
+<div style="display: flex; justify-content: center">
 <img src="public/assets/logado1.PNG" width="300"/>
-
+</div>
 ---
 
 ## 🚀 Tecnologias Utilizadas  
