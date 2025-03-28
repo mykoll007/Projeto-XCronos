@@ -73,6 +73,12 @@ A seção de Campeões traz informações detalhadas sobre cada personagem de Le
 
 ---
 
+## 🌟 Explore muito mais!  
+
+Confira o projeto completo e explore as funcionalidades no [Projeto XCronos](https://projeto-x-cronos--green.vercel.app/index.html).
+
+---
+
 ## 📩 Contato  
 
 Caso tenha dúvidas ou sugestões, sinta-se à vontade para entrar em contato!
