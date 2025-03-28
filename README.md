@@ -67,8 +67,9 @@ A seção de Campeões traz informações detalhadas sobre cada personagem de Le
 <div style="display: flex;">
   <img src="public/assets/logado1.PNG" width="300" style="margin-right: 10px;" />
   <img src="public/assets/logado4.PNG" width="300" style="margin-right: 10px;" />
+  <img src="public/assets/logado5.PNG" width="300"style="margin-right: 10px;"/>
 <img src="public/assets/logado2.PNG" width="300"style="margin-right: 10px;"/>
-<img src="public/assets/logado5.PNG" width="300"style="margin-right: 10px;"/>
+
 </div>
 
 ---
