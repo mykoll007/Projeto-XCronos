@@ -85,3 +85,6 @@ Confira o projeto completo e explore as funcionalidades no <a href="https://proj
 Caso tenha dúvidas ou sugestões, sinta-se à vontade para entrar em contato!
 Você pode me encontrar no <a href="https://www.linkedin.com/in/mykolldaniel/" target="_blank">LinkedIn</a>.
 
+## ⚠️ Atenção
+
+O Projeto XCronos não é endossado pela Riot Games e não reflete as visões ou opiniões da Riot Games ou de qualquer pessoa oficialmente envolvida na produção ou gerenciamento de propriedades da Riot Games. A Riot Games e todas as propriedades associadas são marcas comerciais ou marcas registradas da Riot Games, Inc.
