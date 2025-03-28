@@ -2,6 +2,8 @@
 
 Explore tudo sobre League of Legends com o XCronos! Descubra informações sobre **Campeões, Classes, Runeterra e o Sistema de Ranks**. Além disso, participe de **aulas e torneios** para aprimorar suas habilidades no jogo.  
 
+<img src="public/assets/logado1.PNG" width="300"/>
+
 ---
 
 ## 🚀 Tecnologias Utilizadas  
@@ -49,9 +51,11 @@ O banco de dados do XCronos gerencia **usuários, torneios e inscrições**.
 
 O sistema de login permite a autenticação segura dos usuários.  
 
-<img src="public/assets/login1.PNG" width="300"/>
-<img src="public/assets/login2.PNG" width="300"/>
-<img src="public/assets/login3.PNG" width="300"/>   
+<div style="display: flex;">
+  <img src="public/assets/login1.PNG" width="300" style="margin-right: 10px;" />
+    <img src="public/assets/login2.PNG" width="300" style="margin-right: 10px;" />
+    <img src="public/assets/login3.PNG" width="300" style="margin-right: 10px;" />
+</div> 
 
 ---
 
@@ -59,10 +63,11 @@ O sistema de login permite a autenticação segura dos usuários.
 
 A seção de Campeões traz informações detalhadas sobre cada personagem de League of Legends.  
 
-<img src="public/assets/logado1.PNG" width="300"/>
-<img src="public/assets/logado2.PNG" width="300"/>
-<img src="public/assets/logado3.PNG" width="300"/>
-
+<div style="display: flex;">
+  <img src="public/assets/logado1.PNG" width="300" style="margin-right: 10px;" />
+<img src="public/assets/logado2.PNG" width="300"style="margin-right: 10px;"/>
+<img src="public/assets/logado3.PNG" width="300"style="margin-right: 10px;"/>
+</div>
 
 ---
 
