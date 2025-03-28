@@ -49,9 +49,9 @@ O banco de dados do XCronos gerencia **usuários, torneios e inscrições**.
 
 O sistema de login permite a autenticação segura dos usuários.  
 
-![Tela Principal](public/assets/login1.PNG)
-![Tela Cadastro](public/assets/login2.PNG)
-![Tela Login](public/assets/login3.PNG)    
+<img src="public/assets/login1.PNG" width="300"/>
+<img src="public/assets/login2.PNG" width="300"/>
+<img src="public/assets/login3.PNG" width="300"/>   
 
 ---
 
@@ -59,9 +59,10 @@ O sistema de login permite a autenticação segura dos usuários.
 
 A seção de Campeões traz informações detalhadas sobre cada personagem de League of Legends.  
 
- ![Tela Principal](public/assets/logado1.PNG)
- ![Tela Campeão](public/assets/logado2.PNG)
- ![Tela Classe](public/assets/logado3.PNG)
+<img src="public/assets/logado1.PNG" width="300"/>
+<img src="public/assets/logado2.PNG" width="300"/>
+<img src="public/assets/logado3.PNG" width="300"/>
+
 
 ---
 
