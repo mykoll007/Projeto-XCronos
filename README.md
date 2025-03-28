@@ -55,6 +55,7 @@ O sistema de login permite a autenticação segura dos usuários.
   <img src="public/assets/login1.PNG" width="300" style="margin-right: 10px;" />
     <img src="public/assets/login2.PNG" width="300" style="margin-right: 10px;" />
     <img src="public/assets/login3.PNG" width="300" style="margin-right: 10px;" />
+    <img src="public/assets/login4.PNG" width="300" style="margin-right: 10px;" />
 </div> 
 
 ---
@@ -65,8 +66,9 @@ A seção de Campeões traz informações detalhadas sobre cada personagem de Le
 
 <div style="display: flex;">
   <img src="public/assets/logado1.PNG" width="300" style="margin-right: 10px;" />
+  <img src="public/assets/logado4.PNG" width="300" style="margin-right: 10px;" />
 <img src="public/assets/logado2.PNG" width="300"style="margin-right: 10px;"/>
-<img src="public/assets/logado3.PNG" width="300"style="margin-right: 10px;"/>
+<img src="public/assets/logado5.PNG" width="300"style="margin-right: 10px;"/>
 </div>
 
 ---
