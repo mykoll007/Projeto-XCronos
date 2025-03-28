@@ -401,7 +401,7 @@ color: #CCF6F1;
 #section-5{
     display: flex;
     justify-content: space-around;
-    margin-bottom: 137px;
+    margin-bottom: 29px;
 }
 
 #desc-site h3{
@@ -494,7 +494,11 @@ color: #CCF6F1;
     position: relative;
     top: 15px;
 }
-
+#riot{
+    margin-bottom: 120px;
+    font-family: 'Inter';
+    text-align: center;
+}
 
 
 
