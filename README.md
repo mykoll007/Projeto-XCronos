@@ -75,12 +75,13 @@ A seção de Campeões traz informações detalhadas sobre cada personagem de Le
 
 ## 🌟 Explore muito mais!  
 
-Confira o projeto completo e explore as funcionalidades no [Projeto XCronos](https://projeto-x-cronos--green.vercel.app/index.html).
+Confira o projeto completo e explore as funcionalidades no <a href="https://projeto-x-cronos--green.vercel.app/index.html" target="_blank">Projeto XCronos</a>.
+
 
 ---
 
 ## 📩 Contato  
 
 Caso tenha dúvidas ou sugestões, sinta-se à vontade para entrar em contato!
-Você pode me encontrar no [LinkedIn](https://www.linkedin.com/in/mykolldaniel/)
+Você pode me encontrar no <a href="https://www.linkedin.com/in/mykolldaniel/" target="_blank">LinkedIn</a>.
 
