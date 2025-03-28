@@ -82,4 +82,5 @@ Confira o projeto completo e explore as funcionalidades no [Projeto XCronos](htt
 ## 📩 Contato  
 
 Caso tenha dúvidas ou sugestões, sinta-se à vontade para entrar em contato!
+Você pode me encontrar no [LinkedIn](https://www.linkedin.com/in/mykolldaniel/)
 
