@@ -39,5 +39,5 @@ CREATE TABLE IF NOT EXISTS inscricoes (
 -- Inserção de torneios
 INSERT INTO torneios (nome_torneio, valor_premio, data_inicio, hora_inicio) 
 VALUES 
-('DESAFIO EM HOWLING ABYSS: 1X1', 100.00, '2025-03-22', '20:00:00'),
-('DESAFIO EM SUMMONER’S RIFT: 1X1', 100.00, '2025-03-23', '20:00:00');
+('DESAFIO EM HOWLING ABYSS: 1X1', 100.00, '2025-04-12', '14:00:00'),
+('DESAFIO EM SUMMONER’S RIFT: 1X1', 100.00, '2025-04-19', '14:00:00');
