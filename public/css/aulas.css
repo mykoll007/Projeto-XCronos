@@ -44,3 +44,9 @@ h3{
 .codigos-challenger h2{
     margin: 0;
 }
+
+@media screen and (min-width: 1500px){
+    h3{
+        width: 100%;
+    }
+}
